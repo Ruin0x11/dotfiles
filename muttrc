@@ -1,0 +1,30 @@
+source "gpg2 -dq $HOME/.my-pwds.gpg |"
+set header_cache = ~/.cache/mutt
+unset imap_passive
+set imap_check_subscribed
+set message_cachedir = "~/.cache/mutt"
+set imap_keepalive = 300
+set mail_check = 120
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+
+#folder-hook 'ipickering2@gmail.com' 'source ~/.mutt/main'
+folder-hook 'ipicker2@illinois.edu' 'source ~/.mutt/school'
+source "~/.mutt/main"
+
+#account-hook gmail.com 'set imap_user=ipickering2 imap_pass=$my_pwd_main'
+account-hook illinois.edu 'set imap_user=ipicker2 imap_pass=$my_pwd_school'
+
+color attachment brightyellow default
+color error      brightred    default
+color hdrdefault red          default
+color indicator  brightyellow red
+color markers    brightcyan   default
+color message    brightcyan   default
+color normal     default      default
+color quoted     brightblue   default
+color search     default      green
+color signature  red          default
+color status     brightwhite        blue
+color tilde      magenta      default
+color tree       magenta      default

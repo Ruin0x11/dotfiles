@@ -1,0 +1,4 @@
+#include "/home/prin/.Xcolors/getfresh.Xresources"
+URxvt.scrollBar:    false
+URxvt.font:                -*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-*
+URxvt.boldFont:                -*-gohufont-bold-*-*-*-11-*-*-*-*-*-*-*

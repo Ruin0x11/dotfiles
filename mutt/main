@@ -1,0 +1,14 @@
+set imap_user	= ipickering2@gmail.com
+set imap_pass	= $my_pwd_main
+set folder	= imaps://ipickering2@imap.gmail.com/
+set spoolfile	= +INBOX
+set postponed = +[Gmail]/Drafts
+unset record
+
+set realname='Ian Pickering'
+
+set from=ipickering2@gmail.com
+set use_from = yes
+
+set smtp_url=smtp://$imap_user:$imap_pass@smtp.gmail.com:587
+set ssl_force_tls = yes
