@@ -38,4 +38,4 @@ eval $( dircolors -b $HOME/LS_COLORS )
 export LS_COLORS
 
 export PATH="$PATH:/usr/local/texlive/2013/bin/i386-linux"
-
+export PATH="$PATH:/home/prin/.gem/ruby/2.1.0/bin"
