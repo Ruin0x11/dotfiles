@@ -74,8 +74,8 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
+" autocmd VimEnter * unmap! ,w=
 map <Leader>W= <Plug>AM_w=
-autocmd VimEnter * unmap! ,w=
 
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
