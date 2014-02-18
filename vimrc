@@ -54,6 +54,7 @@ nmap <Leader>d :NERDTreeToggle<CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>v :e $MYVIMRC<CR>
+nmap <Leader><Leader>v :spl $MYVIMRC<CR>
 nmap <Leader>s :OpenSession!<CR>
 nmap <Leader>w :w!<CR>
 nmap <Leader>x :x<CR>
@@ -73,6 +74,9 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
+map <Leader>W= <Plug>AM_w=
+autocmd VimEnter * unmap! ,w=
+
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
@@ -89,6 +93,8 @@ inoremap {}     {}
 
 set makeprg=javac\ %
 set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+set keymap=mathematic
 
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
