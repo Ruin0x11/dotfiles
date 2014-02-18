@@ -1,8 +1,8 @@
-sw_volume: 16
+sw_volume: 81
 audio_device_state:1:My ALSA Device
-state: pause
-current: 5
-time: 98
+audio_device_state:1:My FIFO
+state: stop
+current: 10
 random: 0
 repeat: 0
 single: 0
@@ -11,16 +11,15 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:12 rods - (1993) bliss/01-stella.mp3
-1:12 rods - (1993) bliss/03-choke.mp3
-2:12 rods - (1993) bliss/04-when comes sunday.mp3
-3:12 rods - (1993) bliss/05-day by day.mp3
-4:12 rods - (1993) bliss/06-i am faster.mp3
-5:12 rods - (1993) bliss/07-come down on me.mp3
-6:12 rods - (1993) bliss/08-megabright.mp3
-7:12 rods - (1993) bliss/09-tell a lie.mp3
-8:12 rods - (1993) bliss/10-mr. whipple.mp3
-9:12 rods - (1993) bliss/11-bliss.mp3
-10:12 rods - (1993) bliss/12-rainman.mp3
-11:12 rods - (1993) bliss/02-repeat.mp3
+0:Car Seat Headrest - Twin Fantasy - 01 My Boy (Twin Fantasy).mp3
+1:Car Seat Headrest - Twin Fantasy - 02 Beach Life-In-Death.mp3
+2:Car Seat Headrest - Twin Fantasy - 03 Stop Smoking.mp3
+3:Car Seat Headrest - Twin Fantasy - 04 Sober To Death.mp3
+4:Car Seat Headrest - Twin Fantasy - 05 Nervous Young Inhumans.mp3
+5:Car Seat Headrest - Twin Fantasy - 06 Bodys.mp3
+6:Car Seat Headrest - Twin Fantasy - 07 Cute Thing.mp3
+7:Car Seat Headrest - Twin Fantasy - 08 High To Death.mp3
+8:Car Seat Headrest - Twin Fantasy - 09 Famous Prophets (Minds).mp3
+9:Car Seat Headrest - Twin Fantasy - 10 Twin Fantasy (Those Boys).mp3
+10:Muzik/EAC Rips_/Various Artists/Tigerbeat6 Inc/Disc 1/03. Cex - Furcoat.flac
 playlist_end

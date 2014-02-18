@@ -22,6 +22,7 @@ set clipboard=unnamed
 set cmdheight=2
 set directory=.
 set encoding=utf-8
+set foldmethod=marker
 set ffs=unix,dos
 set hidden
 set hlsearch
@@ -78,14 +79,17 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " auto-brackets
 nnoremap {      i{}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
+
+highlight Folded guibg=darkgrey guifg=black
+highlight FoldedColumn guibg=darkgrey guifg=white
 
 set makeprg=javac\ %
 set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
@@ -99,6 +103,7 @@ let g:airline_powerline_fonts = 1
 let g:evervim_devtoken='S=s128:U=d5d6ef:E=14a3546098c:C=142dd94dd90:P=1cd:A=en-devtoken:V=2:H=05bc9ceebb726dd03a3c1a620ccfc697'
 let g:atp_Python = "/usr/bin/python"
 let b:atp_Viewer = "xpdf"
+let g:notes_directories = ['~/Dropbox/Illinois/II/Notes']
 
 " stolen crud
 function! VisualSelection(direction) range

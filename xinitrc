@@ -4,11 +4,12 @@ xset fp rehash
 [ ! -s ~/.config/mpd/pid ] && mpd
 sh ~/.fehbg &
 # xcompmgr -c &
-export GTK_IM_MODULE='uim'
-export QT_IM_MODULE='uim'
-uim-xim &
-export XMODIFIERS='@im=uim'
+compton -bc &
+#export GTK_IM_MODULE='uim'
+#export QT_IM_MODULE='uim'
+#uim-xim &
+#export XMODIFIERS='@im=uim'
 xscreensaver -no-splash & 
-syndaemon -t -k -i 2 -d &
-mpdscribble &
-exec xmonad
+#syndaemon -t -k -i 2 -d &
+#mpdscribble &
+exec subtle
