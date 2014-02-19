@@ -1,6 +1,6 @@
 set imap_user	= ipickering2@gmail.com
 set imap_pass	= $my_pwd_main
-set folder	= imaps://ipickering2@imap.gmail.com/
+set folder	= imaps://ipickering2@imap.gmail.com:993/
 set spoolfile	= +INBOX
 set postponed = +[Gmail]/Drafts
 unset record
@@ -12,3 +12,4 @@ set use_from = yes
 
 set smtp_url=smtp://$imap_user:$imap_pass@smtp.gmail.com:587
 set ssl_force_tls = yes
+account-hook 'ipickering2@gmail.com' 'set imap_user=ipickering2 imap_pass=$my_pwd_main'
