@@ -12,4 +12,4 @@ set use_from = yes
 
 set smtp_url=smtp://$imap_user:$imap_pass@smtp.gmail.com:587
 set ssl_force_tls = yes
-account-hook 'ipickering2@gmail.com' 'set imap_user=ipickering2 imap_pass=$my_pwd_main'
+account-hook *gmail.com 'set imap_user=ipickering2@gmail.com imap_pass=$my_pwd_main'

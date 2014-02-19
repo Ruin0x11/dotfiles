@@ -12,4 +12,4 @@ set use_from = yes
 
 set smtp_url=smtp://$imap_user:$imap_pass@smtp.illinois.edu:587
 set ssl_force_tls = yes
-account-hook 'ipicker2@illinois.edu' 'set imap_user=ipicker2 imap_pass=$my_pwd_school'
+account-hook *illinois.edu 'set imap_user=ipicker2@illinois.edu imap_pass=$my_pwd_school'
