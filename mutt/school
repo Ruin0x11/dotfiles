@@ -10,5 +10,6 @@ set realname='Ian Pickering'
 set from = ipicker2@illinois.edu
 set use_from = yes
 
-set smtp_url=smtp://$imap_user:$imap_pass@smtp.gmail.com:587
+set smtp_url=smtp://$imap_user:$imap_pass@smtp.illinois.edu:587
 set ssl_force_tls = yes
+account-hook *illinois.edu 'set imap_user=ipicker2@illinois.edu imap_pass=$my_pwd_school'

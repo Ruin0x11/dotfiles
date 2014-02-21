@@ -18,8 +18,10 @@ filetype plugin indent on
 set autoindent
 set autoread
 set backupcopy=yes
+set complete=k
 set clipboard=unnamed
 set cmdheight=2
+set dictionary=/usr/share/dict/web2
 set directory=.
 set encoding=utf-8
 set ffs=unix,dos
