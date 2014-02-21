@@ -38,6 +38,7 @@ set scrolloff=3
 set shiftwidth=8
 set showcmd
 set smartcase
+set tabstop=4
 set wildmenu
 set wildmode=longest,list,full
 set wrap
