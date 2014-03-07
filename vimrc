@@ -15,6 +15,8 @@ syntax enable
 
 filetype plugin indent on
 
+colorscheme dc2
+
 set autoindent
 set autoread
 set backupcopy=yes

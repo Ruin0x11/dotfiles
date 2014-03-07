@@ -13,8 +13,12 @@ compinit
 autoload -U promptinit
 promptinit
 autoload -U colors && colors
+
 PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
 RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+
+# PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
+
 export EDITOR=vim
 source $HOME/.aliases
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -39,3 +43,5 @@ export LS_COLORS
 
 export PATH="$PATH:/usr/local/texlive/2013/bin/i386-linux"
 export PATH="$PATH:/home/prin/.gem/ruby/2.1.0/bin"
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
