@@ -1,0 +1,10 @@
+"3.8.2 (created: 2014/02/13 23:52:43)
+
+source! /home/prin/.vimperatorrc.local
+
+map l gt
+map h gT
+map b <C-o>
+map B <C-i>
+
+" vim: set ft=vimperator:
