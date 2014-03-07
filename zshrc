@@ -15,7 +15,7 @@ promptinit
 autoload -U colors && colors
 
 PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
-RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 
 # PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
 
@@ -23,6 +23,7 @@ export EDITOR=vim
 source $HOME/.aliases
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.zsh/git.zsh
 
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
