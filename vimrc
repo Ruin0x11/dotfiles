@@ -17,6 +17,7 @@ filetype plugin indent on
 
 colorscheme dc2
 
+set autochdir
 set autoindent
 set autoread
 set backupcopy=yes
@@ -38,7 +39,7 @@ set nowrap
 set number
 set ruler
 set scrolloff=3
-set shiftwidth=8
+set shiftwidth=4
 set showcmd
 set smartcase
 set tabstop=4
@@ -155,3 +156,6 @@ function! <SID>BufcloseCloseIt()
 		execute("bdelete! ".l:currentBufNum)
 	endif
 endfunction
+"
+" Delete range without moving cursor:
+com! -range D <line1>,<line2>d | norm <C-o> 
