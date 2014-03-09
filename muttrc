@@ -8,6 +8,8 @@ set mail_check = 120
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 
+source "~/.mutt/aliases"
+
 source "~/.mutt/school"
 #folder-hook 'gmail.com' 'source ~/.mutt/main'
 folder-hook 'illinois.edu' 'source ~/.mutt/school'
@@ -31,4 +33,3 @@ color signature  red          default
 color status     brightwhite        blue
 color tilde      magenta      default
 color tree       magenta      default
-alias nandrsn4 \"Andersen, Nickolas Robert\" <nandrsn4@illinois.edu>
