@@ -43,6 +43,7 @@ set shiftwidth=4
 set showcmd
 set smartcase
 set tabstop=4
+set tags=./tags,./TAGS,tags,TAGS,~/.vimtags
 set timeoutlen=500
 set wildmenu
 set wildmode=longest,list,full

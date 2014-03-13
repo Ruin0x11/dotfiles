@@ -3,7 +3,7 @@ set imap_pass	= $my_pwd_main
 set folder	= imaps://ipickering2@imap.gmail.com:993/
 set spoolfile	= +INBOX
 set postponed = +[Gmail]/Drafts
-unset record
+set record = "+[Gmail]/Sent Mail"
 
 set realname='Ian Pickering'
 
