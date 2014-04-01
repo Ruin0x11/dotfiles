@@ -2,7 +2,7 @@
 
 source! /home/prin/.vimperatorrc.local
 
-map l gt
+map l <C-n>
 map h gT
 map b <C-o>
 map B <C-i>
