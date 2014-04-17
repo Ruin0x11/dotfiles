@@ -41,10 +41,6 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 eval $( dircolors -b $HOME/LS_COLORS )
-<<<<<<< HEAD
-# eval $( ssh-agent )
-=======
->>>>>>> 5d8f9ad886af5497b0621f9d12919b5f4afb57f8
 
 export LS_COLORS
 
