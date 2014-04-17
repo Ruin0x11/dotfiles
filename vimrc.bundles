@@ -20,9 +20,6 @@ Bundle 'xolox/vim-notes'
 Bundle 'vim-scripts/mathematic.vim'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'xolox/vim-easytags'
-<<<<<<< HEAD
 Bundle 'coot/atp_vim'
 Bundle 'tpope/vim-repeat'
-=======
 Bundle 'vim-scripts/AutomaticLaTexPlugin'
->>>>>>> 5d8f9ad886af5497b0621f9d12919b5f4afb57f8

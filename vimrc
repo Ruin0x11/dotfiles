@@ -32,10 +32,7 @@ set ffs=unix,dos
 set hidden
 set hlsearch
 set ignorecase
-<<<<<<< HEAD
-=======
 set keymap=mathematic
->>>>>>> 5d8f9ad886af5497b0621f9d12919b5f4afb57f8
 set iminsert=0
 set incsearch
 set laststatus=2
