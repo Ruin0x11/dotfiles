@@ -32,6 +32,10 @@ set ffs=unix,dos
 set hidden
 set hlsearch
 set ignorecase
+<<<<<<< HEAD
+=======
+set keymap=mathematic
+>>>>>>> 5d8f9ad886af5497b0621f9d12919b5f4afb57f8
 set iminsert=0
 set incsearch
 set laststatus=2
@@ -103,8 +107,6 @@ inoremap {}     {}
 
 set makeprg=javac\ %
 set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
-
-set keymap=mathematic
 
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
