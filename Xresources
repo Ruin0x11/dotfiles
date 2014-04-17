@@ -1,4 +1,4 @@
-#include "/home/prin/.Xcolors/getfresh.Xresources"
+#include "/home/prin/.Xcolors/Visibone.Xresources"
 URxvt.scrollBar:    false
-URxvt.font:                -*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-*
-URxvt.boldFont:                -*-gohufont-bold-*-*-*-11-*-*-*-*-*-*-*
+URxvt.font:                -*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
+URxvt.boldFont:                -*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*

@@ -32,6 +32,8 @@ set ffs=unix,dos
 set hidden
 set hlsearch
 set ignorecase
+set keymap=mathematic
+set iminsert=0
 set incsearch
 set laststatus=2
 set linespace=1
@@ -102,8 +104,6 @@ inoremap {}     {}
 
 set makeprg=javac\ %
 set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
-
-set keymap=mathematic
 
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1

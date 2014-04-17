@@ -14,6 +14,8 @@ autoload -U promptinit
 promptinit
 autoload -U colors && colors
 
+setopt menu_complete
+
 PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
 RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 
@@ -39,11 +41,10 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 eval $( dircolors -b $HOME/LS_COLORS )
-eval $( ssh-agent )
 
 export LS_COLORS
 
 export PATH="$PATH:/usr/local/texlive/2013/bin/i386-linux"
 export PATH="$PATH:/home/prin/.gem/ruby/2.1.0/bin"
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+#[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
