@@ -112,9 +112,13 @@ let g:session_autoload='no'
 let g:session_autosave='yes'
 let g:airline_powerline_fonts = 1
 let g:evervim_devtoken='S=s128:U=d5d6ef:E=14a3546098c:C=142dd94dd90:P=1cd:A=en-devtoken:V=2:H=05bc9ceebb726dd03a3c1a620ccfc697'
-let g:atp_Python = "/usr/bin/python"
+let g:atp_Python = "/usr/bin/python2"
 let b:atp_Viewer = "xpdf"
 let g:notes_directories = ['~/Dropbox/Illinois/II/Notes']
+let g:todo_log_done = 0
+let g:todo_log_into_drawer = ""
+let g:todo_state_colors={'SOMEDAY': 'Yellow'}
+let g:todo_states=[['TODO(t)', '|', 'DONE(d)', 'CANCELLED(c)'], ['WAITING(w)', 'HOLD(h)', 'INPROGRESS(i)', 'SOMEDAY(s)', 'CLOSED(l)']]
 
 " stolen crud
 function! VisualSelection(direction) range
