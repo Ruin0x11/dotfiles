@@ -1,33 +1,33 @@
-*foreground: #DDCCBB
+URxvt*foreground: #DDCCBB
 
 ! Brown BG
 !*background: #30251D
 
 ! Grey BG
-*background: #151515
+URxvt*background: #151515
 
 
 !black
-*color0:     #393939
-*color8:     #AF875F
+URxvt*color0:     #393939
+URxvt*color8:     #AF875F
 !red
-*color1:     #BF1E2D
-*color9:     #E7212A
+URxvt*color1:     #BF1E2D
+URxvt*color9:     #E7212A
 !green
-*color2:     #9DBA3A
-*color10:    #A9C938
+URxvt*color2:     #9DBA3A
+URxvt*color10:    #A9C938
 !yellow
-*color3:     #F5B915
-*color11:    #F7D325
+URxvt*color3:     #F5B915
+URxvt*color11:    #F7D325
 !blue
-*color4:     #1CA1DB
-*color12:    #00AFDA
+URxvt*color4:     #1CA1DB
+URxvt*color12:    #00AFDA
 !magenta
-*color5:     #652F90
-*color13:    #894E9F
+URxvt*color5:     #652F90
+URxvt*color13:    #894E9F
 !cyan
-*color6:     #EA7D24
-*color14:    #F79321
+URxvt*color6:     #EA7D24
+URxvt*color14:    #F79321
 !white
-*color7:     #E7E8E9
-*color15:    #F3F3F4
+URxvt*color7:     #E7E8E9
+URxvt*color15:    #F3F3F4

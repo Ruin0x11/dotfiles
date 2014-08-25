@@ -28,6 +28,7 @@ set dictionary=/usr/share/dict/web2
 set directory=.
 set encoding=utf-8
 set expandtab
+set fileencodings=ucs-bom,utf-8,sjis,default
 set ffs=unix,dos
 set hidden
 set hlsearch
@@ -61,7 +62,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <leader>bd :Bclose<cr>
-nmap <Leader>d :NERDTreeToggle<CR>
+nmap <Leader>d :NERDTreeToggle %:p<CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>v :e $MYVIMRC<CR>
@@ -104,6 +105,12 @@ inoremap {}     {}
 
 set makeprg=javac\ %
 set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+autocmd BufRead set makeprg=ant\ -find\ build.xml
+
+autocmd BufRead *.rb set shiftwidth=2
+autocmd BufRead *.erb set shiftwidth=2
 
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
