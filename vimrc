@@ -27,6 +27,7 @@ set cmdheight=2
 set dictionary=/usr/share/dict/web2
 set directory=.
 set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,sjis,default
 set expandtab
 set fileencodings=ucs-bom,utf-8,sjis,default
 set ffs=unix,dos
