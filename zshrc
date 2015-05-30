@@ -14,11 +14,10 @@ autoload -U promptinit
 promptinit
 autoload -U colors && colors
 
-setopt menu_complete
-
-PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
-RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
-
+# PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
+# RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+PROMPT=' %B%F{red}» %f%b'
+RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
 # PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
 
 export EDITOR=vim

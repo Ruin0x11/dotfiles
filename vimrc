@@ -15,7 +15,8 @@ syntax enable
 
 filetype plugin indent on
 
-colorscheme dc2
+set background=dark
+colorscheme solarized
 
 set autochdir
 set autoindent
@@ -34,7 +35,6 @@ set ffs=unix,dos
 set hidden
 set hlsearch
 set ignorecase
-set keymap=mathematic
 set iminsert=0
 set incsearch
 set laststatus=2
@@ -73,6 +73,8 @@ nmap <Leader>w :w!<CR>
 nmap <Leader>x :x<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>y :%y+<CR>
+nmap <Leader>n :cn<CR>
+nmap <Leader>p :cp<CR>
 map <silent> <Leader>V :so ~/.vimrc<CR>:filetype detect<CR>:exe "echo '.vimrc reloaded.'"<CR>
 cmap Q q
 map <Leader>tn :tabnew<CR>
@@ -81,6 +83,22 @@ map <Leader>to :tabonly<CR>
 map <M-Space> <ESC>
 map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+let g:tslime_ensure_trailing_newlines = 1
+let g:tslime_normal_mapping = '<localleader>c'
+let g:tslime_visual_mapping = '<localleader>c'
+let g:tslime_vars_mapping = '<localleader>C'
+
+let g:niji_dark_colours = [
+    \ [ '81', '#5fd7ff'],
+    \ [ '99', '#875fff'],
+    \ [ '1',  '#dc322f'],
+    \ [ '76', '#5fd700'],
+    \ [ '3',  '#b58900'],
+    \ [ '2',  '#859900'],
+    \ [ '6',  '#2aa198'],
+    \ [ '4',  '#268bd2'],
+    \ ]
 
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -94,6 +112,10 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+cnoreabbrev man help
+
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -109,6 +131,8 @@ set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
 
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 autocmd BufRead set makeprg=ant\ -find\ build.xml
+
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
 
 autocmd BufRead *.rb set shiftwidth=2
 autocmd BufRead *.erb set shiftwidth=2
@@ -127,6 +151,8 @@ let g:todo_log_done = 0
 let g:todo_log_into_drawer = ""
 let g:todo_state_colors={'SOMEDAY': 'Yellow'}
 let g:todo_states=[['TODO(t)', '|', 'DONE(d)', 'CANCELLED(c)'], ['WAITING(w)', 'HOLD(h)', 'INPROGRESS(i)', 'SOMEDAY(s)', 'CLOSED(l)']]
+
+let g:ycm_confirm_extra_conf = 0
 
 " stolen crud
 function! VisualSelection(direction) range
