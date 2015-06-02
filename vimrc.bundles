@@ -23,6 +23,7 @@ Bundle 'wikitopian/hardmode'
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
+Bundle 'bling/vim-airline'
 
 Bundle 'vim-scripts/paredit.vim'
 Bundle 'sjl/tslime.vim'

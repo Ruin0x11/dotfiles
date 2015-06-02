@@ -3,20 +3,22 @@ set nocompatible
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
 	source ~/.vimrc.bundles
 endif
 
+call vundle#end()
+
 syntax enable
 
 filetype plugin indent on
 
 set background=dark
-colorscheme solarized
+colorscheme default
 
 set autochdir
 set autoindent
@@ -72,17 +74,27 @@ nmap <Leader>s :OpenSession!<CR>
 nmap <Leader>w :w!<CR>
 nmap <Leader>x :x<CR>
 nmap <Leader>q :q<CR>
-nmap <Leader>y :%y+<CR>
+nmap <Leader>Y :%y+<CR>
 nmap <Leader>n :cn<CR>
 nmap <Leader>p :cp<CR>
 map <silent> <Leader>V :so ~/.vimrc<CR>:filetype detect<CR>:exe "echo '.vimrc reloaded.'"<CR>
-cmap Q q
+"cmap Q q
 map <Leader>tn :tabnew<CR>
 map <Leader>tc :tabclose<CR>
 map <Leader>to :tabonly<CR>
 map <M-Space> <ESC>
 map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+map q: :q
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+nnoremap <CR> G
+nnoremap <BS> gg
 
 let g:tslime_ensure_trailing_newlines = 1
 let g:tslime_normal_mapping = '<localleader>c'
@@ -198,3 +210,14 @@ endfunction
 "
 " Delete range without moving cursor:
 com! -range D <line1>,<line2>d | norm <C-o> 
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()

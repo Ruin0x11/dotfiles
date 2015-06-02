@@ -5,7 +5,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/prin/.zshrc'
+zstyle :compinstall filename '/home/ruin/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -43,8 +43,5 @@ eval $( dircolors -b $HOME/LS_COLORS )
 #eval $( keychain -q --eval --agents ssh id_rsa ) 
 
 export LS_COLORS
-
-export PATH="$PATH:/usr/local/texlive/2013/bin/i386-linux"
-export PATH="$PATH:/home/prin/.gem/ruby/2.1.0/bin"
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
