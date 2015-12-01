@@ -1,4 +1,18 @@
-#include "/home/prin/.Xcolors/Visibone.Xresources"
+#include "/home/ruin/.Xcolors/base16-mdk-dark"
+URxvt.letterSpace: 0
 URxvt.scrollBar:    false
-URxvt.font:                -*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont:                -*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*
+
+/* URxvt.font:                -*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-* */
+/* URxvt.boldFont:                -*-gohufont-bold-*-*-*-11-*-*-*-*-*-*-* */
+
+URxvt.font: xft:Menlo for Powerline:pixelsize=12
+URxvt.boldFont: xft:Menlo for Powerline:bold:pixelsize=12
+
+URxvt.perl-ext: default,url-select,matcher
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+URxvt.matcher.button: 1
+URxvt.meta8: false 
+URxvt.cursorBlink: false
+URxvt.altSendsEscape: true

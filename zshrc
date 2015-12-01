@@ -17,7 +17,7 @@ autoload -U colors && colors
 # PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
 # RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 PROMPT=' %B%F{red}» %f%b'
-RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
+RPROMPT='%B%F{magenta}%~ %B%F{white}%#%b'
 # PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
 
 export EDITOR=vim
@@ -43,5 +43,19 @@ eval $( dircolors -b $HOME/LS_COLORS )
 #eval $( keychain -q --eval --agents ssh id_rsa ) 
 
 export LS_COLORS
+export MAKEFLAGS='-j 4'
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+zstyle ':completion:*' rehash true
+
+PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
+
+setopt AUTO_MENU           # Show completion menu on a succesive tab press.
+setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
+setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
+unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
+unsetopt LIST_AMBIGUOUS
+setopt HIST_IGNORE_SPACE

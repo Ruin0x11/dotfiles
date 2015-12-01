@@ -17,8 +17,13 @@ syntax enable
 
 filetype plugin indent on
 
-set background=dark
-colorscheme default
+" let g:base16_shell_path="~/build/base16-builder/output/shell"
+" set t_Co=256
+" let base16colorspace=256
+" colorscheme base16-mdk
+" set background=dark
+
+colorscheme Tomorrow-Night
 
 set autochdir
 set autoindent
@@ -40,6 +45,7 @@ set ignorecase
 set iminsert=0
 set incsearch
 set laststatus=2
+set lazyredraw
 set linespace=1
 set nowrap
 set number
@@ -47,18 +53,29 @@ set ruler
 set scrolloff=3
 set shiftwidth=4
 set showcmd
+set showmatch
 set smartcase
 set tabstop=4
 set tags=./tags,./TAGS,tags,TAGS,~/.vimtags
 set timeoutlen=500
+set virtualedit+=block
 set wildmenu
 set wildmode=longest,list,full
 set wrap
 
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
 set mouse=a
 
-let mapleader = ','
-map <Space> /
+call yankstack#setup()
+
+" let mapleader = ','
+let mapleader = "\<Space>"
+" map <Space> <C-f>
 map <C-Space> ?
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -69,15 +86,19 @@ nmap <Leader>d :NERDTreeToggle %:p<CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>t :CtrlP<CR>
 nmap <Leader>v :e $MYVIMRC<CR>
+nmap <Leader>b :e $HOME/.vimrc.bundles<CR>
 nmap <Leader><Leader>v :spl $MYVIMRC<CR>
-nmap <Leader>s :OpenSession!<CR>
+" nmap <Leader>s :OpenSession!<CR>
+nmap <Leader>s :mksession!<CR>
 nmap <Leader>w :w!<CR>
 nmap <Leader>x :x<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>Y :%y+<CR>
 nmap <Leader>n :cn<CR>
 nmap <Leader>p :cp<CR>
-map <silent> <Leader>V :so ~/.vimrc<CR>:filetype detect<CR>:exe "echo '.vimrc reloaded.'"<CR>
+nnoremap <leader>u :GundoToggle<CR>
+map <silent> <Leader>sv :so ~/.vimrc<CR>:filetype detect<CR>:exe "echo '.vimrc reloaded.'"<CR>
+map <silent> <Leader>sb :so ~/.vimrc<CR>:filetype detect<CR>:BundleInstall<CR>:q<CR>:exe "echo 'Bundles installed!'"<CR>
 "cmap Q q
 map <Leader>tn :tabnew<CR>
 map <Leader>tc :tabclose<CR>
@@ -85,16 +106,28 @@ map <Leader>to :tabonly<CR>
 map <M-Space> <ESC>
 map <silent> <leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map Y y$
+
+map <Leader>g :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 map q: :q
+nmap <Leader>y "+y
+nmap <Leader>Y "+Y
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-nnoremap <CR> G
-nnoremap <BS> gg
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 let g:tslime_ensure_trailing_newlines = 1
 let g:tslime_normal_mapping = '<localleader>c'
@@ -125,7 +158,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-cnoreabbrev man help
+" cnoreabbrev :man :help
 
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
@@ -145,9 +178,21 @@ autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C
 autocmd BufRead set makeprg=ant\ -find\ build.xml
 
 autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
+autocmd BufRead *.ui set ft=json
+autocmd BufRead *.skin set ft=json
+autocmd BufRead *.fasm set ft=ia64
 
 autocmd BufRead *.rb set shiftwidth=2
 autocmd BufRead *.erb set shiftwidth=2
+
+hi link CTagsClass Type
+hi link CTagsEnumerationValue Constant
+hi link CTagsField Define
+hi link CTagsEnumeratorName Type
+hi link CTagsInterface Identifier
+hi link CTagsLocalVariable Constant
+hi link CTagsMethod Special
+hi link CTagsPackage Identifier
 
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
@@ -165,6 +210,20 @@ let g:todo_state_colors={'SOMEDAY': 'Yellow'}
 let g:todo_states=[['TODO(t)', '|', 'DONE(d)', 'CANCELLED(c)'], ['WAITING(w)', 'HOLD(h)', 'INPROGRESS(i)', 'SOMEDAY(s)', 'CLOSED(l)']]
 
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_auto_trigger = 1
+let g:paredit_leader = '\'
+
+let g:UltiSnipsExpandTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:EclimCompletionMethod = 'omnifunc'
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " stolen crud
 function! VisualSelection(direction) range
