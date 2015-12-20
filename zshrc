@@ -48,7 +48,9 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
-eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+fi
 zstyle ':completion:*' rehash true
 
 PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin

@@ -27,7 +27,7 @@ alias ta='transmission-remote -a'
 alias tl='transmission-remote -l'
 alias td='transmission-daemon -w /mnt/hdd/Transmission'
 alias tmux='TERM=screen-256color-bce tmux'
-alias syu='sudo pacman -Syu'
+alias syu='sudo yaourt -Syua'
 alias yg='yaourt -G'
 alias en='LC_ALL=en_US.UTF-8'
 alias ov='sudo openvpn --config /etc/openvpn/client.conf --config'
@@ -36,3 +36,5 @@ alias beats='python /home/ruin/build/beats_cli/beats_cli.py'
 alias e="emacsclient -t -a ''"
 alias er="pkill emacs; e"
 alias ec="emacsclient -c -n -a ''"
+alias ecr="pkill emacs; ec"
+alias se="SUDO_EDITOR=\"emacsclient -c -n -a ''\" sudoedit"
