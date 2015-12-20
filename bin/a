@@ -1,0 +1,4 @@
+#/bin/zsh
+source ~/.aliases
+alias asd="echo bar"
+eval $@

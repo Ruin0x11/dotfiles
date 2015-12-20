@@ -1,0 +1,113 @@
+#!/bin/sh
+
+program='/usr/bin/transmission-remote -a'
+nyaa="www.nyaa.se"
+tordir="/home/ruin/transmission"
+limit=20
+
+#Sorting method.
+#1 - Date; 2 - Seeders
+#3 - Leechers; 4 - Downloads
+#5 - Size;  6 - Name
+sortby=2
+
+#Set ordering.
+#1 - Descending; 2 - Ascending
+order=0
+
+# colors
+numbcolor='\x1b[1;35m'
+namecolor='\x1b[1;33m'
+sizecolor='\x1b[1;36m'
+seedcolor='\x1b[1;31m'
+peercolor='\x1b[1;32m'
+errocolor='\x1b[1;31m'
+mesgcolor='\x1b[1;37m'
+downcolor='\x1b[1;34m'
+nonecolor='\x1b[0m'
+
+thisfile="$0"
+
+shift `expr $OPTIND - 1`
+
+q=`echo "$*" | tr -d '\n' | od -t x1 -A n | tr ' ' '%'`
+
+if [ -n "$q" ] ; then
+	url='?page=search&term='"$q"'&sort='"$sortby"'&order='"$order"
+fi
+
+r=`curl -k -A Mozilla -m 15 -s "$nyaa/$url" \
+	| tidy -mq --doctype omit --show-body-only true --SHOW-Warnings no --vertical-space no --wrap 0 \
+	| grep -Eo '<a href=\"http:\/\/www.nyaa.se\/?page=view&amp;tid=[0-9]*\">.*|<td class=\"tlist.*' \
+	| sed  's!<a href=\"http:\/\/www.nyaa.se\/?page=view&amp;tid=[0-9]*\">!!; \
+		s!^<td class=\"tlistfailed\" colspan=\"2\">!\n!g; \
+		s!^<td [^>]*>!!; \
+		s!<a href=\"http:\/\/www.nyaa.se\/?page=download&amp;tid=!!; \
+		s!\" title=\"Download\".*!!; \
+		s!</a></td>$!!; \
+		s!</td>$!!; \
+		s!<a href=\"http:\/\/www.nyaa.se\/?cats=.*alt=\"!!; \
+		s!\">!!' \
+	| sed  'N;N;N;N;N;N;N;s!\n!|!g'`
+
+
+echo "$r" \
+	| head -n "$limit" \
+	| awk -v N=1 \
+		-v NU="$numbcolor" \
+		-v NA="$namecolor" \
+		-v SI="$sizecolor" \
+		-v SE="$seedcolor" \
+		-v PE="$peercolor" \
+		-v DL="$downcolor" \
+		-v NO="$nonecolor" \
+		-F '|' \
+		'{print NU N ") " NA $2 " " SI $4 " " PE $5 " " SE $6 " " DL $7 NO; N++}'
+
+read -p ">> Which torrent? (ex. 1, 3, 5-7...): " selection
+IFS=$'\n\ '
+for num in $selection ; do
+	if [ "$num" = "`echo $num | grep -o '[[:digit:]][[:digit:]]*'`" ] ; then
+		down="$down $num"
+	elif [ "$num" = "`echo $num | grep -o '[[:digit:]][[:digit:]]*-[[:digit:]][[:digit:]]*'`" ] ; then
+		seqstart="${num%-*}"
+		seqend="${num#*-}"
+		if [ $seqstart -le $seqend ] ; then
+			down="$down `seq $seqstart $seqend`"
+		fi
+	fi
+done
+
+
+down="$(echo $down | tr '\ ' '\n' | sort -n | uniq)"
+IFS=$'\n'
+
+if [ -z "$down" ] ; then
+	exit 0
+fi
+
+echo "Now loading..."
+for torrent in $down ; do
+	if [ $torrent -le $limit ] ; then
+		tid=$(echo "$r" | awk -F '|' 'NR=='$torrent'{print $3 }')
+		name=$(echo "$r" | awk -F '|' 'NR=='$torrent'{print $2".torrent" }')
+		echo -n "$torrent - $name"
+		url="http://www.nyaa.se/?page=download&tid=$tid"
+		file="$tordir/$name"
+		if [ ! -f $file ] ; then
+			wget -q --content-disposition -P $tordir $url
+		fi
+		status=$(eval "$program \"$file\"" 2>&1)
+		if [ $? -ne 0 ] ; then
+			echo -n '(failed!)'
+			report="$report\n(#$torrent) $status"
+		fi
+		echo 
+	fi
+done
+echo
+if [ -n "$report" ] ; then
+	echo -n "Exited with errors:"
+	echo -e "$report"
+fi
+unset IFS
