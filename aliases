@@ -1,12 +1,18 @@
 alias l='ls++'
-alias pf='pacman -Ss --color always'
-alias pi='sudo pacman -S'
-alias pd='sudo pacman -R'
+#alias pf='pacman -Ss --color always'
+#alias pi='sudo pacman -S'
+#alias pd='sudo pacman -R'
+#alias pq='pacman -Qu'
+
 alias yf='yaourt -Ss'
 alias yi='yaourt -S'
 alias yd='yaourt -R'
-alias pq='pacman -Qu'
 alias yq='yaourt -Qu'
+alias pf=yf
+alias pi=yi
+alias pd=yd
+alias pq=yq
+
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
 alias ns='sudo netctl start'

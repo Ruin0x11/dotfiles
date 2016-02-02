@@ -442,16 +442,17 @@ globalkeys = awful.util.table.join(
     --
     -- Trackpad disable
     awful.key({                   }, "XF86LaunchA", function() awful.util.spawn("touchpad") end),
+    awful.key({                   }, "XF86LaunchB", function() awful.util.spawn("scrot -e 'mv $f ~/Dropbox/scrot/'") end),
 
     -- ALSA volume control
     awful.key({ }, "XF86AudioRaiseVolume",
         function ()
-            os.execute(string.format("amixer -c %s set %s 1+", volumewidget.card, volumewidget.channel))
+            os.execute(string.format("amixer -c %s set %s 1+", "0", "Master"))
             volumewidget.update()
         end),
     awful.key({ }, "XF86AudioLowerVolume",
         function ()
-            os.execute(string.format("amixer -c %s set %s 1-", volumewidget.card, volumewidget.channel))
+            os.execute(string.format("amixer -c %s set %s 1-", "0", "Master"))
             volumewidget.update()
         end),
     awful.key({ }, "XF86AudioMute",
@@ -604,8 +605,8 @@ awful.rules.rules = {
     { rule = { class = "Chromium" },
           properties = { tag = tags[1][2] } },
 
-    { rule = { class = "Emacs" },
-          properties = { tag = tags[1][1] } },
+    -- { rule = { class = "Emacs" },
+    --       properties = { tag = tags[1][1] } },
 
     { rule = { instance = "plugin-container" },
           properties = { tag = tags[1][1] } },

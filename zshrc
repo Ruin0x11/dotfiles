@@ -48,12 +48,10 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-fi
 zstyle ':completion:*' rehash true
 
-PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
+# PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
+PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -61,3 +59,7 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
+
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+fi
