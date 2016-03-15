@@ -1,17 +1,17 @@
 alias l='ls++'
-#alias pf='pacman -Ss --color always'
-#alias pi='sudo pacman -S'
-#alias pd='sudo pacman -R'
-#alias pq='pacman -Qu'
+alias pf='pacman -Ss --color always'
+alias pi='sudo pacman -S'
+alias pd='sudo pacman -R'
+alias pq='pacman -Qu'
 
 alias yf='yaourt -Ss'
 alias yi='yaourt -S'
 alias yd='yaourt -R'
 alias yq='yaourt -Qu'
-alias pf=yf
-alias pi=yi
-alias pd=yd
-alias pq=yq
+# alias pf=yf
+# alias pi=yi
+# alias pd=yd
+# alias pq=yq
 
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
@@ -38,9 +38,12 @@ alias yg='yaourt -G'
 alias en='LC_ALL=en_US.UTF-8'
 alias ov='sudo openvpn --config /etc/openvpn/client.conf --config'
 alias beats='python /home/ruin/build/beats_cli/beats_cli.py'
+alias s='sudo $(fc -ln -1)'
 
-alias e="emacsclient -t -a ''"
-alias er="pkill emacs; e"
-alias ec="emacsclient -c -n -a ''"
-alias ecr="pkill emacs; ec"
-alias se="SUDO_EDITOR=\"emacsclient -c -n -a ''\" sudoedit"
+# assuming EDITOR is empty, since dmenu_recent_aliases breaks on double quotes
+alias e='emacsclient -t '
+alias er='pkill emacs; e'
+alias ec='emacsclient -c -n '
+alias ecr='pkill emacs; ec'
+
+alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"

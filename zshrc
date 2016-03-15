@@ -20,7 +20,8 @@ PROMPT=' %B%F{red}» %f%b'
 RPROMPT='%B%F{magenta}%~ %B%F{white}%#%b'
 # PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
 
-export EDITOR=vim
+export EDITOR=""
+export ALTERNATE_EDITOR=""
 source $HOME/.aliases
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -50,8 +51,12 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' rehash true
 
+source /usr/share/chruby/chruby.sh
+chruby ruby-2.2.4
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
-PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
+# PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
+
+PATH=$PATH:/home/ruin/.bin
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -60,6 +65,15 @@ unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
 
+export GOPATH=$HOME/build/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin  
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export PANEL_FIFO="/tmp/panel-fifo"
+
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 fi
+

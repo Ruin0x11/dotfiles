@@ -1,7 +1,6 @@
 Bundle 'gmarik/Vundle.vim'
 
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'coot/atp_vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'mattn/emmet-vim'
@@ -21,7 +20,6 @@ Bundle 'wikitopian/hardmode'
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
-Bundle 'bling/vim-airline'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'chriskempson/vim-tomorrow-theme'
 

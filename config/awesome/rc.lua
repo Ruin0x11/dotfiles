@@ -66,7 +66,8 @@ editor_cmd = terminal .. " -e " .. editor
 -- user defined
 browser    = "chromium"
 browser2   = "surf google.com"
-gui_editor = "gvim"
+--gui_editor = "gvim"
+gui_editor = "a ec"
 graphics   = "gimp"
 
 local layouts = {
@@ -81,7 +82,7 @@ local layouts = {
 -- {{{ Tags
 tags = {
    names = { "Ƅ", "ƀ", "Ɗ", "ƈ", "ƙ" },
-   layout = { layouts[3], layouts[3], layouts[2], layouts[5], layouts[1] }
+   layout = { layouts[3], layouts[3], layouts[3], layouts[3], layouts[3] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -337,7 +338,7 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end),
+    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end),
 
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
@@ -432,7 +433,7 @@ globalkeys = awful.util.table.join(
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    awful.key({ altkey,           }, "h",      function () fshome.show(7) end),
+    -- awful.key({ altkey,           }, "h",      function () fshome.show(7) end),
     -- awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
 
     awful.key({                   }, "XF86MonBrightnessUp",      function () awful.util.spawn_with_shell("light -A 1") end),
@@ -447,17 +448,19 @@ globalkeys = awful.util.table.join(
     -- ALSA volume control
     awful.key({ }, "XF86AudioRaiseVolume",
         function ()
-            os.execute(string.format("amixer -c %s set %s 1+", "0", "Master"))
+            -- os.execute(string.format("amixer -c %s set %s 1+", "0", "Master"))
+            os.execute("amixer -D pulse set Master 1%+")
             volumewidget.update()
         end),
     awful.key({ }, "XF86AudioLowerVolume",
         function ()
-            os.execute(string.format("amixer -c %s set %s 1-", "0", "Master"))
+            -- os.execute(string.format("amixer -c %s set %s 1-", "0", "Master"))
+            os.execute("amixer -D pulse set Master 1%-")
             volumewidget.update()
         end),
     awful.key({ }, "XF86AudioMute",
         function ()
-            os.execute(string.format("amixer -c %s set %s toggle", volumewidget.card, volumewidget.channel))
+            os.execute("amixer -D pulse set Master 0+ togglemute")
             --os.execute(string.format("amixer set %s toggle", volumewidget.channel))
             volumewidget.update()
         end),
@@ -500,7 +503,7 @@ globalkeys = awful.util.table.join(
     -- User programs
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
     awful.key({ modkey }, "i", function () awful.util.spawn(browser2) end),
-    awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
+    awful.key({ modkey }, "e", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
@@ -602,7 +605,7 @@ awful.rules.rules = {
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
-    { rule = { class = "Chromium" },
+    { rule = { class = "chromium" },
           properties = { tag = tags[1][2] } },
 
     -- { rule = { class = "Emacs" },

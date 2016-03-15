@@ -60,14 +60,19 @@ export XMODIFIERS='@im=uim' exec xterm -geometry 80x66+0+0 -name login
 
 compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
 xset +fp /usr/share/fonts/artwiz-fonts-wl/ &
-xinput set-prop 12 "Trackpad Smooth Scroll" 0
+#xinput set-prop 12 "Trackpad Smooth Scroll" 0
 xflux -z 61801
-xmodmap ~/.Xmodmap &
 unclutter -idle 3 &
 dropbox &
 uim-toolbar-gtk3-systray &
-mpdscribble &
+# mpdscribble &
 source ~/.aliases
 xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
-exec awesome
+mpdcron &
+nitrogen --restore &
+sxhkd &
+panel &
+exec bspwm
+# exec awesome
+# exec i3
 # exec emacs
