@@ -1,0 +1,6 @@
+#!/bin/bash
+until sudo netctl stop-all && sudo netctl start $1
+do
+echo "no"
+sleep 1
+done

@@ -1,0 +1,14 @@
+#! /bin/sh
+
+while true
+do
+    percent=$(acpi -b | cut -s -d' ' -f4 | cut -s -d'%' -f1)
+    message="$(acpi -b | cut -s -d',' -f3)"
+
+    if [ ! -z "$message" ] && [ $(echo "$percent < 20" | bc) == 1 ]
+    then
+         pkill not-stat ; not-stat Ba &
+    fi
+
+    sleep 30
+done
