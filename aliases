@@ -42,8 +42,15 @@ alias s='sudo $(fc -ln -1)'
 
 # assuming EDITOR is empty, since dmenu_recent_aliases breaks on double quotes
 alias e='emacsclient -t '
-alias er='pkill emacs; e'
+alias er='pkill emacs ; emacsclient -t '
 alias ec='emacsclient -c -n '
-alias ecr='pkill emacs; ec'
+alias ecr='pkill emacs ; emacsclient -c -n'
+alias vim='emacsclient -t '
 
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
+
+alias mpvm="mpv --profile=movie "
+alias mpvd="mpv --profile=demo "
+
+alias sy='sudo systemctl'
+alias usy='systemctl --user'

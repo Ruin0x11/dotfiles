@@ -52,7 +52,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 zstyle ':completion:*' rehash true
 
 source /usr/share/chruby/chruby.sh
-chruby ruby-2.2.4
+chruby ruby-2.3.0
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
 # PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
@@ -65,15 +65,21 @@ unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
 
-export GOPATH=$HOME/build/go
+export GOPATH=~/build/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin  
+export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PANEL_FIFO="/tmp/panel-fifo"
 
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-fi
+export GPG_TTY=$(tty)
+
+# gpg-preset-passphrase fails, so do an ugly hack instead
+echo | en gpg -s > /dev/null
+
+# if [[ "$SSH_AGENT_PID" == "" ]]; then
+#     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+# fi
 

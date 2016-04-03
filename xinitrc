@@ -57,17 +57,18 @@ export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 uim-xim &
 export XMODIFIERS='@im=uim' exec xterm -geometry 80x66+0+0 -name login
-
+xsetroot
 compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
 xset +fp /usr/share/fonts/artwiz-fonts-wl/ &
 #xinput set-prop 12 "Trackpad Smooth Scroll" 0
 xflux -z 61801
-unclutter -idle 3 &
+# unclutter -idle 3 &
 dropbox &
 uim-toolbar-gtk3-systray &
 # mpdscribble &
 source ~/.aliases
 xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
+mpdscribble &
 mpdcron &
 nitrogen --restore &
 sxhkd &
