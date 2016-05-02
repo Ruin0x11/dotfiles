@@ -56,7 +56,7 @@ fi
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 uim-xim &
-export XMODIFIERS='@im=uim' exec xterm -geometry 80x66+0+0 -name login
+export XMODIFIERS='@im=uim'
 xsetroot
 compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
 xset +fp /usr/share/fonts/artwiz-fonts-wl/ &
@@ -69,11 +69,21 @@ uim-toolbar-gtk3-systray &
 source ~/.aliases
 xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
 mpdscribble &
-mpdcron &
-nitrogen --restore &
-sxhkd &
-panel &
-exec bspwm
-# exec awesome
-# exec i3
-# exec emacs
+
+if [ $WM == "awesome" ] ; then
+    while true
+    do
+        mail-sync
+        sleep 120
+    done &
+
+    exec awesome
+    # exec i3
+    # exec emacs
+else
+    mpdcron &
+    nitrogen --restore &
+    sxhkd &
+    panel &
+    exec bspwm
+fi

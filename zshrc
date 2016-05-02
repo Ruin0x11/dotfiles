@@ -17,7 +17,7 @@ autoload -U colors && colors
 # PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
 # RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 PROMPT=' %B%F{red}» %f%b'
-RPROMPT='%B%F{magenta}%~ %B%F{white}%#%b'
+RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
 # PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
 
 export EDITOR=""
@@ -57,6 +57,7 @@ chruby ruby-2.3.0
 # PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
 PATH=$PATH:/home/ruin/.bin
+PATH=$PATH:/home/ruin/.local/bin
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -74,6 +75,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PANEL_FIFO="/tmp/panel-fifo"
 
+wmname LG3D
+
 export GPG_TTY=$(tty)
 
 # gpg-preset-passphrase fails, so do an ugly hack instead
@@ -83,3 +86,5 @@ echo | en gpg -s > /dev/null
 #     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 # fi
 
+envoy -t ssh-agent
+source <(envoy -p)

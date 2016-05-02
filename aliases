@@ -45,7 +45,7 @@ alias e='emacsclient -t '
 alias er='pkill emacs ; emacsclient -t '
 alias ec='emacsclient -c -n '
 alias ecr='pkill emacs ; emacsclient -c -n'
-alias vim='emacsclient -t '
+#alias vim='emacsclient -t '
 
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 

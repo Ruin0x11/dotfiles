@@ -8,9 +8,12 @@ URxvt.scrollBar:    false
 URxvt.font: xft:Menlo for Powerline:pixelsize=12
 URxvt.boldFont: xft:Menlo for Powerline:bold:pixelsize=12
 
-Xcursor.theme: whiteglass
+! Xcursor.theme: whiteglass
 
 URxvt.perl-ext: default,url-select,matcher
+URxvt*keysym.M-c: perl:clipboard:copy
+URxvt*keysym.M-v: perl:clipboard:paste
+URxvt*keysym.M-C-p: perl:clipboard:paste_escaped
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
