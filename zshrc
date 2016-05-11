@@ -67,8 +67,8 @@ unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
 
 export GOPATH=~/build/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin  
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

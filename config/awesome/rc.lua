@@ -361,6 +361,11 @@ globalkeys = awful.util.table.join(
             if client.focus then client.focus:raise() end
         end),
 
+    awful.key({ modkey, "Shift" }, "i",
+       function ()
+          awful.screen.focus_relative(1)
+    end),
+
     -- By direction client focus
     awful.key({ modkey }, "j",
         function()

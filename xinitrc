@@ -69,6 +69,13 @@ uim-toolbar-gtk3-systray &
 source ~/.aliases
 xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
 mpdscribble &
+jack_control start &
+
+if [ `xrandr | grep -c ' connected '` -eq 2 ]; then # dual-monitor
+    if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
+        xrandr --output HDMI1 --auto --primary --output eDP1 --auto --right-of HDMI1
+    fi
+fi
 
 if [ $WM == "awesome" ] ; then
     while true

@@ -7,8 +7,9 @@ do
 
     if [ ! -z "$message" ] && [ $(echo "$percent < 20" | bc) == 1 ]
     then
-         pkill not-stat ; not-stat Ba &
+         # pkill not-stat ; not-stat Ba &
+         batt-msg &
     fi
 
-    sleep 30
+    sleep 60
 done

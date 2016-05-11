@@ -51,6 +51,7 @@ alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 
 alias mpvm="mpv --profile=movie "
 alias mpvd="mpv --profile=demo "
+alias mpvp="mpv --profile=player "
 
 alias sy='sudo systemctl'
 alias usy='systemctl --user'
