@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# bg="#A73E28"
+message=${1:-"Hello, world!"}
+bg=${2:-"#A73E28"}
+fg="#eddec9"
+
+(echo "$message"; sleep 10) | dzen2 -fn "-windows-montecarlopanel-medium-r-normal--11-110-72-72-c-60-microsoft-cp1252" -h 18 -bg "$bg" -fg "$fg"
+# play "~/.bin/alarm.wav"
