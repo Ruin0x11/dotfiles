@@ -1,5 +1,6 @@
 cache/
 mpdscribble/
 mutt/aliases
+mpd/
 *~
 *.swp
