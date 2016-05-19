@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Absolute path, else cron won't find it
+. /home/ruin/.config/bspwm/Panel/Core/panel-settings
+
+inbox="[Gmail].All Mail"
+
+# mailbox2=$(ls /home/tatou/Mail/hotmail/Inbox/new | wc -l)
+mailbox1=0
+mailbox2=$(ls "/home/ruin/mail/$inbox/new" | wc -l)
+
+#mailcommand="emacsclient -c -n --eval \"(mu4e~headers-jump-to-maildir \\\"/$inbox\")\\\" &"
+mailcommand="emacsclient -c -n --eval \"(mu4e)\" &"
+
+mails()
+{
+    ##Mailbox 1
+    if [ "$mailbox1" -gt "0" ]
+        then
+            messagemailbox1="$mailbox1 "
+    fi
+    ##Mailbox 2
+    if [ "$mailbox2" -gt "0" ]
+        then
+            messagemailbox2="$mailbox2 "
+    fi
+
+    ##Both
+    if [ "$mailbox2" -gt "0" -a "$mailbox1" -gt "0" ]; then
+            middleand="+ "
+            #extraspace=" "
+    fi
+    if [ "$mailbox2" -gt "0" -o "$mailbox1" -gt "0" ]; then
+            messages=" %{B$bg_mails}%{F$fg_mails}%{A:panel-mail small:}%{A3:$mailcommand:}$extraspace   "
+            endmail="$extraspace%{B-}%{F-}%{A}%{A}"
+    fi
+
+echo "$messages$messagemailbox2$middleand$messagemailbox1$endmail"
+}
+
+mails_reduced()
+{
+    if [ "$mailbox2" -gt "0" -o "$mailbox1" -gt "0" ]; then
+        # echo " %{A:run-or-raise mutt &:}%{B$bg_mails}%{F$fg_mails}  %{B-}%{F-}%{A}"
+        echo " %{A:panel-mail:}%{A3:$mailcommand:}%{B$bg_mails}%{F$fg_mails}  %{B-}%{F-}%{A}%{A}"
+    fi
+}
+
+case "$1" in
+    small)
+        echo "M$(mails_reduced)" > /tmp/panel-fifo
+    ;;
+    full)
+        echo "M$(mails)" > /tmp/panel-fifo
+    ;;
+    *)
+        echo "M$(mails)" > /tmp/panel-fifo
+    ;;
+esac
