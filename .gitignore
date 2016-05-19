@@ -2,5 +2,6 @@ cache/
 mpdscribble/
 mutt/aliases
 mpd/
+config/mpv/watch_later
 *~
 *.swp
