@@ -71,8 +71,6 @@ set writebackup
 
 set mouse=a
 
-call yankstack#setup()
-
 " let mapleader = ','
 let mapleader = "\<Space>"
 " map <Space> <C-f>

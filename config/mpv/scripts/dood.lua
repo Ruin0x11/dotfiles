@@ -92,4 +92,4 @@ end
 
 mp.register_event("file-loaded", add_entry)
 mp.register_event("end-file", next_file)
-mp.add_key_binding("x", "set_last_file", set_last_file_handler)
+-- mp.add_key_binding("x", "set_last_file", set_last_file_handler)
