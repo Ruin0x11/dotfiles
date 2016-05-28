@@ -52,5 +52,3 @@ if __FILE__ == $0
   raise "No video id given" unless id
   puts Vocalyric.new.get_lyric(id)
 end
-
-"sm10759623"
