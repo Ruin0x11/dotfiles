@@ -7,7 +7,7 @@ require 'yaml'
 
 VIDEO_URL = /https?:\/\/(?:www\.|secure\.)?nicovideo\.jp\/watch\/((?:[a-z])+?[0-9]+)/
 
-count = 1000
+count = 5000
 
 ARGV.options do |opts|
   opts.on("-c", "--count=val", Integer)   { |val| count = val }
@@ -30,13 +30,16 @@ nv = Niconico.new(user_id["mail"], user_id["password"])
 nv.login
 v = nv.video(id)
 
-name = "#{id}-#{v.title}"
+name = "#{id}-#{v.title}".gsub("/","_")
 filename = "#{name}.#{v.type}"
 
+
 puts "Downloading #{id}..."
-File.open("#{filename}", 'w') { |file| file.write(v.get_video) }
+video = v.get_video
+File.open("#{filename}", 'w') { |file| file.write(video) }
 puts "Downloading comments..."
-File.open("#{name}.xml", 'w') { |file| file.write(v.get_comment(count)) }
+comments = v.get_comment(count)
+File.open("#{name}.xml", 'w') { |file| file.write(comments) }
 
 ff = FFMPEG::Movie.new("./#{filename}")
 
