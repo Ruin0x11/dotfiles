@@ -27,6 +27,8 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
 
+export LOCU_API_KEY="880b6cc12082c5a803b0f0bb6d334639db8f996e"
+
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -52,9 +54,10 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 zstyle ':completion:*' rehash true
 
 source /usr/share/chruby/chruby.sh
-chruby ruby-2.3.0
+#source /usr/share/chruby/auto.sh
+chruby ruby-2.3.1
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
-# PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
+PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
 PATH=$PATH:/home/ruin/.bin
 PATH=$PATH:/home/ruin/.local/bin
@@ -75,16 +78,22 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PANEL_FIFO="/tmp/panel-fifo"
 
-wmname LG3D
+# wmname LG3D
 
 export GPG_TTY=$(tty)
 
 # gpg-preset-passphrase fails, so do an ugly hack instead
-echo | en gpg -s > /dev/null
+# echo | en gpg -s > /dev/null
 
 # if [[ "$SSH_AGENT_PID" == "" ]]; then
 #     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 # fi
 
-envoy -t ssh-agent
-source <(envoy -p)
+# envoy -t ssh-agent
+# source <(envoy -p)
+
+PATH="/home/ruin/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ruin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ruin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ruin/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ruin/perl5"; export PERL_MM_OPT;

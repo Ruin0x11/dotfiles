@@ -23,7 +23,7 @@ filetype plugin indent on
 " colorscheme base16-mdk
 " set background=dark
 
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
 
 set autochdir
 set autoindent

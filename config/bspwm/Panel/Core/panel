@@ -16,7 +16,7 @@ bspc config top_padding $height
 # Time and wm info 
 bspc subscribe > "$PANEL_FIFO" &
 # clock -i 60 -sf "S%{B$bg_clock}  %{F$fg_squares} %{F$fg_clockemph}%d %{F$fg_clock}%b  %{F$fg_squares}%{F$fg_clock} %H:%M %{B-}%{F-}" > "$PANEL_FIFO" &
-clock -i 60 -sf "S%{B$bg_clock}  %{F$fg_squares} %{F$fg_clockemph}%b %{F$fg_clock}%d日 %{F$fg_squares}%{F$fg_clock} %H:%M %{B-}%{F-}" > "$PANEL_FIFO" &
+LC_ALL=ja_JP.UTF-8 clock -i 60 -sf "S%{B$bg_clock}  %{F$fg_squares} %{F$fg_clockemph}%b %{F$fg_clock}%d日 %{F$fg_squares}%{F$fg_clock} %H:%M %{B-}%{F-}" > "$PANEL_FIFO" &
 
 # Wallpaper
 feh --bg-fill ~/Picture/wallhaven-64427.png &

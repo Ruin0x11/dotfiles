@@ -3,6 +3,7 @@ require 'niconico'
 require 'streamio-ffmpeg'
 require 'optparse'
 require 'yaml'
+require_relative 'vocalyric'
 # also requires danmaku2ass
 
 VIDEO_URL = /https?:\/\/(?:www\.|secure\.)?nicovideo\.jp\/watch\/((?:[a-z])+?[0-9]+)/
@@ -40,6 +41,9 @@ File.open("#{filename}", 'w') { |file| file.write(video) }
 puts "Downloading comments..."
 comments = v.get_comment(count)
 File.open("#{name}.xml", 'w') { |file| file.write(comments) }
+puts "Searching for lyrics..."
+lyrics = Vocalyric.new.get_lyric(id)
+File.open("#{name}.txt", 'w') { |file| file.write(lyrics) } if lyrics
 
 ff = FFMPEG::Movie.new("./#{filename}")
 
