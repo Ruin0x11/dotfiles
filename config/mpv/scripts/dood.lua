@@ -5,6 +5,8 @@ last = false
 ended = false
 
 function add_entry()
+    if last then return end
+
     if file_exists(mp.get_property("path", nil)) then
         if not file_exists(tempfile) then
             temp = assert(io.open(tempfile, "w"))
@@ -92,4 +94,4 @@ end
 
 mp.register_event("file-loaded", add_entry)
 mp.register_event("end-file", next_file)
-mp.add_key_binding("x", "set_last_file", set_last_file_handler)
+mp.add_key_binding("X", "set_last_file", set_last_file_handler)

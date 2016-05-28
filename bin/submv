@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+DIR=$(pwd)
+
+shopt -s nullglob
+vid="mkv"
+ext="ass"
+a0=("$DIR"/*."$vid")
+a1=("$DIR"/*."$ext")
+
+shift `expr $OPTIND - 1`
+
+pos=0
+delay=0
+no=0
+
+if [[ $# < 1 ]]
+then
+    echo "-p --pos : episode to start"
+    echo "-n --number : number to encode"
+    echo "-d --delay : delay"
+    exit 1
+fi
+
+while [[ $# > 1 ]]
+do
+key="$1"
+
+case $key in
+    -p|--pos)
+
+    if ! [[ $2 =~ ^-?[0-9]+$ ]]
+    then
+        echo "invalid position!"
+        exit
+    elif [ $2 -gt 0 ]
+    then
+        pos=$[$2-1]
+    fi
+    shift
+    ;;
+    -d|--delay)
+
+    if ! [[ $2 =~ ^-?[0-9]+$ ]]
+    then
+        echo "invalid delay!"
+        exit
+    else
+        delay=$2
+    fi
+    shift
+    ;;
+    -n|--number)
+
+    if ! [[ $2 =~ ^-?[0-9]+$ ]]
+    then
+        echo "invalid number!"
+        exit
+    elif [ $2 -gt 0 ]
+    then
+        if [ $2 -lt ${#a0[@]} ]
+        then
+            no=$2
+        fi
+    fi
+    shift
+    ;;
+    *)
+        # unknown option
+        ;;
+esac
+shift
+done
+
+if [ ${#a0[@]} -ne ${#a1[@]} ] 
+then
+    echo "number of mkv and ass files isn't the same!"
+fi
+
+if [ $no -eq 0 ]
+then
+    no=$[ ${#a1[@]} - $pos]
+fi
+
+files=$[ ${#a1[@]} - $pos]
+
+if [ $files -lt $no ]
+then
+    echo "too many files!"
+    exit 1
+fi
+
+if [ $files -le 0 ]
+then
+    echo "not enough files!"
+    exit 1
+fi
+
+for ((i=pos;i<$[$pos+$no];i++))
+do
+    num=$(printf %02d $[$i+1])
+    in=${a0[$i]}
+    infile="${in##*/}"
+    sub="${a1[$i]}"
+    subfile="${sub##*/}"
+    outfile="${infile%.*}.${ext}"
+    cmd="mv \"$subfile\" \"$outfile\""
+    echo "$cmd"
+    eval "$cmd"
+done
