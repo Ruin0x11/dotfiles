@@ -1,0 +1,54 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# get started fast.
+
+[general]
+pythonfile = ~/.offlineimap.py
+accounts = Gmail
+maxsyncaccounts = 1
+
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Server
+synclabels = yes
+# This header is where labels go.  Usually you will be fine
+# with default value (X-Keywords), but in case you want it
+# different, here we go:
+labelsheader = X-Keywords
+#autorefresh = 5
+
+[Repository Gmail-Server]
+#This is the remote repository
+type = Gmail
+remoteuser = ipickering2
+remotepasseval = get_pass()
+folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Trash', '[Gmail]/Drafts']
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+startdate = 2016-03-13
+expunge = no
+#keepalive = 60
+#holdconnectionopen = yes
+
+[Repository Gmail-Local]
+type = GmailMaildir
+localfolders = ~/mail
+realdelete = no
+
+[Account Backup]
+localrepository = BLocal
+remoterepository = BRemote
+readonly = True
+synclabels = yes
+labelsheader = X-Keywords
+ 
+[Repository BLocal]
+type = Maildir
+sep = /
+localfolders = /mnt/hdd/mail
+realdelete = no
+ 
+[Repository BRemote]
+type = Gmail
+remoteuser = ipickering2
+createfolders = False
+nametrans = lambda folder: 'INBOX'
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
