@@ -15,7 +15,6 @@ class Vocalyric
     @agent.user_agent_alias = 'Mac Safari'
   end
 
-  def search_wiki(keyword)
     page = @agent.get("http://www5.atwiki.jp/hmiku/pages/1.html")
     search_form = page.form_with(class: "search")
     search_form.field_with(name: "keyword").value = keyword
@@ -118,4 +117,3 @@ if __FILE__ == $0
   # puts Vocalyric.new.get_lyric(id)
   puts Vocalyric.new.get_songs_for_artist(id)
 end
-

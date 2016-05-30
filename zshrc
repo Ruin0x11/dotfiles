@@ -42,7 +42,7 @@ bindkey -M emacs '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-eval $( dircolors -b $HOME/LS_COLORS )
+# eval $( dircolors -b $HOME/LS_COLORS )
 #eval $( keychain -q --eval --agents ssh id_rsa ) 
 
 export LS_COLORS
@@ -53,14 +53,13 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' rehash true
 
-source /usr/share/chruby/chruby.sh
-#source /usr/share/chruby/auto.sh
-chruby ruby-2.3.1
+# source /usr/share/chruby/chruby.sh
+# chruby ruby-2.3.0
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
 PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
-PATH=$PATH:/home/ruin/.bin
-PATH=$PATH:/home/ruin/.local/bin
+PATH=$PATH:/Users/ipickering/.bin
+export PATH=/usr/local/bin:$PATH
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -80,7 +79,7 @@ export PANEL_FIFO="/tmp/panel-fifo"
 
 # wmname LG3D
 
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 
 # gpg-preset-passphrase fails, so do an ugly hack instead
 # echo | en gpg -s > /dev/null
