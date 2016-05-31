@@ -1,0 +1,32 @@
+Bundle 'gmarik/Vundle.vim'
+
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+Bundle 'terryma/vim-multiple-cursors'
+>>>>>>> Stashed changes
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/Align'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
+
+Bundle 'vim-scripts/paredit.vim'
+Bundle 'raymond-w-ko/vim-niji'
+Bundle 'xiaody/thornbird.vim'
+Bundle 'jscappini/material.vim'
+Bundle 'chrisbra/Colorizer'
+Bundle 'chriskempson/base16-vim'
+
+" Bundle 'dhruvasagar/vim-table-mode'
+" Bundle 'xolox/vim-notes'

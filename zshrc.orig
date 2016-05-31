@@ -53,9 +53,14 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' rehash true
 
+<<<<<<< Updated upstream
+# source /usr/share/chruby/chruby.sh
+# chruby ruby-2.3.0
+=======
 source /usr/share/chruby/chruby.sh
 #source /usr/share/chruby/auto.sh
 chruby ruby-2.3.1
+>>>>>>> Stashed changes
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
 PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
