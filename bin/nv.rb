@@ -26,19 +26,17 @@ class Vocaget
 
     Dir.mkdir(name) unless File.exists?(name)
     
-    Dir.chdir(name) { download_list(ids.take(8)) }
+    Dir.chdir(name) { download_list(ids) }
   end
 
   def download_list(ids)
     ids.each do |id|
-      download_video(id, 5000)
+      begin
+        download_video(id, 5000)
+      rescue Exception => msg  
+        puts "Couldn't download #{id}: #{msg}"
+      end
     end
-  end
-
-  def download_lyrics(id)
-    puts "Searching for lyrics..."
-    lyrics = @vl.get_lyric(id)
-    File.open("#{name}.txt", 'w') { |file| file.write(lyrics) } if lyrics
   end
 
   def download_video(id, count)
@@ -48,6 +46,7 @@ class Vocaget
 
     if File.exist?(filename)
       puts "Already downloaded: #{filename}"
+      sleep 60
       return
     end
 
@@ -59,7 +58,9 @@ class Vocaget
     comments = v.get_comment(count)
     File.open("#{name}.xml", 'w') { |file| file.write(comments) }
 
-    download_lyrics(id)
+    puts "Searching for lyrics..."
+    lyrics = @vl.get_lyric(id)
+    File.open("#{name}.txt", 'w') { |file| file.write(lyrics) } if lyrics
 
     ff = FFMPEG::Movie.new("./#{filename}")
 

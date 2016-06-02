@@ -4,6 +4,7 @@ require 'mechanize'
 require 'nokogiri'
 require 'logger'
 require 'yaml'
+require 'optparse'
 
 THUMB_ID = /https?:\/\/(?:www\.|secure\.|ext\.)?nicovideo\.jp\/thumb\/((?:[a-z])+?[0-9]+)/
 
@@ -36,6 +37,29 @@ class Vocalyric
     id
   end
 
+  def get_song_metadata(page)
+    doc = page.parser
+    list = doc.at_xpath('//*[text()[contains(.,"作曲")]]')
+    return unless list
+    data = {}
+    list.text.split("\n").each do |text|
+      part = text.partition('：')
+      next unless part[2]
+      case part[0]
+      when "作詞"
+        data[:lyrics] = part[2]
+      when "作曲"
+        data[:composer] = part[2]
+      when "編曲"
+        data[:editor] = part[2]
+      when "唄"
+        data[:vocalist] = part[2]
+      end
+    end
+    p data
+    data
+  end
+
   def get_songs_from_page(page)
     doc = page.parser
     start_elem = doc.at_xpath('//h3[contains(text(), "曲")]')
@@ -47,8 +71,8 @@ class Vocalyric
     list = start_elem.next_element.children.xpath(".//a")
 
     ids = list.map do |l|
-        page = @agent.get(l["href"]) 
-        get_song_id(page)
+      page = @agent.get(l["href"]) 
+      get_song_id(page)
     end
 
     ids
@@ -63,8 +87,10 @@ class Vocalyric
     name = ""
     results.each do |r|
       name = r.text
+      p name
       wiki_page = r.click
-      check = get_artist_name_from_page(wiki_page, name)
+      check = get_song_metadata(wiki_page)
+      # check = get_artist_name_from_page(wiki_page, name)
       next unless check
       break
     end
@@ -120,6 +146,8 @@ class Vocalyric
     # nil if no result
     return if results.one?
 
+    lyric = ""
+
     results.each do |r|
       puts "Trying #{r.text}..."
       wiki_page = r.click
@@ -145,13 +173,9 @@ end
 if __FILE__ == $0
   count = 5000
 
-  ARGV.options do |opts|
-    opts.on("-c", "--count=val", Integer)   { |val| count = val }
-    opts.parse!
-  end
-
   id = ARGV.pop
   raise "No video id given" unless id
   # puts Vocalyric.new.get_lyric(id)
-  puts Vocalyric.new.get_songs_for_artist(id)
+  # puts Vocalyric.new.get_songs_for_artist(id)
+  puts Vocalyric.new.get_artist_name(id)
 end

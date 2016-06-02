@@ -58,8 +58,13 @@ zstyle ':completion:*' rehash true
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
 PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
+<<<<<<< Updated upstream
 PATH=$PATH:/Users/ipickering/.bin
 export PATH=/usr/local/bin:$PATH
+=======
+PATH=$PATH:/Users/ian/.bin
+PATH=$PATH:/Users/ian/.local/bin
+>>>>>>> Stashed changes
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -75,24 +80,31 @@ export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export PANEL_FIFO="/tmp/panel-fifo"
+# export PANEL_FIFO="/tmp/panel-fifo"
 
 # wmname LG3D
 
 # export GPG_TTY=$(tty)
 
+<<<<<<< Updated upstream
 # gpg-preset-passphrase fails, so do an ugly hack instead
+=======
+# # gpg-preset-passphrase fails, so do an ugly hack instead
+>>>>>>> Stashed changes
 # echo | en gpg -s > /dev/null
 
-# if [[ "$SSH_AGENT_PID" == "" ]]; then
-#     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-# fi
+# # if [[ "$SSH_AGENT_PID" == "" ]]; then
+# #     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+# # fi
 
 # envoy -t ssh-agent
 # source <(envoy -p)
+<<<<<<< Updated upstream
 
 PATH="/home/ruin/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/ruin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/ruin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/ruin/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/ruin/perl5"; export PERL_MM_OPT;
+=======
+>>>>>>> Stashed changes
