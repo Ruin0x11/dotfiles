@@ -89,8 +89,8 @@ class Vocalyric
       name = r.text
       p name
       wiki_page = r.click
-      check = get_song_metadata(wiki_page)
-      # check = get_artist_name_from_page(wiki_page, name)
+      #check = get_song_metadata(wiki_page)
+      check = get_artist_name_from_page(wiki_page, name)
       next unless check
       break
     end
@@ -175,7 +175,6 @@ if __FILE__ == $0
 
   id = ARGV.pop
   raise "No video id given" unless id
-  # puts Vocalyric.new.get_lyric(id)
+  puts Vocalyric.new.get_lyric(id)
   # puts Vocalyric.new.get_songs_for_artist(id)
-  puts Vocalyric.new.get_artist_name(id)
 end

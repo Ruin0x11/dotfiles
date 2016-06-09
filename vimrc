@@ -164,10 +164,6 @@ map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 " nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " auto-brackets
-nnoremap {      i{}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
 
 set makeprg=javac\ %
 set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#

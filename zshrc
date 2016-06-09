@@ -28,6 +28,7 @@ source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
 
 export LOCU_API_KEY="880b6cc12082c5a803b0f0bb6d334639db8f996e"
+export HOMEBREW_NO_ANALYTICS=1
 
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
@@ -46,26 +47,25 @@ bindkey -M vicmd 'j' history-substring-search-down
 #eval $( keychain -q --eval --agents ssh id_rsa ) 
 
 export LS_COLORS
-export MAKEFLAGS='-j 4'
+export MAKEFLAGS='-j 8'
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
 zstyle ':completion:*' rehash true
 
-source /usr/share/chruby/chruby.sh
+# source /usr/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
 #source /usr/share/chruby/auto.sh
 chruby ruby-2.3.1
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
 PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
 
-<<<<<<< Updated upstream
 PATH=$PATH:/Users/ipickering/.bin
 export PATH=/usr/local/bin:$PATH
-=======
 PATH=$PATH:/Users/ian/.bin
 PATH=$PATH:/Users/ian/.local/bin
->>>>>>> Stashed changes
+export PATH=/usr/local/bin:$PATH
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -87,11 +87,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # export GPG_TTY=$(tty)
 
-<<<<<<< Updated upstream
-# gpg-preset-passphrase fails, so do an ugly hack instead
-=======
-# # gpg-preset-passphrase fails, so do an ugly hack instead
->>>>>>> Stashed changes
 # echo | en gpg -s > /dev/null
 
 # # if [[ "$SSH_AGENT_PID" == "" ]]; then
@@ -100,12 +95,3 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # envoy -t ssh-agent
 # source <(envoy -p)
-<<<<<<< Updated upstream
-
-PATH="/home/ruin/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/ruin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/ruin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/ruin/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/ruin/perl5"; export PERL_MM_OPT;
-=======
->>>>>>> Stashed changes
