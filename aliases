@@ -8,10 +8,6 @@ alias yf='yaourt -Ss'
 alias yi='yaourt -S'
 alias yd='yaourt -R'
 alias yq='yaourt -Qu'
-# alias pf=yf
-# alias pi=yi
-# alias pd=yd
-# alias pq=yq
 
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
@@ -32,7 +28,7 @@ alias ta='transmission-remote -a'
 alias tl='transmission-remote -l'
 alias td='transmission-daemon -w /mnt/hdd/Transmission'
 alias tmux='TERM=screen-256color-bce tmux'
-alias syu='sudo yaourt -Syua'
+alias syu='sudo pacman -Syu'
 alias yg='yaourt -G'
 alias en='LC_ALL=en_US.UTF-8'
 alias ov='sudo openvpn --config /etc/openvpn/client.conf --config'

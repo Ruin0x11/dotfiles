@@ -59,7 +59,7 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 #source /usr/share/chruby/auto.sh
 chruby ruby-2.3.1
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
-PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
+PATH=$PATH:/home/prin/.gem/ruby/2.3.0/bin
 
 PATH=$PATH:/Users/ipickering/.bin
 export PATH=/usr/local/bin:$PATH
@@ -92,6 +92,3 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # # if [[ "$SSH_AGENT_PID" == "" ]]; then
 # #     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 # # fi
-
-# envoy -t ssh-agent
-# source <(envoy -p)
