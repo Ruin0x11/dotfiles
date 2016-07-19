@@ -55,22 +55,26 @@ fi
 
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
-uim-xim &
+# uim-xim &
 export XMODIFIERS='@im=uim'
 xsetroot
-compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
-xset +fp /usr/share/fonts/artwiz-fonts-wl/ &
+# compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
+xset +fp /usr/share/fonts/local/ &
 #xinput set-prop 12 "Trackpad Smooth Scroll" 0
 xflux -z 61801
 # unclutter -idle 3 &
-dropbox &
-uim-toolbar-gtk3-systray &
+# dropbox &
+# uim-toolbar-gtk3-systray &
 # mpdscribble &
 source ~/.aliases
-xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
-mpdscribble &
 # jack_control start &
 # jack_control eps realtime false &
+# xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
+# mpdscribble &
+# jack_control start &
+
+xrandr --output VGA-1 --mode 1440x900
+>>>>>>> 6ef56cacba536c83e7dd2089cf00be9096a92488
 
 if [ `xrandr | grep -c ' connected '` -eq 2 ]; then
     if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
@@ -78,10 +82,10 @@ if [ `xrandr | grep -c ' connected '` -eq 2 ]; then
     fi
 fi
 
-if [ $WM == "awesome" ] ; then
+if [ $WM == "bspwm" ] ; then
     while true
     do
-        mail-sync
+        # mail-sync
         sleep 120
     done &
 
@@ -89,8 +93,8 @@ if [ $WM == "awesome" ] ; then
     # exec i3
      exec emacs
 else
-    mpdcron &
-    nitrogen --restore &
+#    mpdcron &
+#    nitrogen --restore &
     sxhkd &
     panel &
     exec bspwm

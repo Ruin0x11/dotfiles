@@ -114,13 +114,13 @@ XF86LaunchA
 	pkill not-stat ; not-stat Tp
 
 XF86LaunchB
-	scrot -e 'mv $f ~/Dropbox/scrot/'
+	scrot -e 'mv $f ~/scrot/'
 
 super + Return
 	urxvt
 
 super + space
-    dmenu_recent_aliases -i -x 458 -y 330 -w 450 -h 20 -l 4 -fn 'Menlo for Powerline-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
+    dmenu_recent_aliases -i -x 492 -y 396 -w 450 -h 20 -l 4 -fn 'Menlo for Powerline-8' -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
 
 # make sxhkd reload its configuration files:
 super + Escape

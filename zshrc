@@ -27,6 +27,8 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
 
+export HOMEBREW_NO_ANALYTICS=1
+
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -40,7 +42,7 @@ bindkey -M emacs '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-eval $( dircolors -b $HOME/LS_COLORS )
+# eval $( dircolors -b $HOME/LS_COLORS )
 #eval $( keychain -q --eval --agents ssh id_rsa ) 
 
 export LS_COLORS
@@ -51,13 +53,18 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' rehash true
 
-source /usr/share/chruby/chruby.sh
-chruby ruby-2.3.0
+# source /usr/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+#source /usr/share/chruby/auto.sh
+chruby ruby-2.3.1
 # PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
-# PATH=$PATH:/home/ruin/.gem/ruby/2.3.0/bin
+PATH=$PATH:/home/prin/.gem/ruby/2.3.0/bin
 
-PATH=$PATH:/home/ruin/.bin
-PATH=$PATH:/home/ruin/.local/bin
+PATH=$PATH:/Users/ipickering/.bin
+export PATH=/usr/local/bin:$PATH
+PATH=$PATH:/Users/ian/.bin
+PATH=$PATH:/Users/ian/.local/bin
+export PATH=/usr/local/bin:$PATH
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -73,18 +80,13 @@ export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export PANEL_FIFO="/tmp/panel-fifo"
+# export PANEL_FIFO="/tmp/panel-fifo"
 
-wmname LG3D
+# wmname LG3D
 
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 
-# gpg-preset-passphrase fails, so do an ugly hack instead
-echo | en gpg -s > /dev/null
-
-# if [[ "$SSH_AGENT_PID" == "" ]]; then
-#     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-# fi
+# echo | en gpg -s > /dev/null
 
 envoy -t ssh-agent
 source <(envoy -p)
