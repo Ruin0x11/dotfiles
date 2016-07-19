@@ -69,7 +69,8 @@ uim-toolbar-gtk3-systray &
 source ~/.aliases
 xcalib ~/Color\ LCD-42449F80-6AB9-C591-A826-01585D808BDC.icc
 mpdscribble &
-jack_control start &
+# jack_control start &
+# jack_control eps realtime false &
 
 if [ `xrandr | grep -c ' connected '` -eq 2 ]; then
     if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
@@ -84,9 +85,9 @@ if [ $WM == "awesome" ] ; then
         sleep 120
     done &
 
-    exec awesome
+    #exec awesome
     # exec i3
-    # exec emacs
+     exec emacs
 else
     mpdcron &
     nitrogen --restore &

@@ -88,3 +88,4 @@ echo | en gpg -s > /dev/null
 
 envoy -t ssh-agent
 source <(envoy -p)
+(cd ~/dotfiles && exec dot-check)
