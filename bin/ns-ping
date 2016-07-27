@@ -3,9 +3,9 @@
 while true
 do
     percent=$(acpi -b | cut -s -d' ' -f4 | cut -s -d'%' -f1)
-    message="$(acpi -b | cut -s -d',' -f3)"
+    message="$(acpi -b | cut -s -d' ' -f3 | cut -s -d',' -f1)"
 
-    if [ ! -z "$message" ] && [ $(echo "$percent < 20" | bc) == 1 ]
+    if [ "$message" != "Charging" ] && [ $(echo "$percent < 20" | bc) == 1 ]
     then
          # pkill not-stat ; not-stat Ba &
          bar-msg "Battery level is below 20%." &

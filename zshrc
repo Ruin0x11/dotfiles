@@ -27,7 +27,6 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
 
-export LOCU_API_KEY="880b6cc12082c5a803b0f0bb6d334639db8f996e"
 export HOMEBREW_NO_ANALYTICS=1
 
 # bind UP and DOWN arrow keys
@@ -47,7 +46,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 #eval $( keychain -q --eval --agents ssh id_rsa ) 
 
 export LS_COLORS
-export MAKEFLAGS='-j 8'
+export MAKEFLAGS='-j 4'
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
@@ -89,6 +88,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # echo | en gpg -s > /dev/null
 
-# # if [[ "$SSH_AGENT_PID" == "" ]]; then
-# #     eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-# # fi
+envoy -t ssh-agent
+source <(envoy -p)
+(cd ~/dotfiles && exec dot-check)

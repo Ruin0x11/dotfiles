@@ -1,0 +1,15 @@
+#!/bin/sh
+
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse @{u})
+BASE=$(git merge-base @ @{u})
+
+if [ $LOCAL = $REMOTE ]; then
+    continue
+elif [ $LOCAL = $BASE ]; then
+    echo "Updated dotfiles are available."
+elif [ $REMOTE = $BASE ]; then
+    echo "Dotfiles need to be pushed."
+else
+    echo "Dotfiles have diverged."
+fi
