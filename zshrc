@@ -84,10 +84,12 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # wmname LG3D
 
-# export GPG_TTY=$(tty)
+if [ "$HOSTNAME" = memento ]; then
+    export GPG_TTY=$(tty)
+    echo | en gpg -s > /dev/null
 
-# echo | en gpg -s > /dev/null
+    envoy -t ssh-agent
+    source <(envoy -p)
+fi
 
-envoy -t ssh-agent
-source <(envoy -p)
 (cd ~/dotfiles && exec dot-check)
