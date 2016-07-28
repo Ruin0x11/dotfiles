@@ -1,3 +1,12 @@
+platform='unknown'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    platform='darwin'
+fi
+hostname=$(hostname)
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -20,14 +29,16 @@ PROMPT=' %B%F{red}» %f%b'
 RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
 # PROMPT="%{$fg[blue]%}%~%{$reset_color%} %{$fg[black]%}>> %{$reset_color%}"
 
-export EDITOR=""
+export EDITOR="vim"
 export ALTERNATE_EDITOR=""
 source $HOME/.aliases
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
 
-export HOMEBREW_NO_ANALYTICS=1
+if [[ $platform == 'darwin' ]]; then
+    export HOMEBREW_NO_ANALYTICS=1
+fi
 
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
@@ -42,29 +53,30 @@ bindkey -M emacs '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# eval $( dircolors -b $HOME/LS_COLORS )
-#eval $( keychain -q --eval --agents ssh id_rsa ) 
+if [[ $platform == 'linux' ]]; then
+    eval $( dircolors -b $HOME/LS_COLORS )
+    export LS_COLORS
+fi
 
-export LS_COLORS
-export MAKEFLAGS='-j 4'
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
-
-#[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+# set number of make threads to number of processors
+threads=1
+if [[ $platform == 'linux' ]]; then
+    threads=$(grep -c ^processor /proc/cpuinfo)
+elif [[ $platform == 'darwin' ]]; then
+    threads=$(sysctl -n hw.ncpu)
+fi
+export MAKEFLAGS="-j $threads"
 
 zstyle ':completion:*' rehash true
 
-# source /usr/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-#source /usr/share/chruby/auto.sh
-chruby ruby-2.3.1
-# PATH=$PATH:/home/ruin/.gem/ruby/2.2.0/bin
-PATH=$PATH:/home/prin/.gem/ruby/2.3.0/bin
+if [[ $platform == 'darwin' ]]; then
+    export PATH=/usr/local/bin:$PATH
+    export PATH=$PATH:$HOME/.local/bin
+    export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
+fi
 
-PATH=$PATH:/Users/ipickering/.bin
-export PATH=/usr/local/bin:$PATH
-PATH=$PATH:/Users/ian/.bin
-PATH=$PATH:/Users/ian/.local/bin
-export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -78,13 +90,10 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=/usr/lib/go/bin/:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+if [[ $hostname == 'memento' ]]; then
+    export PANEL_FIFO="/tmp/panel-fifo"
+    wmname LG3D
 
-# export PANEL_FIFO="/tmp/panel-fifo"
-
-# wmname LG3D
-
-if [ "$HOSTNAME" = memento ]; then
     export GPG_TTY=$(tty)
     echo | en gpg -s > /dev/null
 
