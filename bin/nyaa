@@ -2,7 +2,7 @@
 
 program='/usr/bin/transmission-remote -a'
 nyaa="www.nyaa.se"
-tordir="/home/ruin/transmission"
+tordir="/mnt/hdd/Transmission"
 limit=20
 
 #Sorting method.
@@ -28,6 +28,13 @@ nonecolor='\x1b[0m'
 
 thisfile="$0"
 
+urldecode() {
+    # urldecode <string>
+
+    local url_encoded="${1//+/ }"
+    printf '%b' "${url_encoded//%/\\x}"
+}
+
 shift `expr $OPTIND - 1`
 
 q=`echo "$*" | tr -d '\n' | od -t x1 -A n | tr ' ' '%'`
@@ -38,18 +45,18 @@ fi
 
 r=`curl -k -A Mozilla -m 15 -s "$nyaa/$url" \
 	| tidy -mq --doctype omit --show-body-only true --SHOW-Warnings no --vertical-space no --wrap 0 \
-	| grep -Eo '<a href=\"http:\/\/www.nyaa.se\/?page=view&amp;tid=[0-9]*\">.*|<td class=\"tlist.*' \
-	| sed  's!<a href=\"http:\/\/www.nyaa.se\/?page=view&amp;tid=[0-9]*\">!!; \
+	| grep -Eo '<a href=\"\/\/www.nyaa.se\/?page=view&amp;tid=[0-9]*\">.*|<td class=\"tlist.*' \
+	| sed  's!<a href=\"\/\/www.nyaa.se\/?page=view&amp;tid=[0-9]*\">!!; \
 		s!^<td class=\"tlistfailed\" colspan=\"2\">!\n!g; \
 		s!^<td [^>]*>!!; \
-		s!<a href=\"http:\/\/www.nyaa.se\/?page=download&amp;tid=!!; \
+		s!<a href=\"\/\/www.nyaa.se\/?page=download&amp;tid=!!; \
 		s!\" title=\"Download\".*!!; \
 		s!</a></td>$!!; \
 		s!</td>$!!; \
-		s!<a href=\"http:\/\/www.nyaa.se\/?cats=.*alt=\"!!; \
+		s!<a href=\"\/\/www.nyaa.se\/?cats=.*title=\"!!; \
+		s!<img src=.*alt=.*>!!; \
 		s!\">!!' \
 	| sed  'N;N;N;N;N;N;N;s!\n!|!g'`
-
 
 echo "$r" \
 	| head -n "$limit" \
@@ -62,7 +69,7 @@ echo "$r" \
 		-v DL="$downcolor" \
 		-v NO="$nonecolor" \
 		-F '|' \
-		'{print NU N ") " NA $2 " " SI $4 " " PE $5 " " SE $6 " " DL $7 NO; N++}'
+		'{print NU N ") [" NU $1 "] " NA $2 " " SI $4 " " PE $5 " " SE $6 " " DL $7 NO; N++}'
 
 read -p ">> Which torrent? (ex. 1, 3, 5-7...): " selection
 IFS=$'\n\ '
