@@ -1,0 +1,10 @@
+#!/bin/bash
+
+width=1024
+height=4096
+maxval=255
+
+for f in $@
+do
+  (echo "P5 ${width} ${height} ${maxval}"; cat "$f") > "$f.ppm"
+done

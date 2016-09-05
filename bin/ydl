@@ -1,0 +1,4 @@
+#!/bin/bash
+
+video=`xclip -o`
+youtube-dl "$video"
