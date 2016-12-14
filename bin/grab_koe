@@ -1,0 +1,33 @@
+#!/bin/bash
+
+filename="$1"
+savedir="$HOME/Music/Production/Resource/Samples/Extract"
+# Find out which tracks contain the audios
+mkvmerge -i -F verbose-text "$filename" | grep 'audio' | while read audioline
+  do
+      # Grep the number of the audio track
+      tracknumber=`echo $audioline | egrep -o "[0-9]{1,2}" | head -1`
+      lang=`echo $audioline | gsed -r 's/\s/\n/g' | awk -F: '$1=="language"{print $2}'`
+      trackname=`echo $audioline | gsed -r 's/\s/\n/g' | awk -F: '$1=="track_name"{print $2}'`
+      channels=`echo $audioline | grep -oE '\[(.*?)\]' | gsed -r 's/(\[|\])//g' | gsed -r 's/\s/\n/g' | awk -F: '$1=="audio_channels"{print $2}'`
+      format=`echo $audioline | grep -oE '\([[:alnum:]]*?\)' | sed 's/[()]//g'`
+
+      # Get base name for audio
+      audioname=${filename%.*}
+      echo "$channels"
+
+      if [[ $lang == "jpn" && $channels -ge 6 ]]; then
+          # Extract the track to a .tmp file
+          echo "Found: $trackname"
+          `mkvextract tracks "$filename" $tracknumber:"$audioname.tmp" > /dev/null 2>&1`
+          `chmod g+rw "$audioname.tmp"`
+          finalname="$savedir/$audioname - $trackname.flac"
+          if [[ $format != "FLAC" ]]; then
+              echo "Converting to FLAC."
+              ffmpeg -v warning -i "$audioname.tmp" -c:a flac "$finalname"
+          else
+              cp "$audioname.tmp" "$finalname"
+          fi
+          rm "$audioname.tmp"
+      fi
+  done
