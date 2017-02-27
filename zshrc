@@ -42,8 +42,11 @@ fi
 
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # bind P and N for EMACS mode
 bindkey -M emacs '^P' history-substring-search-up
@@ -85,6 +88,7 @@ unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
 
+export STOW_DIR="/usr/local/stow"
 export GOPATH=~/build/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
@@ -101,4 +105,20 @@ if [[ $hostname == 'memento' ]]; then
     source <(envoy -p)
 fi
 
-(cd ~/dotfiles && exec dot-check)
+(cd ~/.dotfiles && exec dot-check)
+
+PATH="/home/nuko/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
+
+# Start tmux automatically when on Linux console
+
+if [ "${TERM}" = "linux" ]; then
+    #colorscheme
+    source ~/.bin/yui_colorscheme.sh
+    if [ -z "${TMUX}" ]; then
+        tmux a || tmux
+    fi
+fi
