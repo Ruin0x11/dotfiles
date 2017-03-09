@@ -23,6 +23,8 @@ autoload -U promptinit
 promptinit
 autoload -U colors && colors
 
+source /etc/profile
+
 # PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
 # RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 PROMPT=' %B%F{red}» %f%b'
@@ -32,6 +34,7 @@ RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
 export EDITOR="vim"
 export ALTERNATE_EDITOR=""
 source $HOME/.aliases
+source $HOME/.zshrc.funcs
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
@@ -112,6 +115,10 @@ PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
+
+export BROWSER="elinks"
+
+source ~/.cargo/env
 
 # Start tmux automatically when on Linux console
 

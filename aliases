@@ -1,20 +1,25 @@
 alias l='ls++'
-alias pf='pacman -Ss --color always'
-alias pi='sudo pacman -S'
+alias pf='prt-get search'
+alias pi='sudo prt-get depinst'
 alias pd='sudo pacman -R'
 alias pq='pacman -Qu'
 
-alias yf='yaourt -Ss'
-alias yi='yaourt -S'
-alias yd='yaourt -R'
-alias yq='yaourt -Qu'
+#alias pf='pacman -Ss --color always'
+#alias pi='sudo pacman -S'
+#alias pd='sudo pacman -R'
+#alias pq='pacman -Qu'
+
+#alias yf='yaourt -Ss'
+#alias yi='yaourt -S'
+#alias yd='yaourt -R'
+#alias yq='yaourt -Qu'
 
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
 alias ns='sudo netctl start'
 alias m='sudo mount'
 alias um='sudo umount'
-alias sv='sudo vim -u /home/ruin/.vimrc'
+alias sv='sudo vim -u /home/nuko/.vimrc'
 alias wm='sudo wifi-menu'
 alias cx='sudo chmod +x'
 alias rp='LANG=ja_JP.UTF-8 wine ~/Dropbox/ANDY\ MENTE/rs346/rp.exe'
@@ -42,6 +47,8 @@ alias ec='emacsclient -c -n '
 alias ecr='pkill emacs ; emacsclient -c -n'
 #alias vim='emacsclient -t '
 
+alias git="hub"
+
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 
 alias mpvm="mpv --profile=movie "
@@ -50,3 +57,11 @@ alias mpvp="mpv --profile=player "
 
 alias sy='sudo systemctl'
 alias usy='systemctl --user'
+alias sr="surfraw google"
+alias srl="surfraw google -l"
+alias rsbk="RUST_BACKTRACE=1"
+alias mkdir="mkdir -p"
+
+alias in="at now + "
+alias wttr="curl wttr.in/61820"
+alias df="df -h"
