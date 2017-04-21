@@ -1,0 +1,4 @@
+#!/bin/bash
+
+TARGET="acpi_video0"
+MAX="$(cat /sys/class/backlight/${TARGET}$/max_brightness)"

@@ -12,6 +12,9 @@ set use_from = yes
 
 subscribe dev@suckless.org
 subscribe rust-dev@mozilla.org
+subscribe emacs-orgmode@mozilla.org
+subscribe emacs-tangents@mozilla.org
+subscribe emacs-devel@mozilla.org
 
 set smtp_url=smtp://$imap_user:$imap_pass@smtp.gmail.com:587
 set ssl_force_tls = yes

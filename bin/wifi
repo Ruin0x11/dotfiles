@@ -40,6 +40,7 @@ if [ -z $WPA_KEY_LOC ]
 then
 	echo "According to the profile, this AP has no WPA encryption."
 else
+    sudo pkill wpa_supplicant
 	sudo /usr/sbin/wpa_supplicant -i$WIFACE -c$WPA_KEY_LOC&
 fi
 
@@ -54,7 +55,7 @@ then
 	sudo ifconfig msh0 $2
 	sudo echo "mesh-up: this node IP address is $2"
 else
-	sudo iwconfig $WIFACE mode managed essid $ESSID $WEP
+	sudo iwconfig $WIFACE mode managed essid "$ESSID" $WEP
 	sudo dhclient -r $WIFACE&>/dev/null
 	sudo dhclient $WIFACE&>/dev/null
 fi

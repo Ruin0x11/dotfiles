@@ -1,12 +1,12 @@
-#include "/home/ruin/.Xcolors/Tatou.Xresources"
+#include "/home/nuko/.Xcolors/DotShare.Xresources"
 URxvt.letterSpace: 0
 URxvt.scrollBar:    false
 
 /* URxvt.font:                -*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-* */
 /* URxvt.boldFont:                -*-gohufont-bold-*-*-*-11-*-*-*-*-*-*-* */
 
-URxvt.font: xft:Menlo for Powerline:pixelsize=12
-URxvt.boldFont: xft:Menlo for Powerline:bold:pixelsize=12
+URxvt.font: xft:Iosevka-10,Iosevka Thin-10:pixelsize=8
+URxvt.boldFont: xft:Iosevka-10,Iosevka Thin-10:style=bold:pixelsize=8
 
 ! Xcursor.theme: whiteglass
 
@@ -26,3 +26,11 @@ URxvt.altSendsEscape: true
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
+
+Xft.dpi: 196
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
