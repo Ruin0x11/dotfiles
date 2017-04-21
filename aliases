@@ -1,13 +1,13 @@
 alias l='ls++'
-alias pf='prt-get search'
-alias pi='sudo prt-get depinst'
-alias pd='sudo pacman -R'
-alias pq='pacman -Qu'
-
-#alias pf='pacman -Ss --color always'
-#alias pi='sudo pacman -S'
+#alias pf='prt-get search'
+#alias pi='sudo prt-get depinst'
 #alias pd='sudo pacman -R'
 #alias pq='pacman -Qu'
+
+alias pf='pacman -Ss --color always'
+alias pi='sudo pacman -S'
+alias pd='sudo pacman -R'
+alias pq='pacman -Qu'
 
 #alias yf='yaourt -Ss'
 #alias yi='yaourt -S'
