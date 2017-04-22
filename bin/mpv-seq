@@ -15,4 +15,4 @@ pl=`find "$dir" -iname "*.$ext" \
 
 shift
 
-mpv "$@" -playlist "$playlist"
+mpv --profile=log "$@" -playlist "$playlist"

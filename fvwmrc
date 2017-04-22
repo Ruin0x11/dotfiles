@@ -4,7 +4,7 @@
 # smaller XTerm at the right, together with a clock and CPU monitor
 # and a few buttons for accessing independent desktops.
 
-# I've tried to write lots of comments because I will certainly forget
+# I've tried to write lots o1x4f comments because I will certainly forget
 # most of the details of Fvwm2's syntax and semantics before long.
 
 # My display screen is 1440 pixels wide and 900 high.
@@ -14,27 +14,34 @@ ExecUseShell /bin/zsh
 
 # Next, specify the paths for all icons (.xpm files) that I'm using:
 # PixmapPath /usr/share/icons:/home/icons
-ImagePath /home/nuko/icons:/usr/share/icons/xpm
+ImagePath /home/nuko/Pictures/icons:/usr/share/icons/xpm
+
+Style *	   BorderWidth 6, HandleWidth 6
 
 # I tried mxn desktops and didn't like them.
-DeskTopSize 1x1
+DeskTopSize 4x1
+Module FvwmPager *
+*FvwmPagerGeometry -1-1
+Style FvwmPager !Title, Handles, Borders, NeverFocus, !Iconifiable, Sticky, WindowListSkip
 
 # X's font rendering without anti-aliasing looks least bad with the following:
 #WindowFont -adobe-times-bold-r-*-*-18-*-*-*-*-*-*-*
-WindowFont fixed
+# WindowFont fixed
 #IconFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
-IconFont fixed
-
-# "gainsboro" is a light grey; it's for the active window border
-HilightColor black gainsboro
+# IconFont fixed
+Font                    -adobe-helvetica-medium-r-*-*-*-100-*-*-*-*-*-*
+WindowFont              -adobe-helvetica-medium-r-*-*-14-100-*-*-*-*-*-*
+*FvwmPagerFont		-adobe-helvetica-bold-r-*-*-*-100-*-*-*-*-*-*
+*FvwmPagerSmallFont	-adobe-helvetica-medium-r-*-*-*-80-*-*-*-*-*-*
+*FvwmButtonsFont -adobe-helvetica-medium-r-*-*-10-80-*-*-*-*-*-*
 
 # FVWM style menus have a 3D look but not exaggeratedly so;
 # this MenuStyle option must come first
 MenuStyle * FVWM
 
 # I'm guessing that gold letters on deep blue background will make cool menus
-MenuStyle * Foreground gold, Background #000060, Greyed #202080
-MenuStyle * Font -adobe-times-bold-r-*-*-14-*-*-*-*-*-*-*
+MenuStyle * Foreground white, Background #606070709090, Greyed #202080
+MenuStyle * Font -adobe-helvetica-medium-*-*-13-*-*-*-*-*-*-*
 
 # With FocusFollowsMouse and AutoRaise, I don't need to click for attention.
 # (FvwmAuto will raise the window after one second = 1000 milliseconds.)
@@ -52,7 +59,15 @@ Style * BorderWidth 7, HandleWidth 7
 Style * Icon unknown.xpm
 
 # The default colors for window titles and frames might as well be documented:
-Style * Color white/dimgrey
+# Style * Color white/dimgrey
+*FvwmPagerBack		#5e5e5e5e6464
+*FvwmPagerFore		#000000000000
+*FvwmPagerHilight	#00008b8b8b8b
+
+Style * ForeColor #ffffffffffff, BackColor #606070709090
+
+# "gainsboro" is a light grey; it's for the active window border
+HilightColor white #AC4C7B
 
 # The next is just to provide approximately decent behavior when a program
 # has been written to follow protocols of Motif or OpenLook:
@@ -79,6 +94,7 @@ Style * MinOverlapPlacement
 # (It surely is protected by trademark, but it's just for me at home.)
 Style XTerm Icon term.xpm, NoTitle
 Style URxvt Icon term.xpm 
+IconBox 64 -128 -64 -64, IconFill left top
 Style Emacs Icon emacs.xpm
 Style XOsview Icon xosview.xpm, ClickToFocus
 Style Gimp Icon gimp.xpm, StaysOnTop
@@ -86,8 +102,15 @@ Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
 Style Xmag Icon xmag.xpm
 Style Metafont StaysOnTop
 Style Surf Icon nothing.xpm
+Style Chromium Icon nothing.xpm
 
 # (By the way, it's interesting to try "while(1) ;  xeyes & ; end".)
+#
+# SmartPlacement
+# RandomPlacement
+# StickyIcons
+
+IconBox 1360 -64 -1 -1
 
 # Now for mouse commands in the root window R:
 # Left mouse button brings up Root-Menu; middle button brings up Window-Ops
@@ -157,14 +180,16 @@ Mouse 2 FTSI A Iconify
 # Right mouse raises or lowers.
 Mouse 3 FTSI A RaiseLower
 
+AddToFunc Run-Term "I" Exec exec urxvt -fn "-sgi-screen-medium-*-normal-*-14-*-*-*-*-*-*-*" -fb "-sgi-screen-bold-*-normal-*-14-*-*-*-*-*-*-*"
+
 # The root menus are next. Since I'm perfectly happy with launching programs
 # from a command line, my menus mostly provide functions that are difficult
 # to type (for example, when no terminal window is handy) or impossible
 # to activate from a command line (namely Fvwm's builtin modules).
 AddtoMenu Root-Menu "Shell terminal (Classic Font)" \
-  Exec exec urxvt -fn "-sgi-screen-medium-*-normal-*-14-*-*-*-*-*-*-*"
-+ "Shell terminal (BIG FONT)" \
   Exec exec urxvt
++ "Shell terminal (BIG FONT)" \
+  Exec exec urxvt -fn "xft:Iosevka-10,Iosevka Thin-10:pixelsize=8" -fb "xft:Iosevka-10,Iosevka Thin-10:style=bold:pixelsize=8"
 # + "Shell terminal (Normal Font)" \
   # Exec exec urxvt -font my6x13 -rv
 # + "Shell terminal (small font)" \
@@ -177,6 +202,8 @@ AddtoMenu Root-Menu "Shell terminal (Classic Font)" \
 # + "Emacs (Normal Font)" Exec exec emacs -font my6x13
 # + "Emacs (small font)" Exec exec emacs -font my5x7
 # + "Emacs (as root)" Exec exec doit emacs -font my6x13 -bg DarkRed -cr black
+ + "chromium" \
+ Exec exec chromium
  + "surf" \
  Exec exec surf "google.com"
 + "" Nop
@@ -215,6 +242,13 @@ AddToMenu Window-Ops "Window Operations" Title
 + "Close" Close
 + "Destroy" Destroy
 
+Key R A M Exec exec dmenu_recent_aliases
+Key Return A M Run-Term
+Key 1 A M Desk 0 0
+Key 2 A M Desk 0 1
+Key 3 A M Desk 0 2
+Key 4 A M Desk 0 3
+
 # Now comes the fun part: Buttons to push that will take me from one
 # desktop to another.
 #
@@ -226,23 +260,25 @@ AddToMenu Window-Ops "Window Operations" Title
 # (although I could have regarded it as a 4x5 grid of 32x16s).
 # The border adds 4 pixels.
 
-*FvwmButtonsRows 5
-*FvwmButtonsColumns 8
-*FvwmButtonsGeometry 132x84-0+0
+*FvwmButtonsRows 8
+*FvwmButtonsColumns 1
+*FvwmButtonsGeometry 64x480-1+1
 *FvwmButtonsBoxSize fixed
-*FvwmButtonsFont None
-*FvwmButtonsBack Orange
+*FvwmButtonsBack Grey
 *FvwmButtonsPadding 0 0
-*FvwmButtons(4x4+4+0, Swallow(UseOld,Respawn) ASClock "Exec exec asclock")
-*FvwmButtons(8x1+0+4, Swallow(UseOld,Respawn) \
-  XLoad "Exec xload -nolabel -geometry 128x12+0+0 -bg dimgrey -fg white")
+*FvwmButtons(Swallow(UseOld,Respawn) ASClock "Exec exec asclock")
+*FvwmButtons(Swallow(UseOld,Respawn) \
+  XLoad "Exec xload -nolabel -geometry 128x12+0+0 -bg dimgrey -fg black", Action "Exec exec urxvt -e htop")
+*FvwmButtons(Title "Chromium", Icon nothing.xpm, Action "Exec exec chromium")
+*FvwmButtons(Title "Emacs", Icon emacs.xpm, Action "Exec exec emacsclient -c n")
+*FvwmButtons(Title "Elona+", Icon IslandD.xpm, Action "Exec LANG=ja_JP.UTF-8 exec wine /home/nuko/build/elona/elonaplus.exe")
 
-*FvwmButtons(2x2+0+0, Icon zero.xpm, Action "Desk 0 0")
-*FvwmButtons(2x2+2+0, Icon one.xpm, Action "Desk 0 1")
-*FvwmButtons(2x2+0+2, Icon two.xpm, Action "Desk 0 2")
-*FvwmButtons(2x2+2+2, Icon three.xpm, Action "Desk 0 3")
+# *FvwmButtons(2x2+0+0, Icon zero.xpm, Action "Desk 0 0")
+# *FvwmButtons(2x2+2+0, Icon one.xpm, Action "Desk 0 1")
+# *FvwmButtons(2x2+0+2, Icon two.xpm, Action "Desk 0 2")
+# *FvwmButtons(2x2+2+2, Icon three.xpm, Action "Desk 0 3")
 
-Style FvwmButtons ClickToFocus, NoTitle, NoHandles, Sticky, WindowListSkip
+Style FvwmButtons ClickToFocus, NoTitle, NoBorders, NoHandles, Sticky, WindowListSkip
 
 # Finally, the initialization and restart logic.
 # (The pattern "mod 2 2" is an attractive 2x2 plaid texture.)
@@ -253,7 +289,8 @@ AddToFunc Basic-Setup "I" Module FvwmButtons
 + "I" Wait FvwmButtons
 # + "I" Exec exec xsetroot -mod 2 2 -fg \#001860 -bg \#183078
 #+ "I" Exec exec xsetroot -bitmap $HOME/Toronto.bm -bg \#7A7993 -fg \#AFADD3
-+ "I" Exec exec xsetroot -bitmap /home/nuko/Toronto.bm -bg \#384552 -fg \#718BA5
+# + "I" Exec exec xsetroot -bitmap /home/nuko/Pictures/Toronto.bm -bg \#384552 -fg \#718BA5
++ "I" Exec exec xsetroot -bitmap /home/nuko/Pictures/Toronto.bm -bg \#24244D -fg \#505079
 + "I" Echo done with basic setup...
 
 AddToFunc InitFunction "I" Echo initializing...

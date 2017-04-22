@@ -2,11 +2,11 @@
 URxvt.letterSpace: 0
 URxvt.scrollBar:    false
 
-/* URxvt.font:                -*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-* */
-/* URxvt.boldFont:                -*-gohufont-bold-*-*-*-11-*-*-*-*-*-*-* */
+! URxvt.font: xft:Iosevka-10,Iosevka Thin-10:pixelsize=8
+! URxvt.boldFont: xft:Iosevka-10,Iosevka Thin-10:style=bold:pixelsize=8
 
-URxvt.font: xft:Iosevka-10,Iosevka Thin-10:pixelsize=8
-URxvt.boldFont: xft:Iosevka-10,Iosevka Thin-10:style=bold:pixelsize=8
+URxvt.font: -sgi-screen-medium-*-normal-*-14-*-*-*-*-*-*-*
+URxvt.boldFont: -sgi-screen-bold-*-normal-*-14-*-*-*-*-*-*-*
 
 ! Xcursor.theme: whiteglass
 
@@ -19,7 +19,7 @@ URxvt.perl-ext-common: selection-to-clipboard
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 URxvt.matcher.button: 1
-URxvt.meta8: false 
+URxvt.meta8: false
 URxvt.cursorBlink: false
 URxvt.altSendsEscape: true
 
@@ -27,7 +27,7 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 
-Xft.dpi: 196
+Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull

@@ -31,17 +31,17 @@ setxkbmap -option ctrl:nocaps
 xmodmap ~/.xmodmap
 xrdb ~/.Xresources
 xset fp+ /usr/share/fonts/local/
+xset fp+ /usr/share/fonts/75dpi/
 xset fp rehash
+
+xinput set-prop 8 "libinput Accel Speed" -1
 
 if [ `xrandr | grep -c ' connected '` -eq 2 ]; then
     if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
         xrandr --output HDMI1 --auto --primary --output eDP1 --off
-        exec fvwm -f $HOME/.fvwmrc
     fi
-else
-    dwmstat&
-    exec dwm
 fi
+exec fvwm -f $HOME/.fvwmrc
 #exec $HOME/build/stumpwm/stumpwm
 
 #if [ $WM == "bspwm" ] ; then
