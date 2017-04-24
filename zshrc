@@ -120,8 +120,13 @@ export BROWSER="elinks"
 
 source ~/.cargo/env
 
-# Start tmux automatically when on Linux console
+# Simpler prompt when using Emacs
+if [ "${TERM}" = "eterm-color" ]; then
+    PS1="%~ %# "
+    RPS1=
+fi
 
+# Start tmux automatically when on Linux console
 if [ "${TERM}" = "linux" ]; then
     #colorscheme
     source ~/.bin/yui_colorscheme.sh
