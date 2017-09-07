@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+uzdir() {
+  echo "$1"|awk -F'.zip' -v sq="\"" '{print "unzip "sq $0 sq" -d "sq $1 sq}'|sh
+}
+
+cbr()
+{
+    if [ $# -lt 2 ]; then
+        echo "usage: cbr <JIRA key> <blurb>"
+        return
+    fi
+    key=$1
+    rest=$2
+
+    if [[ ! $key =~ ^[[:upper:]]+-[[:digit:]]+$ ]]; then
+        echo $key
+        echo "cbr: key not in JIRA format"
+        return
+    fi
+
+    shift
+    shift
+
+    for var in "$@"
+    do
+        rest="${rest}_${var}"
+    done
+
+    branch="ip_${key}_${rest}"
+    git checkout -b "$branch"
+}
