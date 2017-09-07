@@ -17,6 +17,7 @@ then
     echo "-n --number : number to encode"
     echo "-d --delay : delay"
     echo "-s --sext : sub extension"
+    echo "-v --vext : video extension"
     exit 1
 fi
 
@@ -40,6 +41,11 @@ case $key in
     -s|--sext)
 
     ext=$2
+    shift
+    ;;
+    -v|--vext)
+
+    vid=$2
     shift
     ;;
     -d|--delay)

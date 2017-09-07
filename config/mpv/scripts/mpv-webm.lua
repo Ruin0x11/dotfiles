@@ -33,7 +33,7 @@ function make_webm_internal(burn_subtitles)
         return string.gsub(s, "'", "'\\''")
     end
 
-    local pathname = mp.get_property("working-directory", "") .. "/" .. mp.get_property("path", "")
+    local pathname = mp.get_property("working-directory", "")
     local trim_filters = esc(filters)
     if burn_subtitles then
         -- TODO: get current subtitle
@@ -43,10 +43,13 @@ function make_webm_internal(burn_subtitles)
     local position = start_time_l
     local duration = end_time_l - start_time_l
 
-    stream_path = mp.get_property("working-directory") .. "/" .. mp.get_property("path")
-    local working_path = get_containing_path(stream_path)
+    -- stream_path = mp.get_property("working-directory") .. "/" .. mp.get_property("path")
+    stream_path = mp.get_property("path")
+    msg.info(stream_path)
+    local working_path = mp.get_property("working-directory")
     local filename = mp.get_property("filename/no-ext")
     local file_path = working_path .. filename
+    msg.info(file_path)
 
     -- increment filename
     for i=0,999 do
@@ -61,7 +64,9 @@ function make_webm_internal(burn_subtitles)
         return
     end
 
-    args = string.format("ffmpeg -v warning -ss %s -t %s -i '%s' -c:v libvpx-v9 -crf 4 -b:v 1500K -c:a libopus -vf '%s' -y '%s'", position, duration, esc(pathname), esc(trim_filters), esc(webmname))
+    args = string.format("ffmpeg -v warning -i '%s' -ss %s -t %s -c:v libvpx-vp9 -pass 1 -crf 4 -b:v 1500K -threads 4 -speed 4 -an -f webm -y /dev/null", esc(stream_path), position, duration)
+    os.execute(args)
+    args = string.format("ffmpeg -v warning -i '%s' -ss %s -t %s -c:v libvpx-vp9 -pass 2 -crf 4 -b:v 1500K -threads 4 -speed 1 -vf '%s' -an -f webm -y '%s'", esc(stream_path), position, duration, esc(trim_filters), esc(webmname))
     os.execute(args)
 
     msg.info("WebM created.")

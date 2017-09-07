@@ -340,10 +340,10 @@ def_key "backspace"
 #def_key "b"
 #  seek_backward
 #
-#def_key "r"
-#  toggle_repeat
-#
 def_key "y"
+  toggle_repeat
+
+def_key "r"
   toggle_random
 
 #def_key "y"
@@ -485,7 +485,7 @@ def_key "space"
 #
 #def_key "m"
 #  toggle_media_library_sort_mode
-#
+
 #def_key "n"
 #  move_sort_order_down
 #
@@ -537,9 +537,9 @@ def_key "ctrl-s"
 #def_key "ctrl-l"
 #  toggle_screen_lock
 #
-#def_key "`"
-#  toggle_browser_sort_mode
-#
+def_key "m"
+  toggle_browser_sort_mode
+
 #def_key "`"
 #  toggle_library_tag_type
 #

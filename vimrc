@@ -179,6 +179,11 @@ autocmd BufRead *.fasm set ft=ia64
 autocmd BufRead *.rb set shiftwidth=2
 autocmd BufRead *.erb set shiftwidth=2
 
+" remember last file position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 hi link CTagsClass Type
 hi link CTagsEnumerationValue Constant
 hi link CTagsField Define
