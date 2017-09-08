@@ -7,10 +7,10 @@ alias pq='pacman -Qu'
 alias pf='brew search'
 alias pi='brew install'
 
-alias yf='yaourt -Ss'
-alias yi='yaourt -S'
-alias yd='yaourt -R'
-alias yq='yaourt -Qu'
+# alias yf='yaourt -Ss'
+# alias yi='yaourt -S'
+# alias yd='yaourt -R'
+# alias yq='yaourt -Qu'
 
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
@@ -47,6 +47,8 @@ alias ec='emacsclient -c -n '
 alias ecr='pkill emacs ; emacsclient -c -n'
 #alias vim='emacsclient -t '
 
+alias git="hub"
+
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 
 alias mpvm="mpv --profile=movie "
@@ -65,3 +67,12 @@ alias l='gls --color=auto'
 alias lsblk="diskutil list"
 alias dd="gdd"
 alias git="hub"
+alias sr="surfraw google"
+alias srl="surfraw google -l"
+alias rsbk="RUST_BACKTRACE=1"
+alias mkdir="mkdir -p"
+
+alias in="at now + "
+alias wttr="curl wttr.in/61820"
+alias df="df -h"
+alias lua="lua5.1"

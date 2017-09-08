@@ -12,13 +12,16 @@ source "~/.mutt/aliases"
 
 source "~/.mutt/main"
 folder-hook 'gmail.com' 'source ~/.mutt/main'
-#folder-hook 'illinois.edu' 'source ~/.mutt/school'
+folder-hook 'illinois.edu' 'source ~/.mutt/school'
 #source "~/.mutt/main"
 
 
 ## Shortcuts
 macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/main<enter><change-folder>!<enter>'
 macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.mutt/school<enter><change-folder>!<enter>'
+macro index A \
+      "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+           "mark all new as read"
 
 color attachment brightyellow default
 color error      brightred    default
@@ -33,3 +36,5 @@ color signature  red          default
 color status     brightwhite        blue
 color tilde      magenta      default
 color tree       magenta      default
+
+bind index G imap-fetch-mail

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+trap "exit" INT
+
+while IFS= read -r file
+do
+    echo "$file"
+    [ -e "$file" ] && rsync -avz --info=progress2 -e ssh "$file" okarin@107.191.96.127:/home/okarin/backup/
+done < "$HOME/.backups"

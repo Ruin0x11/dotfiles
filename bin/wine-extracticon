@@ -1,0 +1,14 @@
+#!/bin/bash
+# wine-extracticon
+
+echo "Extracting icon(s)..."
+wrestool -x -t 14 "$( greadlink -f "$@")" > "/tmp/$( basename "$( greadlink -f "$@")").ico"
+
+echo Converting icon to PNG...
+convert -alpha on "/tmp/$( basename "$( greadlink -f "$@")").ico" "/tmp/$( basename "$( greadlink -f "$@")").png"
+
+#  the script will assume the best icon is the bigger one
+echo Copy $(ls -S -1 "/tmp/$( basename $( greadlink -f "$@"))"*".png" | gtac | tail -n 1) to "$( greadlink -f "$@").icon.png" ...
+cp $(ls -S -1 "/tmp/$( basename $( greadlink -f "$@"))"*".png" | gtac | tail -n 1) "$( greadlink -f "$@").icon.png"
+
+echo "Done."

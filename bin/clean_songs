@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+require 'shellwords'
+songs = []
+playlists = `mpc lsplaylists`
+playlists.split("\n").each do |p|
+  list = `mpc -f "%file%" playlist #{p}`
+  songs.push(*list.split("\n"))
+end
+song_hash = Hash[songs.zip (0...songs.size)]
+p song_hash
+
+music_dir = File.open(File.join(ENV["HOME"], ".mpd/mpd.conf")).grep(/music_directory/).first.scan(/"([^\"]*)"/).first.first
+
+ARGV.each do |a|
+  dir = `mpc ls #{Shellwords.escape(a)}`
+  next if dir.empty?
+  dir_songs = dir.split("\n")
+  dir_songs.each do |d|
+    full_path = File.join(music_dir, d)
+    p d
+  end
+end
+

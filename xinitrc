@@ -1,58 +1,5 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
-
-# merge in defaults and keymaps
-
-if [ -f $sysresources ]; then
-
-
-
-
-
-
-
-    xrdb -merge $sysresources
-
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
-    xrdb -merge "$userresources"
-
-fi
-
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
-
-# start some nice programs
-
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
-
-# twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 # uim-xim &
@@ -60,10 +7,11 @@ export XMODIFIERS='@im=uim'
 xsetroot
 # compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
 xset +fp /usr/share/fonts/local/ &
+xset fp+ /usr/X11R6/lib/X11/fonts/local/ &
 #xinput set-prop 12 "Trackpad Smooth Scroll" 0
 xflux -z 61801
 # unclutter -idle 3 &
-# dropbox &
+dropboxd &
 # uim-toolbar-gtk3-systray &
 # mpdscribble &
 source ~/.aliases
@@ -73,29 +21,43 @@ source ~/.aliases
 # mpdscribble &
 # jack_control start &
 
-xrandr --output VGA-1 --mode 1440x900
->>>>>>> 6ef56cacba536c83e7dd2089cf00be9096a92488
+#xrandr --output VGA-1 --mode 1440x900
+
+# xrandr --size 1600x1200
+# exec wmaker
+
+xrandr --dpi 96
+setxkbmap -option ctrl:nocaps
+xmodmap ~/.xmodmap
+xrdb ~/.Xresources
+xset fp+ /usr/share/fonts/local/
+xset fp+ /usr/share/fonts/75dpi/
+xset fp rehash
+
+xinput set-prop 8 "libinput Accel Speed" -1
 
 if [ `xrandr | grep -c ' connected '` -eq 2 ]; then
     if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
-        xrandr --output HDMI1 --auto --primary --output eDP1 --auto --right-of HDMI1
+        xrandr --output HDMI1 --auto --primary --output eDP1 --off
     fi
 fi
+exec fvwm -f $HOME/.fvwmrc
+#exec $HOME/build/stumpwm/stumpwm
 
-if [ $WM == "bspwm" ] ; then
-    while true
-    do
-        # mail-sync
-        sleep 120
-    done &
-
-    #exec awesome
-    # exec i3
-     exec emacs
-else
-#    mpdcron &
-#    nitrogen --restore &
-    sxhkd &
-    panel &
-    exec bspwm
-fi
+#if [ $WM == "bspwm" ] ; then
+#    while true
+#    do
+#        # mail-sync
+#        sleep 120
+#    done &
+#
+#    #exec awesome
+#    # exec i3
+#     exec emacs
+#else
+##    mpdcron &
+##    nitrogen --restore &
+#    sxhkd &
+#    panel &
+#    exec bspwm
+#fi

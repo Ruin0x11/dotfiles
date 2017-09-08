@@ -1,0 +1,6 @@
+;; -*-lisp-*-
+(require :asdf)
+(require :stumpwm)
+;;(asdf:oos 'asdf:load-op 'swank)
+;;(asdf:oos 'asdf:load-op 'stumpwm)
+(stumpwm:stumpwm)

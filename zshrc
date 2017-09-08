@@ -23,6 +23,8 @@ autoload -U promptinit
 promptinit
 autoload -U colors && colors
 
+source /etc/profile
+
 # PROMPT="[%{$fg[red]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}][%{$fg_no_bold[blue]%}%~%{$reset_color%}]"
 # RPS1="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 PROMPT=' %B%F{red}» %f%b'
@@ -32,6 +34,7 @@ RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
 export EDITOR="vim"
 export ALTERNATE_EDITOR=""
 source $HOME/.aliases
+source $HOME/.zshrc.funcs
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.zsh/git.zsh
@@ -102,6 +105,7 @@ unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
 
+export STOW_DIR="/usr/local/stow"
 export GOPATH=~/build/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
@@ -122,18 +126,27 @@ fi
 
 (cd ~/.dotfiles && exec dot-check)
 
-PATH="/Users/ruin/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/ruin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/ruin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/ruin/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/ruin/perl5"; export PERL_MM_OPT;
-export PATH="/usr/local/sbin:$PATH"
+PATH="/home/nuko/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
 
-source $HOME/.cargo/env
-export CARGO_INCREMENTAL=1
-source $HOME/.zshrc.functions
+export BROWSER="elinks"
 
-export PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
+source ~/.cargo/env
 
-export DB_USER=`whoami`
-export DB_NAME=`whoami`
+# Simpler prompt when using Emacs
+if [ "${TERM}" = "eterm-color" ]; then
+    PS1="%~ %# "
+    RPS1=
+fi
+
+# Start tmux automatically when on Linux console
+if [ "${TERM}" = "linux" ]; then
+    #colorscheme
+    source ~/.bin/yui_colorscheme.sh
+    if [ -z "${TMUX}" ]; then
+        tmux a || tmux
+    fi
+fi
