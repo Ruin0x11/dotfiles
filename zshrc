@@ -34,7 +34,7 @@ RPROMPT='%B%F{blue}%~ %B%F{white}%#%b'
 export EDITOR="vim"
 export ALTERNATE_EDITOR=""
 source $HOME/.aliases
-source $HOME/.zshrc.funcs
+source $HOME/.zshrc.functions
 # source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -51,8 +51,8 @@ zmodload zsh/terminfo
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 
 # bind P and N for EMACS mode
 bindkey -M emacs '^P' history-substring-search-up
@@ -67,8 +67,10 @@ bindkey '^[[B' history-substring-search-down
 
 if [[ $platform == 'linux' ]]; then
     eval $( dircolors -b $HOME/LS_COLORS )
-    export LS_COLORS
+elif [[ $platform == 'darwin' ]]; then
+    eval $( gdircolors -b $HOME/LS_COLORS )
 fi
+export LS_COLORS
 
 # set number of make threads to number of processors
 threads=1
@@ -79,16 +81,29 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 export MAKEFLAGS="-j $threads"
 
+if [[ $platform == 'darwin' ]]; then
+    # GDK_PIXBUF_MODULEDIR=$HOMEBREW/lib/gdk-pixbuf-2.0/2.10.0/loaders gdk-pixbuf-query-loaders --update-cache
+fi
+
 zstyle ':completion:*' rehash true
 
 if [[ $platform == 'darwin' ]]; then
     export PATH=/usr/local/bin:$PATH
     export PATH=$PATH:$HOME/.local/bin
     export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
+    launchctl setenv PATH $PATH
+fi
+
+if [ -e "/usr/local/share/chruby/chruby.sh" ]; then
+    source /usr/local/opt/chruby/share/chruby/chruby.sh
+    source /usr/local/opt/chruby/share/chruby/auto.sh
+    chruby ruby-2.4.1
 fi
 
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+
+export LC_ALL=ja_JP.UTF-8
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
@@ -102,6 +117,8 @@ export GOPATH=~/build/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=/usr/lib/go/bin/:$PATH
+
+export PATH=$PATH:$HOME/miniconda3/bin
 
 if [[ $hostname == 'memento' ]]; then
     export PANEL_FIFO="/tmp/panel-fifo"
@@ -123,10 +140,6 @@ fi
 #PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
 
 export BROWSER="elinks"
-
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-chruby ruby-2.4.1
 
 if [ -f ~/.cargo/env ]; then
    source ~/.cargo/env

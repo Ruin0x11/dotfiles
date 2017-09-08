@@ -26,10 +26,10 @@ elif [[ $platform == 'darwin' ]]; then
     alias pq='brew list'
 fi
 
-#alias yf='yaourt -Ss'
-#alias yi='yaourt -S'
-#alias yd='yaourt -R'
-#alias yq='yaourt -Qu'
+# alias yf='yaourt -Ss'
+# alias yi='yaourt -S'
+# alias yd='yaourt -R'
+# alias yq='yaourt -Qu'
 
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
@@ -38,9 +38,12 @@ alias ns='sudo netctl start'
 if [[ $platform == 'linux' ]]; then
     alias m='sudo mount'
     alias um='sudo umount'
+elif [[ $platform == 'darwin' ]]; then
+    alias m='diskutil mountDisk'
+    alias um='diskutil unmountDisk'
 fi
 
-alias sv='sudo vim -u /home/nuko/.vimrc'
+alias sv='sudo vim -u $HOME/.vimrc'
 alias wm='sudo wifi-menu'
 alias cx='sudo chmod +x'
 alias rp='LANG=ja_JP.UTF-8 wine ~/Dropbox/ANDY\ MENTE/rs346/rp.exe'
@@ -73,11 +76,21 @@ alias git="hub"
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 
 alias mpvm="mpv --profile=movie "
-alias mpvd="mpv --profile=demo "
+alias mpvl="mpv --profile=log "
 alias mpvp="mpv --profile=player "
 
 alias sy='sudo systemctl'
 alias usy='systemctl --user'
+
+alias nico='youtube-dl -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s" --username ipickering2@gmail.com'
+alias nicosong='youtube-dl -x -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s" --username ipickering2@gmail.com'
+
+# macOS
+alias l='gls --color=auto'
+#alias l='ls++'
+alias lsblk="diskutil list"
+alias dd="gdd"
+alias git="hub"
 alias sr="surfraw google"
 alias srl="surfraw google -l"
 alias rsbk="RUST_BACKTRACE=1"

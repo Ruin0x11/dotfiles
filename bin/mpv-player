@@ -1,0 +1,18 @@
+#!/bin/bash
+
+playlist=/var/tmp/.playlist
+thisfile="$0"
+
+qa="$1"
+q=$(printf '%s\n' "$qa" | sed 's/[[\.*^$/]/\\&/g')
+ext="${q##*.}"
+dir=`pwd`
+
+pl=`find "$dir" -iname "*.$ext" \
+    | sort \
+    | sed -n "/${q}/,\$ p" \
+    | tee $playlist`
+
+shift
+
+mpv "$@" -playlist "$playlist" --profile=player

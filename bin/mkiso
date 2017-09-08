@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo diskutil unmountDisk "$1"
+dd if="$1" of="$2" bs=2048 conv=sync,notrunc
+sudo diskutil eject "$1"

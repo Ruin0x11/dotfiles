@@ -1,0 +1,10 @@
+#!/bin/bash
+site=`curl -k -A Mozilla -m 15 -s "$1"` 
+contentId=`echo "$site" | grep -E 'contentId:' | head -n1 | awk -F\' '{print $(NF-1)}'`
+createDate=`echo "$site" | grep -E 'createDate:' | awk -F\' '{print $(NF-1)}'`
+idShort=`echo "$contentId" | cut -b"1,2"`
+echo "$contentId"
+echo "$createDate"
+url="http://c1.piapro.jp/audio_audition/$idShort/${contentId}_${createDate}_audition.mp3"
+#echo "$url"
+wget --no-clobber -P "$HOME/Music/Music/piapro" "$url"

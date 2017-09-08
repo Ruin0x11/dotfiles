@@ -1,5 +1,4 @@
 search art
-delete
 search music
 open_with p
 search cop/
@@ -29,3 +28,5 @@ search win
 search rom
 search rep
 select_file 
+sort ctime
+delete

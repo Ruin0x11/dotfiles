@@ -1,0 +1,4 @@
+#!/bin/bash
+
+id=`echo "$1" | awk -F'[=&]' '{print $2}'`
+wget -P "$HOME/Music/sound/koe-koe" "http://file.koe-koe.com/sound/upload/$id.mp3"
