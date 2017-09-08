@@ -8,7 +8,7 @@
 
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="config bashrc vimrc vimrc.bundles zshrc zsh Xresources Xcolors xinitrc muttrc mpdscribble mutt mpd aliases ncmpcpp bin tmux.conf gitconfig wifi xmodmap fvwmrc"    # list of files/folders to symlink in homedir
+files="config bashrc vimrc vimrc.bundles zshrc zsh Xresources Xcolors xinitrc muttrc mpdscribble mutt mpd aliases ncmpcpp bin tmux.conf gitconfig"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -30,3 +30,4 @@ for file in $files; do
 	ln -s $dir/$file ~/.$file
 done
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

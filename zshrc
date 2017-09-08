@@ -35,8 +35,11 @@ export EDITOR="vim"
 export ALTERNATE_EDITOR=""
 source $HOME/.aliases
 source $HOME/.zshrc.funcs
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+# source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 source $HOME/.zsh/git.zsh
 
 if [[ $platform == 'darwin' ]]; then
@@ -58,6 +61,9 @@ bindkey -M emacs '^N' history-substring-search-down
 # bind k and j for VI mode
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 if [[ $platform == 'linux' ]]; then
     eval $( dircolors -b $HOME/LS_COLORS )
@@ -110,15 +116,21 @@ fi
 
 (cd ~/.dotfiles && exec dot-check)
 
-PATH="/home/nuko/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
+#PATH="/home/nuko/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
 
 export BROWSER="elinks"
 
-source ~/.cargo/env
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-2.4.1
+
+if [ -f ~/.cargo/env ]; then
+   source ~/.cargo/env
+fi
 
 # Simpler prompt when using Emacs
 if [ "${TERM}" = "eterm-color" ]; then
@@ -126,11 +138,14 @@ if [ "${TERM}" = "eterm-color" ]; then
     RPS1=
 fi
 
-# Start tmux automatically when on Linux console
-if [ "${TERM}" = "linux" ]; then
+# Start tmux automatically
+if [ -x "$(command -v tmux >/dev/null 2>&1)" ]; then
     #colorscheme
-    source ~/.bin/yui_colorscheme.sh
-    if [ -z "${TMUX}" ]; then
-        tmux a || tmux
-    fi
+    #source ~/.bin/yui_colorscheme.sh
+    tmux a || tmux
+fi
+
+
+if [[ "$(hostname)" == 'Eric-CF.local' ]]; then
+    source $HOME/.zshrc.work
 fi

@@ -1,13 +1,30 @@
+#!/bin/bash
+
+platform='unknown'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    platform='darwin'
+fi
+
 alias l='ls++'
 #alias pf='prt-get search'
 #alias pi='sudo prt-get depinst'
 #alias pd='sudo pacman -R'
 #alias pq='pacman -Qu'
 
-alias pf='pacaur -Ss --color always'
-alias pi='pacaur -S'
-alias pd='pacaur -R'
-alias pq='pacaur -Qu'
+if [[ $platform == 'linux' ]]; then
+    alias pf='pacaur -Ss --color always'
+    alias pi='pacaur -S'
+    alias pd='pacaur -R'
+    alias pq='pacaur -Qu'
+elif [[ $platform == 'darwin' ]]; then
+    alias pf='brew search'
+    alias pi='brew install'
+    alias pd='brew uninstall'
+    alias pq='brew list'
+fi
 
 #alias yf='yaourt -Ss'
 #alias yi='yaourt -S'
@@ -17,8 +34,12 @@ alias pq='pacaur -Qu'
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
 alias ns='sudo netctl start'
-alias m='sudo mount'
-alias um='sudo umount'
+
+if [[ $platform == 'linux' ]]; then
+    alias m='sudo mount'
+    alias um='sudo umount'
+fi
+
 alias sv='sudo vim -u /home/nuko/.vimrc'
 alias wm='sudo wifi-menu'
 alias cx='sudo chmod +x'
