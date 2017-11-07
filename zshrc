@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 platform='unknown'
 unamestr=$(uname)
 if [[ "$unamestr" == 'Linux' ]]; then
@@ -39,6 +41,7 @@ source $HOME/.zshrc.functions
 # source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 source $HOME/.zsh/git.zsh
 
@@ -111,6 +114,13 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
 setopt HIST_IGNORE_SPACE
+setopt RM_STAR_WAIT
+
+setopt AUTO_PUSHD                  # pushes the old directory onto the stack
+setopt PUSHD_MINUS                 # exchange the meanings of '+' and '-'
+setopt CDABLE_VARS                 # expand the expression (allows 'cd -2/tmp')
+autoload -U compinit && compinit   # load + start completion
+zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
 export STOW_DIR="/usr/local/stow"
 export GOPATH=~/build/go
@@ -133,7 +143,9 @@ fi
 
 (cd ~/.dotfiles && exec dot-check)
 
+export PERL5LIB=$PERL5LIB:/usr/local/Cellar/perl/5.26.0/lib/perl5/site_perl/5.26.0
 #PATH="/home/nuko/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#
 #PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 #PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 #PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
@@ -162,3 +174,6 @@ fi
 if [[ "$(hostname)" == 'Eric-CF.local' ]]; then
     source $HOME/.zshrc.work
 fi
+
+# added by travis gem
+[ -f /Users/ianpickering/.travis/travis.sh ] && source /Users/ianpickering/.travis/travis.sh

@@ -32,7 +32,7 @@ defyn   SURFRAW_graphical		yes
 
 # name/path of text browser executable
 # e.g links, lynx, w3m
-def   SURFRAW_text_browser	links
+def   SURFRAW_text_browser	w3m
 
 # name/path of browser executable
 # e.g mozilla, netscape etc

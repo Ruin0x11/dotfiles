@@ -39,8 +39,8 @@ if [[ $platform == 'linux' ]]; then
     alias m='sudo mount'
     alias um='sudo umount'
 elif [[ $platform == 'darwin' ]]; then
-    alias m='diskutil mountDisk'
-    alias um='diskutil unmountDisk'
+    #alias m='diskutil mountDisk'
+    #alias um='diskutil unmountDisk'
 fi
 
 alias sv='sudo vim -u $HOME/.vimrc'

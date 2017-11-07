@@ -28,5 +28,6 @@ cbr()
     done
 
     branch="ip_${key}_${rest}"
+    git checkout "master"
     git checkout -b "$branch"
 }
