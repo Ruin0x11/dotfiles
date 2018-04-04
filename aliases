@@ -8,28 +8,24 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
     platform='darwin'
 fi
 
-alias l='ls++'
-#alias pf='prt-get search'
-#alias pi='sudo prt-get depinst'
-#alias pd='sudo pacman -R'
-#alias pq='pacman -Qu'
+if [[ $platform == 'linux' ]]; then
+    alias l='ls++'
+elif [[ $platform == 'darwin' ]]; then
+    alias l='gls -la --color=auto'
+fi
 
 if [[ $platform == 'linux' ]]; then
     alias pf='pacaur -Ss --color always'
     alias pi='pacaur -S'
     alias pd='pacaur -R'
     alias pq='pacaur -Qu'
+    alias pl='pacaur -Ql'
 elif [[ $platform == 'darwin' ]]; then
     alias pf='brew search'
     alias pi='brew install'
     alias pd='brew uninstall'
     alias pq='brew list'
 fi
-
-# alias yf='yaourt -Ss'
-# alias yi='yaourt -S'
-# alias yd='yaourt -R'
-# alias yq='yaourt -Qu'
 
 alias pu='sudo pacman -U'
 alias nsa='sudo netctl stop-all && sudo netctl start'
@@ -39,8 +35,8 @@ if [[ $platform == 'linux' ]]; then
     alias m='sudo mount'
     alias um='sudo umount'
 elif [[ $platform == 'darwin' ]]; then
-    #alias m='diskutil mountDisk'
-    #alias um='diskutil unmountDisk'
+    alias m='diskutil mountDisk'
+    alias um='diskutil unmountDisk'
 fi
 
 alias sv='sudo vim -u $HOME/.vimrc'
@@ -86,8 +82,6 @@ alias nico='youtube-dl -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s"
 alias nicosong='youtube-dl -x -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s" --username ipickering2@gmail.com'
 
 # macOS
-alias l='gls --color=auto'
-#alias l='ls++'
 alias lsblk="diskutil list"
 alias dd="gdd"
 alias git="hub"

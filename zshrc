@@ -39,10 +39,10 @@ source $HOME/.aliases
 source $HOME/.zshrc.functions
 # source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/share/zsh/plugins/zsh-syntax-highlighting/highlighters
 source $HOME/.zsh/git.zsh
 
 if [[ $platform == 'darwin' ]]; then
@@ -106,7 +106,7 @@ fi
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 
-export LC_ALL=ja_JP.UTF-8
+#export LC_ALL=ja_JP.UTF-8
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
