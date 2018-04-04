@@ -1,0 +1,33 @@
+---
+- hosts: webservers
+  vars:
+      user: ruin
+  tasks:
+      - name: update pacman
+        pacman: 
+            update_cache: yes
+            upgrade: yes
+
+      - name: install /var/www
+        file: path={{ item }} state=directory
+        with_items:
+            - /var/www
+            - /var/www/meguca.moe
+      - name: create registry directory
+        file: path=/var/lib/registry state=directory
+      - name: start docker
+        service:
+            name: docker
+            enabled: yes
+            state: started
+
+      - name: Start local docker registry
+        docker_container:
+          name: registry
+          image: registry:2
+          state: started
+          restart_policy: always
+          volumes:
+              - "/var/lib/registry:/var/lib/registry"
+          ports:
+            - "5000:5000"

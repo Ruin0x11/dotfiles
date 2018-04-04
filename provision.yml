@@ -1,0 +1,62 @@
+---
+- hosts: webservers
+  vars:
+      user: ruin
+  tasks:
+      - name: update pacman
+        pacman: 
+            update_cache: yes
+            upgrade: yes
+      - name: Clone dotfiles
+        git:
+            repo: https://www.github.com/Ruin0x11/dotfiles
+            dest: "/home/{{ user }}/.dotfiles"
+            update: no
+      - name: Copy dotfiles
+        become: yes
+        become_user: "{{ user }}"
+
+        file:
+            src: "/home/{{ user }}/.dotfiles/{{ item }}"
+            dest: "/home/{{ user }}/.{{ item }}"
+            state: link
+        with_items:
+            - config
+            - bashrc
+            - vimrc
+            - vimrc.bundles
+            - zshrc
+            - zshrc.functions
+            - zsh
+            - Xresources
+            - Xcolors
+            - xinitrc
+            - muttrc
+            - mutt
+            - mpd
+            - aliases
+            - ncmpcpp
+            - bin
+            - vimperatorrc
+            - tmux.conf
+            - gitconfig
+
+      - name: install LS_COLORS
+        get_url:
+            url: https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
+            dest: "/home/{{ user }}/LS_COLORS"
+
+      - name: install expac deps
+        pacman:
+            name: binutils make gcc fakeroot expac yajl git
+            state: present
+      - stat: path=/usr/bin/expac
+        register: expac_bin
+      - name: install expac
+        command: "bash install_pacaur.sh"
+        when: expac_bin.stat.exists == False
+
+      - name: install docker
+        pacman:
+            name: docker,python-docker,python2-docker
+            state: present
