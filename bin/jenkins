@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'jenkins_api_client'
+require 'yaml'
+
+
+class String
+  # colorization
+  def colorize(color_code)
+    "\e[#{color_code}m#{self}\e[0m"
+  end
+
+  def red
+    colorize(31)
+  end
+
+  def green
+    colorize(32)
+  end
+
+  def yellow
+    colorize(33)
+  end
+end
+
+config_file = "/var/lib/jenkins/login.yml"
+
+begin
+  client_opts = Hash[YAML.load_file(File.expand_path(config_file)).map { | (k,v) | [k.to_sym, v]} ]
+
+  client_opts[:log_level] = Logger::ERROR
+  @client = JenkinsApi::Client.new(client_opts)
+end
+
+jobs = @client.job.list_all
+statuses = jobs.map { |job| @client.job.get_current_build_status(job) }
+
+jobs.zip(statuses).each do |job, status|
+    if status == "success"
+        puts job.green
+    else
+        puts job.red
+        #num = @client.job.get_current_build_number(job)
+        #puts "...".red
+        #puts @client.job.get_console_output(job, num)["output"].split("\n").last(25).join("\n").red
+    end
+end
