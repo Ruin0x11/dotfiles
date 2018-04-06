@@ -6,3 +6,4 @@ config/mpv/watch_later
 config/hub
 *~
 *.swp
+*.retry

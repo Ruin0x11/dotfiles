@@ -7,6 +7,3 @@
 [submodule "zsh/zsh-autosuggestions"]
 	path = zsh/zsh-autosuggestions
 	url = git://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "jenkins"]
-	path = roles/jenkins
-	url = git://github.com/Ruin0x11/ansible-jenkins-pipeline.git
