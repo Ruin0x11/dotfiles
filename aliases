@@ -9,7 +9,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-    alias l='ls++'
+    alias l='ls -la --color=always'
 elif [[ $platform == 'darwin' ]]; then
     alias l='gls -la --color=auto'
 fi
@@ -94,3 +94,12 @@ alias in="at now + "
 alias wttr="curl wttr.in/61820"
 alias df="df -h"
 alias lua="lua5.1"
+
+alias dcb="sudo docker-compose build"
+alias dcu="sudo docker-compose up"
+alias dcd="sudo docker-compose down"
+alias dls="sudo docker container ls"
+alias dex="sudo docker container exec"
+alias dru="sudo docker container run"
+alias dil="sudo docker image ls | less"
+alias drm="sudo docker rm -f"

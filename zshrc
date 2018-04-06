@@ -177,3 +177,7 @@ fi
 
 # added by travis gem
 [ -f /Users/ianpickering/.travis/travis.sh ] && source /Users/ianpickering/.travis/travis.sh
+
+eval $(ssh-agent -s)
+
+if [ "$TMUX" = "" ]; then tmux; fi
