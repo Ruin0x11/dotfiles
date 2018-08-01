@@ -1,0 +1,166 @@
+set $mod Mod4
+
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+
+font pango:monospace 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# start dmenu (a program launcher)
+bindsym $mod+r exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+bindsym $mod+Shift+space floating toggle
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# change position
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
+
+# layout
+bindsym $mod+q layout splith
+bindsym $mod+w layout splitv
+bindsym $mod+e layout default
+
+bindsym $mod+v split vertical
+bindsym $mod+o split horizontal
+bindsym $mod+s split toggle
+
+bindsym $mod+i exec surf google.com
+bindsym $mod+p exec scrot
+bindsym $mod+z exec mouse-switchscreen
+bindsym $mod+b exec urxvt-browser
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Alt_R focus left
+bindsym $mod+Super_R focus down
+bindsym $mod+Print focus up
+
+set $background  #e0eaf9
+
+#start i3bar to display a workspace bar
+#uncomment to use the default i3bar status
+# bar {
+#
+#           status_command  $HOME/.bin/conkyi3.sh
+#           position top
+#           #font xft:Anonymous Pro for Powerline 8
+#           strip_workspace_numbers yes
+#
+#           colors {
+#               separator          $darkblack
+#               background         $background
+#               statusline         $background
+#
+#               # Bar colors       border       background    text
+#               focused_workspace  $background  $darkmagenta  $darkwhite
+#               active_workspace   $background  $blue         $white
+#               inactive_workspace $background  #202020    $white
+#               urgent_workspace   $background  $red          $darkwhite
+#          }
+# }
+
+client.focused		 		#271f17 #271f17 #AAAAAA  #AAAAAA   #271f17
+client.focused_inactive 	#21211d #1d2121 #a1a1a1  #484e50   #1d2121
+client.unfocused        	#333333 #222222 #888888  #292d2e   #222222
+client.urgent   			#4a4b4c #4a4b4c #AAAAAA  #AAAAAA   #4a4c4b
+client.placeholder      	#000000 #0c0c0c #AAAAAA  #000000   #0c0c0c
+
+client.background           #111111
+
+# Borders
+new_window pixel 4
+new_float pixel 4
+
+focus_follows_mouse no
+
+# Gaps
+set $default_gaps_inner 32
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+hide_edge_borders vertical
+new_window normal
+
+
+popup_during_fullscreen ignore
+for_window [class="^.*"] border pixel 1
+for_window [title="urxvt-browser"] fullscreen enable
+for_window [class="mpv"] fullscreen enable
+for_window [title="Android Emulator"] floating enable
+for_window [title="ElonaFoobar*"] floating enable
+for_window [title="ElonaFoobar*"] border pixel 0
+for_window [class="mpv"] border pixel 0
+for_window [class="chromium"] border pixel 0
+for_window [class="chromium"] move window to workspace $ws2
+for_window [class="emacs"] move window to workspace $ws1
+for_window [class="gimp"] move window to workspace $ws5
+for_window [class="freerdp"] move window to workspace $ws9
+for_window [window_role="browser|GtkFileChooserDialog"] resize set 800 600, move position center
+
+
+bar {
+	font pango:Hack, FontAwesome 10
+	tray_output none
+	status_command i3blocks
+	i3bar_command i3bar -t
+	position top
+	separator_symbol "■"
+	strip_workspace_numbers yes
+#   Color panel
+colors {
+		background #202020
+		statusline #d0e1d4
+		separator  #c1d0c1
+
+#                        border  backgr   text
+    focused_workspace   #31302d #31302d #fff2ce
+    inactive_workspace  #64635f #64635f #28220B
+    urgent_workspace    #2e394a #2e394a #e7dfd9
+       }
+}
+
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id chromium
+exec --no-startup-id emacs

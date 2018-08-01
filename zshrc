@@ -105,6 +105,7 @@ fi
 
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+export PATH=$PATH:$HOME/.luarocks/bin
 
 #export LC_ALL=ja_JP.UTF-8
 
@@ -129,6 +130,9 @@ export PATH=$PATH:$GOBIN
 export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH=$PATH:$HOME/miniconda3/bin
+export PATH=$PATH:/home/ruin/.gem/ruby/2.5.0/bin
+export ERL_AFLAGS="-kernel shell_history enabled"
+export BOOST_ROOT=~/build/boost_1_66_0
 
 if [[ $hostname == 'memento' ]]; then
     export PANEL_FIFO="/tmp/panel-fifo"
@@ -158,26 +162,21 @@ if [ -f ~/.cargo/env ]; then
 fi
 
 # Simpler prompt when using Emacs
-if [ "${TERM}" = "eterm-color" ]; then
+if [ "$TERM" = "eterm-color" ]; then
     PS1="%~ %# "
     RPS1=
 fi
 
-# Start tmux automatically
-if [ -x "$(command -v tmux >/dev/null 2>&1)" ]; then
-    #colorscheme
-    #source ~/.bin/yui_colorscheme.sh
-    tmux a || tmux
-fi
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-
-if [[ "$(hostname)" == 'Eric-CF.local' ]]; then
-    source $HOME/.zshrc.work
-fi
-
-# added by travis gem
-[ -f /Users/ianpickering/.travis/travis.sh ] && source /Users/ianpickering/.travis/travis.sh
-
-eval $(ssh-agent -s)
-
-if [ "$TMUX" = "" ]; then tmux; fi
+#   if xset q &>/dev/null; then
+#   if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+#      if [ "$TERM" != "eterm-color" ]; then
+#          tmux ls | grep -vq attached && TMUXARG="attach-session -d"
+#          exec eval "tmux -2 $TMUXARG"
+#      fi
+#   else
+#       startx
+#   fi
+#   fi
+#   

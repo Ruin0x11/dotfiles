@@ -41,7 +41,7 @@ fi
 
 alias sv='sudo vim -u $HOME/.vimrc'
 alias wm='sudo wifi-menu'
-alias cx='sudo chmod +x'
+alias cx='chmod +x'
 alias rp='LANG=ja_JP.UTF-8 wine ~/Dropbox/ANDY\ MENTE/rs346/rp.exe'
 alias syss='sudo systemctl start'
 alias syst='sudo systemctl stop'
@@ -82,8 +82,11 @@ alias nico='youtube-dl -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s"
 alias nicosong='youtube-dl -x -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s" --username ipickering2@gmail.com'
 
 # macOS
-alias lsblk="diskutil list"
-alias dd="gdd"
+if [[ $platform == 'darwin' ]]; then
+    alias lsblk="diskutil list"
+    alias dd="gdd"
+fi
+
 alias git="hub"
 alias sr="surfraw google"
 alias srl="surfraw google -l"
@@ -103,3 +106,9 @@ alias dex="sudo docker container exec"
 alias dru="sudo docker container run"
 alias dil="sudo docker image ls | less"
 alias drm="sudo docker rm -f"
+
+alias rdp="sudo xfreerdp /v:192.168.1.104 /u:kadode /size:1280x800 /audio-mode:1"
+alias rga="rg --no-ignore --hidden --follow"
+alias fda="fd --no-ignore --no-ignore-vcs --hidden"
+alias lc="adb -d logcat"
+alias mount_kadode="sudo mount -t cifs //192.168.1.104/up /mnt/kadode -o username=kadode"

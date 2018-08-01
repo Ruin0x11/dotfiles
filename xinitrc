@@ -9,7 +9,7 @@ xsetroot
 xset +fp /usr/share/fonts/local/ &
 xset fp+ /usr/X11R6/lib/X11/fonts/local/ &
 #xinput set-prop 12 "Trackpad Smooth Scroll" 0
-xflux -z 61801
+#xflux -z 98051
 # unclutter -idle 3 &
 dropboxd &
 # uim-toolbar-gtk3-systray &
@@ -34,14 +34,18 @@ xset fp+ /usr/share/fonts/local/
 xset fp+ /usr/share/fonts/75dpi/
 xset fp rehash
 
-xinput set-prop 8 "libinput Accel Speed" -1
+xinput set-prop 18 "libinput Accel Speed" -0.8
+#xinput create-master Auxillary
+#xinput reattach "pointer:HID 6901:2701" "Auxillary pointer"
+#xinput reattach "16" "Auxillary keyboard"
 
-if [ `xrandr | grep -c ' connected '` -eq 2 ]; then
-    if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
-        xrandr --output HDMI1 --auto --primary --output eDP1 --off
-    fi
-fi
-exec fvwm -f $HOME/.fvwmrc
+unclutter&
+DISPLAY=:0.1 exec i3&
+urxvt-browser
+xdotool search urxvt-browser windowsize 100% 100%
+
+exec i3
+#exec fvwm -f $HOME/.fvwmrc
 #exec $HOME/build/stumpwm/stumpwm
 
 #if [ $WM == "bspwm" ] ; then

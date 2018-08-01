@@ -1,0 +1,5 @@
+set $mod Mod4
+popup_during_fullscreen ignore
+for_window [class="urxvt"] fullscreen enable
+for_window [class="mpv"] fullscreen enable
+bindsym $mod+z exec mouse-switchscreen
