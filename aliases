@@ -15,11 +15,11 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-    alias pf='pacaur -Ss --color always'
-    alias pi='pacaur -S'
-    alias pd='pacaur -R'
-    alias pq='pacaur -Qu'
-    alias pl='pacaur -Ql'
+    alias pf='yay -Ss --color always'
+    alias pi='yay -S'
+    alias pd='yay -R'
+    alias pq='yay -Qu'
+    alias pl='yay -Ql'
 elif [[ $platform == 'darwin' ]]; then
     alias pf='brew search'
     alias pi='brew install'
@@ -49,7 +49,7 @@ alias syse='sudo systemctl enable'
 alias sysd='sudo systemctl disable'
 alias sst='systemctl status'
 alias tmr='transmission-remote'
-alias ta='transmission-remote -a'
+alias ta='tmux a'
 alias tl='transmission-remote -l'
 alias td='transmission-daemon -w /mnt/hdd/Transmission'
 alias tmux='TERM=screen-256color-bce tmux'

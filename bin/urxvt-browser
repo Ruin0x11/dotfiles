@@ -1,0 +1,3 @@
+#!/bin/bash
+
+urxvt -fn "xft:Hack:pixelsize=36" -fb "xft:Hack Bold:pixelsize=36" -T "urxvt-browser" -e "/bin/zsh" -c "ranger /mnt/hibiki/TV" &

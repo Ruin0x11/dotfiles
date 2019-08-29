@@ -7,3 +7,4 @@ config/hub
 *~
 *.swp
 *.retry
+config/ranger/bookmarks

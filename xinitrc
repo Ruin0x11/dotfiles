@@ -2,7 +2,7 @@
 
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
-# uim-xim &
+uim-xim &
 export XMODIFIERS='@im=uim'
 xsetroot
 # compton -GCc -e .60 --vsync drm --dbe --vsync-aggressive --unredir-if-possible &
@@ -42,7 +42,9 @@ xinput set-prop 18 "libinput Accel Speed" -0.8
 unclutter&
 DISPLAY=:0.1 exec i3&
 urxvt-browser
-xdotool search urxvt-browser windowsize 100% 100%
+
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 
 exec i3
 #exec fvwm -f $HOME/.fvwmrc
