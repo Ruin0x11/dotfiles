@@ -46,6 +46,10 @@ urxvt-browser
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+rescuetime&
+
+xinput --set-prop 10 'libinput Accel Speed' -1
+
 exec i3
 #exec fvwm -f $HOME/.fvwmrc
 #exec $HOME/build/stumpwm/stumpwm
