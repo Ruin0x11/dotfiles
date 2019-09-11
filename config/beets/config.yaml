@@ -1,0 +1,41 @@
+directory: /mnt/hibiki/music/beets
+per_disc_numbering: yes
+import:
+    copy: yes
+    write: yes
+    log: beets.log
+    duplicate_action: ask
+    incremental: no
+plugins: copyartifacts ftintitle discogs plexupdate fetchart importadded missing lyrics inline
+ui:
+    color: yes
+
+paths:
+    default: $albumartist/($year) $album%aunique{}/%if{$multidisc,Disc $disc/}$track. $title
+    singleton: single/$artist - $title
+    comp: compilation/$album%aunique{}/%if{$multidisc,Disc $disc/}$track. $artist - $title
+item_fields:
+    multidisc: 1 if disctotal > 1 else 0
+
+fetchart:
+    cautious: true
+    cover_names: front back
+    sources: itunes coverart albumart amazon
+
+plex:
+    host: 192.168.1.100
+    port: 32400
+
+importadded:
+    preserve_mtimes: yes
+
+missing:
+    format: $albumartist - $album - $title
+    count: yes
+    total: yes
+
+copyartifacts:
+    print_ignored: yes
+
+lyrics:
+    sources: genius lyricwiki lyrics.com musixmatch
