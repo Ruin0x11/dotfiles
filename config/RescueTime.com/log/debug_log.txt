@@ -1,0 +1,89 @@
+20190904T195748:1:[config:load_from_disk] Unable to open configuration file for reading - using defaults
+20190904T195748:1:[config:load_from_disk] Unable to open configuration file for reading - using defaults
+20190904T195748:1:[config:load_from_disk] Unable to open configuration file for reading - using defaults
+20190904T195748:5:***** Attempting to start RescueTime *****
+20190904T195748:5:***** Starting RescueTime *****
+20190904T195748:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f446922cc80
+20190904T195748:1:QTDBG - Setting tray icon and menu after ...
+20190904T201819:5:***** Attempting to start RescueTime *****
+20190904T201819:5:***** Starting RescueTime *****
+20190904T201819:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f346c2e4c80
+20190904T201819:1:QTDBG - Setting tray icon and menu after ...
+20190907T160119:5:***** Attempting to start RescueTime *****
+20190907T160120:5:***** Starting RescueTime *****
+20190907T160120:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f3b09548c80
+20190907T160120:1:QTDBG - Setting tray icon and menu after ...
+20190907T201240:1:[network::request]HTTP Response (!CURLE_OK): 28
+20190907T202310:1:[network::request]HTTP Response (!CURLE_OK): 28
+20190909T090118:5:***** Attempting to start RescueTime *****
+20190909T090118:5:***** Starting RescueTime *****
+20190909T090118:41:[qt_ui:create_system_tray] Current Thread ID: 0x7fb9acce2c80
+20190909T090118:1:QTDBG - Setting tray icon and menu after ...
+20190913T160607:1:[network::request]HTTP Response (!CURLE_OK): 28
+20190914T202357:1:[network::request]HTTP Response (!CURLE_OK): 28
+20190917T170033:1:[network::request]HTTP Response (!CURLE_OK): 28
+20190921T120041:5:***** Attempting to start RescueTime *****
+20190921T120041:5:***** Starting RescueTime *****
+20190921T120042:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f4574dfbc80
+20190921T120042:1:QTDBG - Setting tray icon and menu after ...
+20190922T135806:5:***** Attempting to start RescueTime *****
+20190922T135806:5:***** Starting RescueTime *****
+20190922T135806:41:[qt_ui:create_system_tray] Current Thread ID: 0x7fc1ca99fc80
+20190922T135806:1:QTDBG - Setting tray icon and menu after ...
+20190925T221136:1:[network::request]HTTP Response (!CURLE_OK): 28
+20190926T051742:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191007T035240:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191015T180847:5:***** Attempting to start RescueTime *****
+20191015T180847:5:***** Starting RescueTime *****
+20191015T180848:41:[qt_ui:create_system_tray] Current Thread ID: 0x7fa9e2017c80
+20191015T180848:1:QTDBG - Setting tray icon and menu after ...
+20191015T182020:5:***** Attempting to start RescueTime *****
+20191015T182020:5:***** Starting RescueTime *****
+20191015T182020:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f9e8ec5cc80
+20191015T182020:1:QTDBG - Setting tray icon and menu after ...
+20191015T182344:5:***** Attempting to start RescueTime *****
+20191015T182344:5:***** Starting RescueTime *****
+20191015T182344:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f2bf1f6fc80
+20191015T182344:1:QTDBG - Setting tray icon and menu after ...
+20191015T182605:5:***** Attempting to start RescueTime *****
+20191015T182605:5:***** Starting RescueTime *****
+20191015T182605:41:[qt_ui:create_system_tray] Current Thread ID: 0x7fe66205fc80
+20191015T182605:1:QTDBG - Setting tray icon and menu after ...
+20191019T145222:5:***** Attempting to start RescueTime *****
+20191019T145222:5:***** Starting RescueTime *****
+20191019T145222:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f5f53418c80
+20191019T145222:1:QTDBG - Setting tray icon and menu after ...
+20191021T102156:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191025T211628:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191025T212158:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191030T012526:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191030T150706:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191030T155742:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191105T205555:1:[pusher:shove] Error Response: 
+20191105T212555:1:[pusher:shove] Error Response: 
+20191105T215555:1:[pusher:shove] Error Response: 
+20191105T222556:1:[pusher:shove] Error Response: 
+20191105T225556:1:[pusher:shove] Error Response: 
+20191105T232556:1:[pusher:shove] Error Response: 
+20191105T235557:1:[pusher:shove] Error Response: 
+20191106T002557:1:[pusher:shove] Error Response: 
+20191106T005558:1:[pusher:shove] Error Response: 
+20191106T012558:1:[pusher:shove] Error Response: 
+20191106T015558:1:[pusher:shove] Error Response: 
+20191106T022559:1:[pusher:shove] Error Response: 
+20191106T025559:1:[pusher:shove] Error Response: 
+20191106T032600:1:[pusher:shove] Error Response: 
+20191106T035601:1:[pusher:shove] Error Response: 
+20191106T042601:1:[pusher:shove] Error Response: 
+20191106T045602:1:[pusher:shove] Error Response: 
+20191106T052602:1:[pusher:shove] Error Response: 
+20191106T055602:1:[pusher:shove] Error Response: 
+20191106T062603:1:[pusher:shove] Error Response: 
+20191106T065603:1:[pusher:shove] Error Response: 
+20191111T191354:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191203T175125:5:***** Attempting to start RescueTime *****
+20191203T175125:5:***** Starting RescueTime *****
+20191203T175126:41:[qt_ui:create_system_tray] Current Thread ID: 0x7f7adaa06c80
+20191203T175126:1:QTDBG - Setting tray icon and menu after ...
+20191204T092840:1:[network::request]HTTP Response (!CURLE_OK): 28
+20191204T093410:1:[network::request]HTTP Response (!CURLE_OK): 28

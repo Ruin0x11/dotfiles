@@ -39,7 +39,7 @@ elif [[ $platform == 'darwin' ]]; then
     alias um='diskutil unmountDisk'
 fi
 
-alias sv='sudo vim -u $HOME/.vimrc'
+alias sv='sudo vim -u /home/ruin/.vimrc'
 alias wm='sudo wifi-menu'
 alias cx='chmod +x'
 alias rp='LANG=ja_JP.UTF-8 wine ~/Dropbox/ANDY\ MENTE/rs346/rp.exe'
@@ -88,13 +88,13 @@ if [[ $platform == 'darwin' ]]; then
 fi
 
 alias git="hub"
-alias sr="surfraw google"
-alias srl="surfraw google -l"
+alias sr=googler
+#alias srl="surfraw google -l"
 alias rsbk="RUST_BACKTRACE=1"
 alias mkdir="mkdir -p"
 
 alias in="at now + "
-alias wttr="curl wttr.in/61820"
+alias wttr="curl wttr.in/980r2"
 alias df="df -h"
 alias lua="lua5.1"
 
@@ -107,7 +107,7 @@ alias dru="sudo docker container run"
 alias dil="sudo docker image ls | less"
 alias drm="sudo docker rm -f"
 
-alias rdp="sudo xfreerdp /v:192.168.1.104 /u:kadode /size:1280x800 /audio-mode:1"
+alias rdp="sudo xfreerdp /v:192.168.1.101 /u:kadode /size:1280x800 /audio-mode:1"
 alias rga="rg --no-ignore --hidden --follow"
 alias fda="fd --no-ignore --no-ignore-vcs --hidden"
 alias lc="adb -d logcat"

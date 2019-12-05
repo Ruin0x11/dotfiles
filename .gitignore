@@ -8,3 +8,12 @@ config/hub
 *.swp
 *.retry
 config/ranger/bookmarks
+bin/bup
+bin/bup-status
+bin/bup-restore
+config/beets/library.db
+config/beets/state.pickle
+config/beets/discogs_token.json
+config/beets/beetslog.txt
+config/beets/beets.log
+config/shaarli/

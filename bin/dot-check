@@ -13,3 +13,7 @@ elif [ $REMOTE = $BASE ]; then
 else
     echo "Dotfiles have diverged."
 fi
+
+if ! git diff-index --quiet HEAD --; then
+    echo "Dotfiles must be comitted."
+fi

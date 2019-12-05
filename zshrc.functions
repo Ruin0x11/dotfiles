@@ -31,3 +31,7 @@ cbr()
     git checkout "master"
     git checkout -b "$branch"
 }
+
+srl() {
+    elinks "l $*"
+}

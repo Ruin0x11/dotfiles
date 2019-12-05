@@ -1,4 +1,4 @@
-# Recent settings file for Wireshark 2.4.1.
+# Recent settings file for Wireshark 2.6.10.
 #
 # This file is regenerated each time Wireshark is quit.
 # So be careful, if you want to make manual changes here.
@@ -22,10 +22,10 @@ recent.display_filter: http.request.method == post
 # Decimal numbers.
 gui.geometry_main_x: 10
 gui.geometry_main_y: 30
-gui.gtk.geometry_main_x: 20
-gui.gtk.geometry_main_y: 20
-gui.geometry_main_width: 1660
-gui.geometry_main_height: 988
+gui.gtk.geometry_main_x: 1296
+gui.gtk.geometry_main_y: 63
+gui.geometry_main_width: 590
+gui.geometry_main_height: 1062
 
 # Main window maximized.
 # TRUE or FALSE (case-insensitive).
@@ -37,7 +37,7 @@ gui.geometry_status_pane: 250
 
 # Statusbar middle pane size.
 # Decimal number.
-gui.geometry_status_pane_right: 250
+gui.geometry_status_pane_right: 31
 
 # Last used Configuration Profile.
 gui.last_used_profile: Default

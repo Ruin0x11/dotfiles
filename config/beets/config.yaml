@@ -4,9 +4,13 @@ import:
     copy: yes
     write: yes
     log: beets.log
-    duplicate_action: ask
+    # duplicate_action: skip
+    incremental_skip_later: yes
     incremental: no
-plugins: copyartifacts ftintitle discogs plexupdate fetchart importadded missing lyrics inline
+plugins: copyartifacts ftintitle plexupdate fetchart importadded missing lyrics inline vocadb vgmdb # discogs
+pluginpath:
+  - /home/ruin/.config/beets/plugin/beets-vocadb
+  - /home/ruin/.config/beets/plugin/VGMdb-BeetsPlug
 ui:
     color: yes
 
@@ -25,6 +29,8 @@ fetchart:
 plex:
     host: 192.168.1.100
     port: 32400
+    library: 音楽
+    token: ijwZwEoreT-ibGAjyyiq
 
 importadded:
     preserve_mtimes: yes
@@ -39,3 +45,7 @@ copyartifacts:
 
 lyrics:
     sources: genius lyricwiki lyrics.com musixmatch
+    auto: no
+
+vgmdb:
+    lang-priority: ja, ja-latn, en

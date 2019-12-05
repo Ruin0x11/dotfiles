@@ -1,0 +1,68 @@
+
+config/mpv/gif.lua,1398
+   function esc(s)esc   function esc(s),877
+   function esc(s)esc   function esc(s),877
+function file_exists(name)file_existsfunction file_exists(name),3245
+function file_exists(name)file_existsfunction file_exists(name),3245
+function get_containing_path(str,sep)get_containing_pathfunction get_containing_path(str,sep),3365
+function get_containing_path(str,sep)get_containing_pathfunction get_containing_path(str,sep),3365
+function get_current_subtitle()get_current_subtitlefunction get_current_subtitle(),2830
+function get_current_subtitle()get_current_subtitlefunction get_current_subtitle(),2830
+function make_gif()make_giffunction make_gif(),593
+function make_gif()make_giffunction make_gif(),593
+function make_gif_internal(burn_subtitles)make_gif_internalfunction make_gif_internal(burn_subtitles),642
+function make_gif_internal(burn_subtitles)make_gif_internalfunction make_gif_internal(burn_subtitles),642
+function make_gif_with_subtitles()make_gif_with_subtitlesfunction make_gif_with_subtitles(),530
+function make_gif_with_subtitles()make_gif_with_subtitlesfunction make_gif_with_subtitles(),530
+function set_gif_end()set_gif_endfunction set_gif_end(),2695
+function set_gif_end()set_gif_endfunction set_gif_end(),2695
+function set_gif_start()set_gif_startfunction set_gif_start(),2552
+function set_gif_start()set_gif_startfunction set_gif_start(),2552
+
+config/mpv/scripts/dood.lua,278
+function file_exists(name)file_existsfunction file_exists(name),391
+function file_exists(name)file_existsfunction file_exists(name),391
+function inscribe_thing()inscribe_thingfunction inscribe_thing(),0
+function inscribe_thing()inscribe_thingfunction inscribe_thing(),0
+
+config/mpv/scripts/orglog.lua,740
+function add_entry()add_entryfunction add_entry(),135
+function add_entry()add_entryfunction add_entry(),135
+function file_exists(name)file_existsfunction file_exists(name),2183
+function file_exists(name)file_existsfunction file_exists(name),2183
+function next_file(event)next_filefunction next_file(event),1506
+function next_file(event)next_filefunction next_file(event),1506
+function set_last_file_handler()set_last_file_handlerfunction set_last_file_handler(),2305
+function set_last_file_handler()set_last_file_handlerfunction set_last_file_handler(),2305
+function write_last_file(name)write_last_filefunction write_last_file(name),2055
+function write_last_file(name)write_last_filefunction write_last_file(name),2055
+
+config/mpv/scripts/jisho.lua,126
+function lookup_jisho()lookup_jishofunction lookup_jisho(),0
+function lookup_jisho()lookup_jishofunction lookup_jisho(),0
+
+config/mpv/scripts/mpv-webm.lua,1252
+    function esc(s)esc    function esc(s),768
+    function esc(s)esc    function esc(s),768
+function file_exists(name)file_existsfunction file_exists(name),2583
+function file_exists(name)file_existsfunction file_exists(name),2583
+function get_containing_path(str,sep)get_containing_pathfunction get_containing_path(str,sep),2705
+function get_containing_path(str,sep)get_containing_pathfunction get_containing_path(str,sep),2705
+function make_webm()make_webmfunction make_webm(),402
+function make_webm()make_webmfunction make_webm(),402
+function make_webm_internal(burn_subtitles)make_webm_internalfunction make_webm_internal(burn_subtitles),454
+function make_webm_internal(burn_subtitles)make_webm_internalfunction make_webm_internal(burn_subtitles),454
+function make_webm_with_subtitles()make_webm_with_subtitlesfunction make_webm_with_subtitles(),336
+function make_webm_with_subtitles()make_webm_with_subtitlesfunction make_webm_with_subtitles(),336
+function set_webm_end()set_webm_endfunction set_webm_end(),2460
+function set_webm_end()set_webm_endfunction set_webm_end(),2460
+function set_webm_start()set_webm_startfunction set_webm_start(),2329
+function set_webm_start()set_webm_startfunction set_webm_start(),2329
+
+config/mpv/scripts/screenshot-timestamp.lua,388
+function file_exists(name)file_existsfunction file_exists(name),1301
+function file_exists(name)file_existsfunction file_exists(name),1301
+function jump_to_file()jump_to_filefunction jump_to_file(),0
+function jump_to_file()jump_to_filefunction jump_to_file(),0
+function split(str, pat)splitfunction split(str, pat),895
+function split(str, pat)splitfunction split(str, pat),895

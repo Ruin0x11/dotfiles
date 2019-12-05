@@ -1,4 +1,4 @@
-# Recent settings file for Wireshark 2.4.1.
+# Recent settings file for Wireshark 2.6.10.
 #
 # This file is regenerated each time Wireshark is quit
 # and when changing configuration profile.
@@ -53,9 +53,13 @@ gui.seconds_format: SECONDS
 # A decimal number.
 gui.zoom_level: 0
 
-# Bytes view.
-# A decimal number.
-gui.bytes_view: 0
+# Bytes view display type.
+# One of: HEX, BITS
+gui.bytes_view: HEX
+
+# Bytes view text encoding.
+# One of: FROM_PACKET, ASCII, EBCDIC
+gui.bytes_encoding: FROM_PACKET
 
 # Main window upper (or leftmost) pane size.
 # Decimal number.

@@ -17,6 +17,7 @@ SAVEHIST=100000               #Number of history entries to save to disk
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killedbindkey -v
+setopt INC_APPEND_HISTORY
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -47,6 +48,7 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/share/zsh/plugins/zsh-syntax-highlighting/highlighters
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan,bold,underline"
 source $HOME/.zsh/git.zsh
 
 if [[ $platform == 'darwin' ]]; then
@@ -108,8 +110,11 @@ if [ -e "/usr/local/share/chruby/chruby.sh" ]; then
 fi
 
 export PATH=$PATH:$HOME/.bin
-export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH=$PATH:$HOME/.luarocks/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export RUST_SRC_PATH=/mnt/hibiki/build/rust/src
+export RUST_BACKTRACE=1
 
 #export LC_ALL=ja_JP.UTF-8
 
@@ -118,6 +123,7 @@ setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
 setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt LIST_AMBIGUOUS
+unsetopt NOMATCH
 setopt HIST_IGNORE_SPACE
 setopt RM_STAR_WAIT
 
@@ -137,6 +143,11 @@ export PATH=$PATH:$HOME/miniconda3/bin
 export PATH=$PATH:/home/ruin/.gem/ruby/2.5.0/bin
 export ERL_AFLAGS="-kernel shell_history enabled"
 export BOOST_ROOT=~/build/boost_1_66_0
+export BROWSER=elinks
+export NODE_ENV=development
+export GTAGSCONF=/usr/share/gtags/gtags.conf
+export GTAGSLABEL=pygments
+
 
 if [[ $hostname == 'memento' ]]; then
     export PANEL_FIFO="/tmp/panel-fifo"
@@ -172,6 +183,8 @@ if [ "$TERM" = "eterm-color" ]; then
 fi
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+ulimit -n 100000
 
 #   if xset q &>/dev/null; then
 #   if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
