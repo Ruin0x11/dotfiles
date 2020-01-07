@@ -15,8 +15,8 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-    alias pf='yay -Ss --color always'
-    alias pi='yay -S'
+    alias pf='sbopkg -g'
+    alias pi='sbopkg -i'
     alias pd='yay -R'
     alias pq='yay -Qu'
     alias pl='yay -Ql'
@@ -39,7 +39,7 @@ elif [[ $platform == 'darwin' ]]; then
     alias um='diskutil unmountDisk'
 fi
 
-alias sv='sudo vim -u /home/ruin/.vimrc'
+alias sv='sudo vim -u /home/hiro/.vimrc'
 alias wm='sudo wifi-menu'
 alias cx='chmod +x'
 alias rp='LANG=ja_JP.UTF-8 wine ~/Dropbox/ANDY\ MENTE/rs346/rp.exe'
@@ -67,7 +67,7 @@ alias ec='emacsclient -c -n '
 alias ecr='pkill emacs ; emacsclient -c -n'
 #alias vim='emacsclient -t '
 
-alias git="hub"
+#alias git="hub"
 
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 
@@ -87,7 +87,6 @@ if [[ $platform == 'darwin' ]]; then
     alias dd="gdd"
 fi
 
-alias git="hub"
 alias sr=googler
 #alias srl="surfraw google -l"
 alias rsbk="RUST_BACKTRACE=1"
@@ -112,3 +111,5 @@ alias rga="rg --no-ignore --hidden --follow"
 alias fda="fd --no-ignore --no-ignore-vcs --hidden"
 alias lc="adb -d logcat"
 alias mount_kadode="sudo mount -t cifs //192.168.1.104/up /mnt/kadode -o username=kadode"
+
+alias sbopkg="sudo sbopkg"

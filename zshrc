@@ -116,6 +116,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 export RUST_SRC_PATH=/mnt/hibiki/build/rust/src
 export RUST_BACKTRACE=1
 
+export PATH=$PATH:/sbin:/usr/sbin
+
 #export LC_ALL=ja_JP.UTF-8
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
@@ -184,7 +186,7 @@ fi
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-ulimit -n 100000
+#ulimit -n 100000
 
 #   if xset q &>/dev/null; then
 #   if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
