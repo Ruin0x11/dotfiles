@@ -149,7 +149,8 @@ export BROWSER=elinks
 export NODE_ENV=development
 export GTAGSCONF=/usr/share/gtags/gtags.conf
 export GTAGSLABEL=pygments
-
+export MANPATH=$MANPATH:/usr/local/share/man
+export COLORTERM=24bit
 
 if [[ $hostname == 'memento' ]]; then
     export PANEL_FIFO="/tmp/panel-fifo"

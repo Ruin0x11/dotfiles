@@ -37,7 +37,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+r exec dmenu_run
+bindsym $mod+r exec dmenu_recent_aliases
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -93,7 +93,7 @@ bindsym $mod+p split toggle
 bindsym $mod+f fullscreen toggle
 
 bindsym $mod+i exec surf google.com
-bindsym $mod+s exec scrot -e 'mv $f "/mnt/hibiki/picture/scrots"'
+bindsym $mod+s exec scrot -e 'mv $f "/home/hiro/Pictures/scrots"'
 bindsym $mod+z exec mouse-switchscreen
 bindsym $mod+b exec urxvt-browser
 
@@ -133,13 +133,14 @@ set $background  #e0eaf9
 #          }
 # }
 
-client.focused		 		#271f17 #271f17 #AAAAAA  #AAAAAA   #271f17
-client.focused_inactive 	#21211d #1d2121 #a1a1a1  #484e50   #1d2121
-client.unfocused        	#333333 #222222 #888888  #292d2e   #222222
-client.urgent   			#4a4b4c #4a4b4c #AAAAAA  #AAAAAA   #4a4c4b
-client.placeholder      	#000000 #0c0c0c #AAAAAA  #000000   #0c0c0c
+# class                 border  backgr. text    indicator child_border
+client.focused          #271f17 #271f17 #AAAAAA #AAAAAA   #AAAAAA
+client.focused_inactive #21211d #1d2121 #a1a1a1 #484e50   #1d2121
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent   	#4a4b4c #4a4b4c #AAAAAA #AAAAAA   #4a4c4b
+client.placeholder      #000000 #0c0c0c #AAAAAA #000000   #0c0c0c
 
-client.background           #111111
+client.background       #111111
 
 # Borders
 new_window pixel 4
@@ -196,7 +197,7 @@ colors {
        }
 }
 
-exec --no-startup-id feh --bg-fill /home/hiro/Pictures/bg2.jpg
+exec --no-startup-id feh --bg-fill /home/hiro/Pictures/bg4.png
 #exec --no-startup-id firefox-developer-edition
 #exec --no-startup-id emacs
 exec --no-startup-id soulseekqt

@@ -28,7 +28,7 @@
 
 !URxvt*borderColor:        #151515
 URxvt*colorBD:            #FFFFFF
-URxvt*cursorColor:        #888888
+URxvt*cursorColor:        #AAAAAA
 URxvt*cursorColor2:       #151515
 
 URxvt*internalBorder:     10

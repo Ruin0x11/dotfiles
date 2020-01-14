@@ -17,7 +17,7 @@ fi
 if [[ $platform == 'linux' ]]; then
     alias pf='sbopkg -g'
     alias pi='sbopkg -i'
-    alias pd='yay -R'
+    alias pd='sudo removepkg'
     alias pq='yay -Qu'
     alias pl='yay -Ql'
 elif [[ $platform == 'darwin' ]]; then
@@ -67,7 +67,7 @@ alias ec='emacsclient -c -n '
 alias ecr='pkill emacs ; emacsclient -c -n'
 #alias vim='emacsclient -t '
 
-#alias git="hub"
+alias git="hub"
 
 alias E="SUDO_EDITOR=\"emacsclient -c -n\" sudoedit"
 
@@ -113,3 +113,6 @@ alias lc="adb -d logcat"
 alias mount_kadode="sudo mount -t cifs //192.168.1.104/up /mnt/kadode -o username=kadode"
 
 alias sbopkg="sudo sbopkg"
+
+alias ec="emacsclient -c -a ''"
+alias wicd-curses="sudo wicd-curses"

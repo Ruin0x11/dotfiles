@@ -4,6 +4,7 @@ mutt/aliases
 mpd/
 config/mpv/watch_later
 config/hub
+config/pulse
 *~
 *.swp
 *.retry
