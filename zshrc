@@ -143,6 +143,7 @@ export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH=$PATH:$HOME/miniconda3/bin
 export PATH=$PATH:/home/ruin/.gem/ruby/2.5.0/bin
+export PATH=$PATH:/home/hiro/build/elona-next
 export ERL_AFLAGS="-kernel shell_history enabled"
 export BOOST_ROOT=~/build/boost_1_66_0
 export BROWSER=elinks
@@ -152,28 +153,7 @@ export GTAGSLABEL=pygments
 export MANPATH=$MANPATH:/usr/local/share/man
 export COLORTERM=24bit
 
-if [[ $hostname == 'memento' ]]; then
-    export PANEL_FIFO="/tmp/panel-fifo"
-    wmname LG3D
-
-    export GPG_TTY=$(tty)
-    echo | en gpg -s > /dev/null
-
-    envoy -t ssh-agent
-    source <(envoy -p)
-fi
-
 (cd ~/.dotfiles && exec dot-check)
-
-export PERL5LIB=$PERL5LIB:/usr/local/Cellar/perl/5.26.0/lib/perl5/site_perl/5.26.0
-#PATH="/home/nuko/perl5/bin${PATH:+:${PATH}}"; export PATH;
-#
-#PERL5LIB="/home/nuko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-#PERL_LOCAL_LIB_ROOT="/home/nuko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-#PERL_MB_OPT="--install_base \"/home/nuko/perl5\""; export PERL_MB_OPT;
-#PERL_MM_OPT="INSTALL_BASE=/home/nuko/perl5"; export PERL_MM_OPT;
-
-# export BROWSER="elinks"
 
 if [ -f ~/.cargo/env ]; then
    source ~/.cargo/env
@@ -187,16 +167,4 @@ fi
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-#ulimit -n 100000
-
-#   if xset q &>/dev/null; then
-#   if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
-#      if [ "$TERM" != "eterm-color" ]; then
-#          tmux ls | grep -vq attached && TMUXARG="attach-session -d"
-#          exec eval "tmux -2 $TMUXARG"
-#      fi
-#   else
-#       startx
-#   fi
-#   fi
-#
+pgrep -u hiro emacs > /dev/null || emacs --daemon > /dev/null 2>&1 &

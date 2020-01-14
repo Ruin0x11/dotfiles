@@ -57,6 +57,7 @@ set showmatch
 set smartcase
 set tabstop=4
 set tags=./tags,./TAGS,tags,TAGS,~/.vimtags
+set undodir=~/.vim/undo
 set timeoutlen=500
 set virtualedit+=block
 set wildmenu
@@ -119,6 +120,9 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+silent! nunmap <Leader>rwp
+silent! nunmap <Leader>swp
+nmap <Leader>r :exec '!'.getline('.')<cr>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)

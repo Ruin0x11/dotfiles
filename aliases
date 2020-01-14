@@ -114,5 +114,5 @@ alias mount_kadode="sudo mount -t cifs //192.168.1.104/up /mnt/kadode -o usernam
 
 alias sbopkg="sudo sbopkg"
 
-alias ec="emacsclient -c -a ''"
+alias ec="emacsclient -nc -a \"\""
 alias wicd-curses="sudo wicd-curses"
