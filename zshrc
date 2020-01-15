@@ -7,7 +7,7 @@ if [[ "$unamestr" == 'Linux' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
     platform='darwin'
 fi
-hostname=$(hostname)
+hostname=$(cat /etc/hostname)
 
 # Lines configured by zsh-newuser-install
 HISTSIZE=100000               #How many lines of history to keep in memory

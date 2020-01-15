@@ -11,8 +11,10 @@ xmodmap ~/.xmodmap
 # fonts
 #
 xrdb ~/.Xresources
+xset fp+ /usr/share/fonts/misc/
 xset fp+ /usr/share/fonts/local/
 xset fp+ /usr/share/fonts/75dpi/
+xset fp+ /usr/share/fonts/artwiz-fonts/
 xset fp+ /usr/X11R6/lib/X11/fonts/local/
 xset fp+ ~/.fonts
 xset fp rehash

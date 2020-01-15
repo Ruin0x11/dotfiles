@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ls /usr/share/kbd/consolefonts | peco | cut -d. -f1 | xargs -t -- setfont $@
