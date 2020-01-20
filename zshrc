@@ -118,6 +118,8 @@ export RUST_BACKTRACE=1
 
 export PATH=$PATH:/sbin:/usr/sbin
 
+eval $(luarocks path)
+
 #export LC_ALL=ja_JP.UTF-8
 
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.

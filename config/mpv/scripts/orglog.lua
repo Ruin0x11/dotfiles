@@ -1,4 +1,4 @@
-directory = os.getenv("HOME") .. "/Dropbox"
+directory = os.getenv("HOME") .. "/Documents"
 tempfile = directory .. "/log.tmp"
 logfile = directory .. "/log.org"
 last = false

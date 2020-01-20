@@ -2,7 +2,7 @@ function inscribe_thing()
     if file_exists(mp.get_property("path", nil)) then
         thing = mp.get_property("media-title", "dood")
         length = mp.get_property_number("length", 0)
-        file = io.open(os.getenv("HOME") .. "/Dropbox/EXlog.txt", "a+")
+        file = io.open(os.getenv("HOME") .. "/Documents/EXlog.txt", "a+")
         io.output(file)
         io.write(thing .. "\t" .. os.date('%m-%d-%y %H:%M:%S') .. length .. "\n")
         io.close(file)

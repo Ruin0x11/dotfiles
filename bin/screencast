@@ -1,0 +1,4 @@
+#!/bin/bash
+
+today=`date +%Y-%m-%d_%H-%M-%S`
+DISPLAY=:0 ffcast -vv rec -m 4 $HOME/Videos/screencast/$today.mkv
