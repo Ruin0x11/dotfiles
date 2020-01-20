@@ -40,6 +40,8 @@ unclutter &
 #
 synclient MaxTapTime=0
 synclient CoastingSpeed=0
+synclient VertScrollDelta=-125
+synclient HorizScrollDelta=-125
 syndaemon -i 2.0 -K -R -t &
 
 declare -i TOUCHPOINT_ID

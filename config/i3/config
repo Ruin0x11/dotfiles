@@ -149,7 +149,7 @@ for_window [title="urxvt-browser"] move window to workspace $ws10
 for_window [window_role="browser|GtkFileChooserDialog"] resize set 800 600, move position center
 
 bar {
-    font pango:artwiz cure 8
+    font pango:artwiz curefixed 8
     tray_output primary
     status_command i3blocks
     i3bar_command i3bar -t
