@@ -47,13 +47,13 @@ signal=10
 [memory]
 label= 
 separator=true
-interval=30
+interval=1
 
 [memory]
 label= 
 instance=swap
 separator=true
-interval=30
+interval=1
 
 # Disk usage
 #
@@ -62,7 +62,7 @@ interval=30
 # (defaults to 10 for 10%).
 [disk]
 label= 
-#instance=/mnt/data
+instance=/
 interval=30
 
 # Network interface monitoring
@@ -84,7 +84,7 @@ separator=true
 [bandwidth3]
 instance=wlp3s0
 label=
-command=/usr/lib/i3blocks/bandwidth3/bandwidth3 -p "printf \"%.1f / %.1f %s/s\n\", rx, wx, unit;"
+command=/usr/lib/i3blocks/bandwidth3/bandwidth3 -p "printf \" %.1f /  %.1f %s/s\n\", rx, wx, unit;"
 interval=persist
 markup=pango
 
@@ -105,7 +105,7 @@ separator=true
 # see the script for details.
 [temperature]
 label= 
-interval=10
+interval=1
 
 #[load_average]
 #interval=10

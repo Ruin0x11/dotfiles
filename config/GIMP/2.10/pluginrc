@@ -4464,5 +4464,62 @@
         (proc-arg 16 "drawable" "Input drawable (not used)")
         (proc-arg 0 "link-after-alignment" "Link the visible layers after alignment { TRUE, FALSE }")
         (proc-arg 0 "use-bottom" "use the bottom layer as the base of alignment { TRUE, FALSE }")))
+(plug-in-def "${gimp_dir}/plug-ins/ofn-tiles.py" 1503336113
+    (proc-def "python-fu-ofn-export-tiles-rc" 1
+         "Export tiles (by rows and columns)"
+         "Export tiles (by rows and columns)\n/home/hiro/.config/GIMP/2.10/plug-ins/ofn-tiles.py"
+         "Ofnuts"
+         "Ofnuts"
+         "2017"
+         "Export tiles (by rows and columns)..."
+         1
+        (menu-path "<Image>/File/Export/Export tiles")
+        (icon icon-name -1 "")
+         "*"
+         6 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image")
+        (proc-arg 4 "directory" "Directory")
+        (proc-arg 4 "namePattern" "Tile name")
+        (proc-arg 0 "rows" "Rows")
+        (proc-arg 0 "columns" "Columns"))
+    (proc-def "python-fu-ofn-export-tiles-wh" 1
+         "Export tiles (by width and height)"
+         "Export tiles (by width and height)\n/home/hiro/.config/GIMP/2.10/plug-ins/ofn-tiles.py"
+         "Ofnuts"
+         "Ofnuts"
+         "2017"
+         "Export tiles (by width and height)..."
+         1
+        (menu-path "<Image>/File/Export/Export tiles")
+        (icon icon-name -1 "")
+         "*"
+         6 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image")
+        (proc-arg 4 "directory" "Directory")
+        (proc-arg 4 "namePattern" "Tile name")
+        (proc-arg 0 "width" "Tile width")
+        (proc-arg 0 "height" "Tile height"))
+    (proc-def "python-fu-ofn-open-tiles" 1
+         "Create image from tiles"
+         "Create image from tiles\n/home/hiro/.config/GIMP/2.10/plug-ins/ofn-tiles.py"
+         "Ofnuts"
+         "Ofnuts"
+         "2017"
+         "Open tiles..."
+         1
+        (menu-path "<Image>/File/Open")
+        (icon icon-name -1 "")
+         ""
+         7 1
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 4 "directory" "Directory")
+        (proc-arg 4 "namePattern" "Tile name")
+        (proc-arg 0 "rows" "Rows")
+        (proc-arg 0 "columns" "Columns")
+        (proc-arg 0 "rowsFirst" "Named by")
+        (proc-arg 0 "flatten" "Tiles")
+        (proc-arg 13 "image" "Opened image")))
 
 # end of pluginrc

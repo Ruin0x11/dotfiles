@@ -1,0 +1,40 @@
+#!/usr/bin/env luajit
+
+local i3ipc = require("i3ipc")
+local inspect = require("inspect")
+
+-- Create the Connection object that can be used to send commands and subscribe
+-- to events.
+local conn = i3ipc.Connection()
+
+local focused = false
+
+-- Define a callback to be called when you switch workspaces.
+local function on_window(self, e)
+    -- The first parameter is the connection to the ipc and the second is an object
+    -- with the data of the event sent from i3.
+   if e.change == "focus" then
+      print(e.container.name)
+      if string.match(e.container.name, "^emacs") then
+         if focused == false then
+            os.execute("/usr/local/bin/touchpad_enable.sh disable")
+         end
+         focused = true
+      else
+         if focused == true then
+            os.execute("/usr/local/bin/touchpad_enable.sh enable")
+         end
+         focused = false
+      end
+   end
+end
+
+-- Subscribe to the workspace event
+conn:on('window', on_window)
+
+-- Start the main loop and wait for events to come in.
+conn:main()
+
+-- Local Variables:
+-- mode: lua
+-- End:

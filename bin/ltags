@@ -45,37 +45,28 @@ local function process_file (file, opts)
             end
         else
             local local_var, is_var
-            local fname,arg = line:match '^%s*#def[c]?func%s+([^ ]+)'
+            local maybe_local,fname,arg = line:match '^%s*(%a*)%s*function%s+(%S+)%s*%(%s*(.+)'
             if not fname then
-               fname,arg = line:match '^%s*%*([^ ]+)'
+               maybe_local,fname,arg = line:match '^%s*(%a*)%s+(%S+)%s*=%s*function%s*%(%s*(.+)'
             end
             if not fname then
                 local mmod = line:match '^%s*module%s*(.+)'
                 if mmod then
                     mod_name = mmod:match '^%(*[\'"](.-)[\'"]'
                     if not mod_name then
-                        mod_name = file:match '([^%.\\/]+)%.hsp'
+                        mod_name = file:match '([^%.\\/]+)%.lua$'
                     end
                 end
                 -- look for file-scope locals (we assume that everyone uses indentation)
-                local_var = line:match '^%s*#define%s+global%s+([a-zA-Z0-9_]+)'
+                local_var = line:match '^local%s+(.+)'
                 if local_var and tag_vars then
-                   append(entries, {file=file, line=line, pos=pos, is_var=true, file_scope=true, name=local_var})
-                end
-
-                local_var = line:match '^%s*#define%s+global%s+ctype%s+([a-zA-Z0-9_]+)'
-                if local_var and tag_vars then
-                   append(entries, {file=file, line=line, pos=pos, is_var=true, file_scope=true, name=local_var})
-                end
-
-                local_var = line:match '^%s*#enum%s+global%s+([a-zA-Z0-9_]+)'
-                if local_var and tag_vars then
-                   append(entries, {file=file, line=line, pos=pos, is_var=true, file_scope=true, name=local_var})
-                end
-
-                local_var = line:match '^%s*[s]?dim%s+([a-zA-Z0-9_]+)'
-                if local_var and tag_vars then
-                   append(entries, {file=file, line=line, pos=pos, is_var=true, file_scope=true, name=local_var})
+                    if tag_require or local_var:find('=%s*require%W') == nil then
+                        -- not interested in actual values (for now)
+                        local_var = local_var:gsub('%s*=.+','')
+                        for w in local_var:gmatch('[%w_]+') do
+                            append(entries, {file=file, line=line, pos=pos, is_var=true, file_scope=true, name=w})
+                        end
+                    end
                 end
             else -- Houston, we have a Function
                 local e = {file = file, line = line}

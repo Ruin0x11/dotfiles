@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -x
+
+pushd $HOME/build/elona-next
+ssh ruin@nori "cd /home/ruin/build/elona-next && git add -A && git diff --staged --binary > /tmp/elopatch.patch &&"
+
+scp ruin@nori:/tmp/elopatch.patch /tmp/elopatch.patch
+git apply /tmp/elopatch.patch
+popd

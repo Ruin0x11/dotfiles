@@ -1177,7 +1177,7 @@
   <resource identifier="${gimp_data_dir}/gradients/Yellow_Orange.ggr" checksum="428584726006e23e260baa2a7d79f295">
   </resource>
 
-  <resource identifier="gimp-palette-color-history" checksum="(null)">
+  <resource identifier="gimp-palette-color-history" checksum="b60aff01b765ca82dbec6a6465a2bfc0">
   </resource>
 
   <resource identifier="${gimp_data_dir}/palettes/Bears.gpl" checksum="e82e818c20ac12bdd21049924ea2d1e7">
@@ -1301,9 +1301,6 @@
   </resource>
 
   <resource identifier="${gimp_data_dir}/palettes/Web.gpl" checksum="f02e8dfa23d01d6acfbab7f895c2dd16">
-  </resource>
-
-  <resource identifier="1594-arewe" checksum="(null)">
   </resource>
 
   <resource identifier="Adobe Courier" checksum="(null)">
@@ -1585,6 +1582,9 @@
   <resource identifier="Cantarell Ultra-Bold" checksum="(null)">
   </resource>
 
+  <resource identifier="creep" checksum="(null)">
+  </resource>
+
   <resource identifier="cursor Medium" checksum="(null)">
   </resource>
 
@@ -1639,7 +1639,22 @@
   <resource identifier="FreeType Kochi Gothic Wide" checksum="(null)">
   </resource>
 
+  <resource identifier="GNU Unifont CSUR Medium" checksum="(null)">
+  </resource>
+
+  <resource identifier="GNU Unifont Medium" checksum="(null)">
+  </resource>
+
+  <resource identifier="GNU Unifont Sample Medium" checksum="(null)">
+  </resource>
+
   <resource identifier="Goha-Tibeb Zemen Medium" checksum="(null)">
+  </resource>
+
+  <resource identifier="GohuFont Medium" checksum="(null)">
+  </resource>
+
+  <resource identifier="GohuFont Medium" checksum="(null)">
   </resource>
 
   <resource identifier="Gohu GohuFont" checksum="(null)">
@@ -1648,7 +1663,25 @@
   <resource identifier="Gohu GohuFont Bold" checksum="(null)">
   </resource>
 
+  <resource identifier="IPAGothic" checksum="(null)">
+  </resource>
+
+  <resource identifier="IPAMincho" checksum="(null)">
+  </resource>
+
+  <resource identifier="IPAPGothic" checksum="(null)">
+  </resource>
+
+  <resource identifier="IPAPMincho" checksum="(null)">
+  </resource>
+
   <resource identifier="Kochi Gothic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Kochi Gothic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Kochi Mincho" checksum="(null)">
   </resource>
 
   <resource identifier="MadokaRunes" checksum="(null)">
@@ -1768,6 +1801,12 @@
   <resource identifier="P052 Italic" checksum="(null)">
   </resource>
 
+  <resource identifier="romeovs creep" checksum="(null)">
+  </resource>
+
+  <resource identifier="romeovs creep Medium" checksum="(null)">
+  </resource>
+
   <resource identifier="Sans-serif" checksum="(null)">
   </resource>
 
@@ -1844,6 +1883,15 @@
   </resource>
 
   <resource identifier="Serto Urhoy Bold" checksum="(null)">
+  </resource>
+
+  <resource identifier="SMILEBASIC" checksum="(null)">
+  </resource>
+
+  <resource identifier="SMILEBASIC_B" checksum="(null)">
+  </resource>
+
+  <resource identifier="SMILEBASICLN" checksum="(null)">
   </resource>
 
   <resource identifier="Sony Fixed" checksum="(null)">
@@ -1937,6 +1985,27 @@
   </resource>
 
   <resource identifier="Source Code Variable Ultra-Light Italic" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP Bold" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP Heavy" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP Light" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP Semi-Bold" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP Semi-Light" checksum="(null)">
+  </resource>
+
+  <resource identifier="Source Han Sans JP weight=250" checksum="(null)">
   </resource>
 
   <resource identifier="Standard Symbols PS" checksum="(null)">

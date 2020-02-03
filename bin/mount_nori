@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sshfs /mnt/hibiki ruin@nori:/mnt/hibiki
+sshfs /mnt/nori ruin@nori:/home/ruin

@@ -11,6 +11,17 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
+workspace 1 output LVDS1
+workspace 2 output HDMI1
+workspace 3 output LVDS1
+workspace 4 output LVDS1
+workspace 5 output LVDS1
+workspace 6 output LVDS1
+workspace 7 output LVDS1
+workspace 8 output LVDS1
+workspace 9 output LVDS1
+workspace 10 output LVDS1
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 
@@ -87,6 +98,7 @@ bindsym $mod+f fullscreen toggle
 
 bindsym $mod+i exec surf google.com
 bindsym $mod+s exec scrot -e 'mv $f "/home/hiro/Pictures/scrots"'
+bindsym $mod+shift+s exec scrot -s -e 'mv $f "/home/hiro/Pictures/scrots"'
 bindsym $mod+z exec mouse-switchscreen
 bindsym $mod+b exec urxvt-browser
 
@@ -99,8 +111,8 @@ bindsym $mod+Alt_R focus left
 bindsym $mod+Super_R focus down
 bindsym $mod+Print focus up
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 1
+bindsym XF86MonBrightnessDown exec xbacklight -dec 1
 
 bindsym XF86TouchpadToggle exec bash /usr/local/bin/touchpad_toggle.sh
 
@@ -133,19 +145,13 @@ new_window normal
 popup_during_fullscreen ignore
 for_window [class="^.*"] border pixel 1
 for_window [title="urxvt-browser"] fullscreen enable
-for_window [class="mpv"] fullscreen enable
+for_window [class="mpv"] fullscreen enable, border pixel 0
 for_window [title="Android Emulator"] floating enable
-for_window [title="ElonaFoobar*"] floating enable
-for_window [title="ElonaFoobar*"] border pixel 0
-for_window [class="mpv"] border pixel 0
-for_window [class="chromium"] border pixel 0
-for_window [class="chromium"] move window to workspace $ws2
 for_window [class="emacs"] move window to workspace $ws1
-for_window [class="gimp"] move window to workspace $ws5
-for_window [class="freerdp"] move window to workspace $ws9
-for_window [class="Firefox"] move window to workspace $ws3
-for_window [class="firefoxdeveloperedition"] move window to workspace $ws3
-for_window [title="urxvt-browser"] move window to workspace $ws10
+for_window [class="Firefox"] move window to workspace $ws2
+for_window [class="firefoxdeveloperedition"] move window to workspace $ws2
+for_window [class="jetbrains-studio"] move window to workspace $ws3
+for_window [class="gimp"] move window to workspace $ws4
 for_window [window_role="browser|GtkFileChooserDialog"] resize set 800 600, move position center
 
 bar {
@@ -170,6 +176,7 @@ bar {
 }
 
 exec --no-startup-id feh --bg-fill /home/hiro/Pictures/mybg2.png
+exec --no-startup-id i3watch
 
 # Local Variables:
 # eval: (rainbow-mode 1)

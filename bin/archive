@@ -1,0 +1,4 @@
+#!/bin/bash
+
+wget -m -np $1
+fd . $1 | xargs -d"\n" -- curl -L "https://web.archive.org/save/{}"

@@ -33,7 +33,7 @@ export XMODIFIERS=@im=uim
 conky &
 autocutsel &
 dunst &
-unclutter &
+xbanish &
 
 #
 # input
@@ -42,7 +42,7 @@ synclient MaxTapTime=0
 synclient CoastingSpeed=0
 synclient VertScrollDelta=-125
 synclient HorizScrollDelta=-125
-syndaemon -i 2.0 -K -R -t &
+#syndaemon -i 2.0 -K -R -t &
 
 declare -i TOUCHPOINT_ID
 TOUCHPOINT_ID=`xinput list | grep -Eio '(TrackPoint)\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`

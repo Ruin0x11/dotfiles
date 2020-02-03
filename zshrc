@@ -113,7 +113,7 @@ export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH=$PATH:$HOME/.luarocks/bin
 export PATH=$PATH:$HOME/.cargo/bin
-export RUST_SRC_PATH=/mnt/hibiki/build/rust/src
+export RUST_SRC_PATH=/home/hiro/build/study/rust/src
 export RUST_BACKTRACE=1
 
 export PATH=$PATH:/sbin:/usr/sbin
@@ -169,4 +169,4 @@ fi
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-pgrep -u hiro emacs > /dev/null || emacs --daemon > /dev/null 2>&1 &
+pgrep -u hiro emacs > /dev/null || emacs --daemon --no-desktop > /dev/null 2>&1 &

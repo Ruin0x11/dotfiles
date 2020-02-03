@@ -22,3 +22,4 @@ config/GIMP/
 config/audacious/
 config/fontconfig/
 config/fontforge/
+config/offlineimap/pass.gpg
