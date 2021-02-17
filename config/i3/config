@@ -11,7 +11,7 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-workspace 1 output LVDS1
+workspace 1 output HDMI1
 workspace 2 output HDMI1
 workspace 3 output LVDS1
 workspace 4 output LVDS1
@@ -19,8 +19,8 @@ workspace 5 output LVDS1
 workspace 6 output LVDS1
 workspace 7 output LVDS1
 workspace 8 output LVDS1
-workspace 9 output LVDS1
-workspace 10 output LVDS1
+workspace 9 output HDMI1
+workspace 10 output HDMI1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,7 +31,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
+bindsym $mod+semicolon exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -68,6 +69,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+Shift+u move workspace to output up
+
 bindsym $mod+Shift+space floating toggle
 
 # change focus
@@ -97,13 +100,13 @@ bindsym $mod+shift+g gaps inner all set $default_gaps_inner
 bindsym $mod+f fullscreen toggle
 
 bindsym $mod+i exec surf google.com
-bindsym $mod+s exec scrot -e 'mv $f "/home/hiro/Pictures/scrots"'
-bindsym $mod+shift+s exec scrot -s -e 'mv $f "/home/hiro/Pictures/scrots"'
+bindsym $mod+s exec scrot -e 'mv $f "/home/hiro/Pictures/scrots"' && notify-send "scrot" -t 1000
+bindsym $mod+shift+s exec scrot -u -e 'mv $f "/home/hiro/Pictures/scrots"' && notify-send "scrot window" -t 1000
 bindsym $mod+z exec mouse-switchscreen
 bindsym $mod+b exec urxvt-browser
 
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- && pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 1%- && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer set Master 1%+ && pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer sset Master toggle && pkill -SIGRTMIN+10 i3blocks
 
 # alternatively, you can use the cursor keys:
@@ -148,11 +151,19 @@ for_window [title="urxvt-browser"] fullscreen enable
 for_window [class="mpv"] fullscreen enable, border pixel 0
 for_window [title="Android Emulator"] floating enable
 for_window [class="emacs"] move window to workspace $ws1
-for_window [class="Firefox"] move window to workspace $ws2
-for_window [class="firefoxdeveloperedition"] move window to workspace $ws2
-for_window [class="jetbrains-studio"] move window to workspace $ws3
-for_window [class="gimp"] move window to workspace $ws4
+for_window [class="Emacs"] move window to workspace $ws1
+for_window [title="^.*Doom Emacs$"] move window to workspace $ws1
+for_window [class="gource"] move window to workspace $ws10
+for_window [title="Elona ver 1.22"] move window to workspace $ws4, floating disable
+for_window [class="lt-love"] move window to workspace $ws4
+for_window [class="love"] move window to workspace $ws4
+for_window [class="sun-awt-X11-XFramePeer"] move window to workspace $ws4, floating disable
+for_window [class="Firefox"] move window to workspace $ws3
+for_window [class="firefoxdeveloperedition"] move window to workspace $ws3
+for_window [class="jetbrains-studio"] move window to workspace $ws1
+for_window [class="gimp"] move window to workspace $ws5
 for_window [window_role="browser|GtkFileChooserDialog"] resize set 800 600, move position center
+for_window [class="Conky"] move window to workspace $ws1
 
 bar {
     font pango:artwiz curefixed 8
@@ -169,14 +180,18 @@ bar {
         separator  #c1d0c1
 
 #                        border  backgr   text
-        focused_workspace   #FF6F54 #FF6F54 #FFF2CE
+        focused_workspace   #95AD5C #95AD5C #FFF2CE
         inactive_workspace  #64635f #64635f #a7afa9
         urgent_workspace    #2e394a #2e394a #e7dfd9
        }
 }
 
-exec --no-startup-id feh --bg-fill /home/hiro/Pictures/mybg2.png
 exec --no-startup-id i3watch
+exec --no-startup-id firefox-developer-edition
+exec --no-startup-id emacsclient -c -n -a ''
+# exec --no-startup-id redshift -l 47.6701:122.1182
+exec --no-startup-id xrandr --output HDMI1 --left-of LVDS1
+exec --no-startup-id feh --bg-fill /home/hiro/Pictures/mybg4.jpg
 
 # Local Variables:
 # eval: (rainbow-mode 1)
