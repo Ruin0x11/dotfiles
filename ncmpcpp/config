@@ -1,6 +1,6 @@
-mpd_host = "localhost"
+mpd_host = "ume"
 mpd_port = "6600"
-mpd_music_dir = "~/Music"
+mpd_music_dir = "/mnt/media"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "0"
 

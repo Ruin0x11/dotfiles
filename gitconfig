@@ -16,3 +16,9 @@
 [cinnabar]
 	helper = /home/hiro/.git-cinnabar/git-cinnabar-helper
 	fsck = 1580276113
+[github]
+	user = Ruin0x11
+[advice]
+	addIgnoredFile = false
+[push]
+	default = upstream

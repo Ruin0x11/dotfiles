@@ -16,9 +16,9 @@ workspace 2 output HDMI1
 workspace 3 output LVDS1
 workspace 4 output LVDS1
 workspace 5 output LVDS1
-workspace 6 output LVDS1
-workspace 7 output LVDS1
-workspace 8 output LVDS1
+workspace 6 output HDMI1
+workspace 7 output HDMI1
+workspace 8 output HDMI1
 workspace 9 output HDMI1
 workspace 10 output HDMI1
 
@@ -165,6 +165,8 @@ for_window [class="gimp"] move window to workspace $ws5
 for_window [window_role="browser|GtkFileChooserDialog"] resize set 800 600, move position center
 for_window [class="Conky"] move window to workspace $ws1
 
+
+
 bar {
     font pango:artwiz curefixed 8
     tray_output primary
@@ -179,8 +181,8 @@ bar {
         statusline #d0e1d4
         separator  #c1d0c1
 
-#                        border  backgr   text
-        focused_workspace   #95AD5C #95AD5C #FFF2CE
+#                           border  backgr  text
+        focused_workspace   #F787DE #F787DE #FFF2CE
         inactive_workspace  #64635f #64635f #a7afa9
         urgent_workspace    #2e394a #2e394a #e7dfd9
        }
@@ -191,7 +193,7 @@ exec --no-startup-id firefox-developer-edition
 exec --no-startup-id emacsclient -c -n -a ''
 # exec --no-startup-id redshift -l 47.6701:122.1182
 exec --no-startup-id xrandr --output HDMI1 --left-of LVDS1
-exec --no-startup-id feh --bg-fill /home/hiro/Pictures/mybg4.jpg
+exec --no-startup-id feh --bg-fill /home/hiro/Pictures/rina1.png
 
 # Local Variables:
 # eval: (rainbow-mode 1)

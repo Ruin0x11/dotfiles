@@ -109,16 +109,20 @@ if [ -e "/usr/local/share/chruby/chruby.sh" ]; then
     chruby ruby-2.4.1
 fi
 
-export PATH=$PATH:$HOME/.bin
+export PATH=$HOME/.bin:$PATH
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:$HOME/.luarocks/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export RUST_SRC_PATH=/home/hiro/build/study/rust/src
 export RUST_BACKTRACE=1
+export MPD_HOST=ume
 
 export PATH=$PATH:/sbin:/usr/sbin
 
 eval $(luarocks path)
+export LUA_PATH="$LUA_PATH;/home/hiro/build/work/tl/?.lua"
 
 #export LC_ALL=ja_JP.UTF-8
 
@@ -145,7 +149,8 @@ export PATH=/usr/lib/go/bin/:$PATH
 
 export PATH=$PATH:$HOME/miniconda3/bin
 export PATH=$PATH:/home/ruin/.gem/ruby/2.5.0/bin
-export PATH=$PATH:/home/hiro/build/elona-next
+export PATH=$PATH:$HOME/build/elona-next
+export PATH=$PATH:$HOME/build/util/doom-emacs/bin
 export ERL_AFLAGS="-kernel shell_history enabled"
 export BOOST_ROOT=~/build/boost_1_66_0
 export BROWSER=elinks
@@ -168,5 +173,8 @@ if [ "$TERM" = "eterm-color" ]; then
 fi
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export LD_LIBRARY_PATH=/usr/local/lib
+eval $(opam env)
 
-pgrep -u hiro emacs > /dev/null || emacs --daemon --no-desktop > /dev/null 2>&1 &
+# pgrep -u hiro emacs > /dev/null || emacs --daemon --no-desktop > /dev/null 2>&1 &

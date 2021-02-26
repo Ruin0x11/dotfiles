@@ -15,7 +15,7 @@ local function on_window(self, e)
     -- with the data of the event sent from i3.
    if e.change == "focus" then
       print(e.container.name)
-      if string.match(e.container.name, "^emacs") then
+      if string.match(e.container.name, "^emacs$") then
          if focused == false then
             os.execute("/usr/local/bin/touchpad_enable.sh disable")
          end

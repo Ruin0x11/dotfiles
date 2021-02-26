@@ -48,10 +48,7 @@ alias syst='sudo systemctl stop'
 alias syse='sudo systemctl enable'
 alias sysd='sudo systemctl disable'
 alias sst='systemctl status'
-alias tmr='transmission-remote'
 alias ta='tmux a'
-alias tl='transmission-remote -l'
-alias td='transmission-daemon -w /mnt/hdd/Transmission'
 alias tmux='TERM=screen-256color-bce tmux'
 alias syu='sudo pacman -Syu'
 alias yg='yaourt -G'
@@ -75,6 +72,8 @@ alias mpvp="mpv --profile=player "
 
 alias sy='sudo systemctl'
 alias usy='systemctl --user'
+alias jc='sudo journalctl --lines=200 -fu'
+alias ujc='journalctl --lines=200 --user -fu'
 
 alias nico='youtube-dl -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s" --username ipickering2@gmail.com'
 alias nicosong='youtube-dl -x -o "~/Music/nico/%(uploader)s - %(title)s-%(id)s.%(ext)s" --username ipickering2@gmail.com'
@@ -94,7 +93,6 @@ alias mkdir="mkdir -p"
 alias in="at now + "
 alias wttr="curl wttr.in/980r2"
 alias df="df -h"
-alias lua="lua5.1"
 
 alias dcb="sudo docker-compose build"
 alias dcu="sudo docker-compose up"
@@ -111,3 +109,4 @@ alias fda="fd --no-ignore --no-ignore-vcs --hidden"
 alias lc="adb -d logcat"
 alias mount_kadode="sudo mount -t cifs //192.168.1.104/up /mnt/kadode -o username=kadode"
 alias elona122="LC_ALL=ja_JP.UTF-8 wine ~/build/elona-next/deps/elona/elona.exe"
+alias firefox="firefox-developer-edition"

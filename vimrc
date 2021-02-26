@@ -23,7 +23,9 @@ filetype plugin indent on
 " colorscheme base16-mdk
 " set background=dark
 
-" colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
+set guifont=GohuFont\ Medium\ 8
+set guioptions=
 
 set autochdir
 set autoindent
@@ -90,6 +92,7 @@ nmap <Leader><Leader>v :spl $MYVIMRC<CR>
 " nmap <Leader>s :OpenSession!<CR>
 nmap <Leader>s :mksession!<CR>
 nmap <Leader>w :w!<CR>
+nmap <Leader>bs :w!<CR>
 nmap <Leader>x :x<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>Y :%y+<CR>

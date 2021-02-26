@@ -41,6 +41,12 @@ instance=Master
 interval=once
 signal=10
 
+[mpd_nowplaying]
+label=
+separator=true
+command=mpc -h 192.168.1.122 | head -1
+interval=10
+
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
@@ -122,7 +128,7 @@ interval=30
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d (%a) %H:%M:%S'
 interval=1
 min_width=0000-00-00 00:00:00
 
