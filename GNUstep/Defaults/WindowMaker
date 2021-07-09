@@ -1,0 +1,74 @@
+{
+  FrameBorderColor = "#000000";
+  FTitleColor = "#ffffff";
+  ClipTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=10";
+  IconTitleColor = "#ffffff";
+  MenuTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=12";
+  MoveTo6to12Head = None;
+  FrameFocusedBorderColor = "#000000";
+  ResizebarBack = (solid, "#2c3847");
+  DisplayFont = "-*-screen-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  FrameSelectedBorderColor = "#ffffff";
+  DragMaximizedWindow = RestoreGeometry;
+  AntialiasedText = YES;
+  MenuTextFont = "screen:pixelsize=12";
+  MenuTitleBack = (hgradient, "#8d8dca", black);
+  HighlightColor = "#ffffff";
+  CClipTitleColor = "#616161";
+  IconPath = (
+    "/home/sae/GNUstep/Library/Icons",
+    "/home/sae/GNUstep/Library/Icons/Classic",
+    "/home/sae/GNUstep/Library/Icons/fvwm",
+    "/home/sae/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/sae/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Icons",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Pixmaps",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/pixmaps"
+  );
+  PTitleBack = (hgradient, "#000000", "#404060");
+  UTitleBack = (solid, "#2c3847");
+  MenuDisabledColor = "#999999";
+  IconTitleBack = "#8d8dca";
+  PixmapPath = (
+    "/home/sae/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/sae/GNUstep/Library/WindowMaker/Backgrounds",
+    "/home/sae/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Pixmaps",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Backgrounds",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/pixmaps"
+  );
+  FTitleBack = (mdgradient, "#8d8dca", "#9d9dca", black, "#000000");
+  IconTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=8";
+  LargeDisplayFont = "Screen:slant=0:weight=80:width=100:pixelsize=24";
+  MenuTitleColor = "#ffffff";
+  EnableWorkspacePager = YES;
+  WorkspaceBack = (mdgradient, "#333340", "#333340", black, "#333340");
+  HighlightTextColor = "#000000";
+  EnforceIconMargin = NO;
+  ClipTitleColor = "#cccccc";
+  MoveTo12to6Head = None;
+  WindowTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=12";
+  WindowPlaceOrigin = (501, 354);
+  Workspace8Key = "Mod4+8";
+  RunKey = "Mod4+R";
+  Workspace9Key = "Mod4+9";
+  Workspace4Key = "Mod4+4";
+  KbdModeLock = NO;
+  Workspace5Key = "Mod4+5";
+  Workspace6Key = "Mod4+6";
+  Workspace7Key = "Mod4+7";
+  Workspace1Key = "Mod4+1";
+  Workspace2Key = "Mod4+2";
+  Workspace3Key = "Mod4+3";
+  ToggleKbdModeKey = None;
+  MenuTextBack = (mdgradient, "#9c9cba", "#3a434a", grey20, black);
+  WindowPlacement = cascade;
+  MenuTextColor = "#ffffff";
+  IconBack = (spixmap, darklight_tile.xpm, "#333340");
+  Workspace10Key = "Mod4+0";
+  ModifierKey = Mod4;
+  UTitleColor = "#999999";
+  PTitleColor = "#bebebe";
+}

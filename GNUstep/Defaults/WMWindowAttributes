@@ -1,0 +1,27 @@
+{
+  firefox.Firefox = {
+    NoAppIcon = Yes;
+    Icon = Mozilla.png;
+  };
+  wpa_gui.wpa_gui = {
+    Icon = Gear.xpm;
+  };
+  emacs.Emacs = {
+    NoAppIcon = Yes;
+    AlwaysUserIcon = Yes;
+    Icon = ColorGNU.xpm;
+  };
+  Logo.WMDock = {
+    Icon = GNUstep3D.xpm;
+  };
+  Navigator.Firefox = {
+    AlwaysUserIcon = Yes;
+    Icon = Mozilla.png;
+  };
+  urxvt.URxvt = {
+    Icon = GNUterm.xpm;
+  };
+  groupLeader.WPrefs = {
+    Icon = groupLeader.WPrefs.xpm;
+  };
+}

@@ -34,3 +34,4 @@ URxvt*cursorColor2:       #151515
 URxvt*internalBorder:     10
 URxvt*externalBorder:     10
 URxvt*cursorUnderline:    true
+

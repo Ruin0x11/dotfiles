@@ -9,6 +9,7 @@
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
 files="config bashrc vimrc vimrc.bundles zshrc zshrc.functions oh-my-zsh zsh Xresources Xcolors xinitrc muttrc mpdscribble mutt mpd aliases ncmpcpp bin vimperatorrc tmux.conf gitconfig"    # list of files/folders to symlink in homedir
+nondotfiles="GNUStep" 
 
 ##########
 
@@ -28,6 +29,13 @@ for file in $files; do
 	mv ~/.$file ~/dotfiles_old/
 	echo "Creating symlink to $file in home directory."
 	ln -s $dir/$file ~/.$file
+done
+
+for file in $nondotfiles; do
+	echo "Moving any existing dotfiles from ~ to $olddir"
+	mv ~/$file ~/dotfiles_old/
+	echo "Creating symlink to $file in home directory."
+	ln -s $dir/$file ~/$file
 done
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

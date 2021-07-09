@@ -1,0 +1,4 @@
+{
+  BoldSystemFont = "Terminusmod:slant=0:weight=200:width=100:pixelsize=13";
+  SystemFont = "Terminus:slant=0:weight=80:width=100:pixelsize=13";
+}

@@ -17,3 +17,4 @@ config/beets/discogs_token.json
 config/beets/beetslog.txt
 config/beets/beets.log
 config/shaarli/
+config/pulse/

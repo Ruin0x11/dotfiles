@@ -23,8 +23,9 @@ filetype plugin indent on
 " colorscheme base16-mdk
 " set background=dark
 
-" colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 
+set guifont=ProggyCleanTT\ 12
 set autochdir
 set autoindent
 set autoread
@@ -62,6 +63,7 @@ set virtualedit+=block
 set wildmenu
 set wildmode=longest,list,full
 set wrap
+set guioptions=
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp

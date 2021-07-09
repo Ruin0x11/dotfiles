@@ -39,7 +39,7 @@ elif [[ $platform == 'darwin' ]]; then
     alias um='diskutil unmountDisk'
 fi
 
-alias sv='sudo vim -u /home/ruin/.vimrc'
+alias sv='sudo vim'
 alias wm='sudo wifi-menu'
 alias cx='chmod +x'
 alias rp='LANG=ja_JP.UTF-8 wine ~/Dropbox/ANDY\ MENTE/rs346/rp.exe'
