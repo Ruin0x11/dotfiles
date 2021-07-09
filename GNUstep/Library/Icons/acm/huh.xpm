@@ -1,0 +1,49 @@
+/* XPM */
+/*****************************************************************************/
+/**       This pixmap is kindly  ffered by I n Ci nca - 1992 -              **/
+/**       Swiss Federal Institute  f Techn l gy                             **/
+/**       Central C mputing Service                                         **/
+/*****************************************************************************/
+static char * image_name [] = {
+"64 38 2 1",
+/**/
+"       s None  c None",
+"X	c red",
+"                                                                ",
+"                          XXXXXXXX                              ",
+"                        XXXXXXXXXXX                             ",
+"                        XXXXXXXXXXXX                            ",
+"                       XXXXX    XXXXX                           ",
+"                      XXXXX      XXXXX                          ",
+"                      XXXXX      XXXXX                          ",
+"                      XXXXX      XXXXX                          ",
+"                      XXXXX      XXXXX                          ",
+"                                 XXXXX                          ",
+"                                XXXXX                           ",
+"                               XXXXX                            ",
+"                              XXXXX                             ",
+"                              XXXX                              ",
+"                             XXXX                               ",
+"                             XXX                                ",
+"                            XXXX                                ",
+"                            XXXX                                ",
+"                            XXXX                                ",
+"                            XXXX                                ",
+"                            XXXX                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                              X                                 ",
+"                            XXXXX                               ",
+"                           XXXXXXX                              ",
+"                           XXXXXXX                              ",
+"                            XXXXXX                              ",
+"                            XXXXX                               ",
+"                              X                                 ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                ",
+"                                                                "};

@@ -1,0 +1,26 @@
+{
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = white;
+  HighlightTextColor = black;
+  ClipTitleColor = grey80;
+  CClipTitleColor = "#616161";
+  FTitleColor = white;
+  PTitleColor = grey;
+  UTitleColor = gray60;
+  FTitleBack = (spixmap, galleon_titlebar.xpm, black);
+  PTitleBack = (spixmap, galleon_titlebardark.xpm, black);
+  UTitleBack = (spixmap, galleon_titlebardark.xpm, "#213A59");
+  MenuTitleColor = white;
+  MenuTextColor = white;
+  MenuDisabledColor = gray60;
+  MenuTitleBack = (tpixmap, galleon_menutitle.xpm, black);
+  MenuTextBack = (hgradient, "#641717", black);
+  IconBack = (spixmap, galleon_tile.xpm, black);
+  WorkspaceBack = (spixmap, galleon.jpg, black);
+}

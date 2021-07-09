@@ -1,10 +1,14 @@
 {
+  wpa_gui.wpa_gui = {
+    NoMiniaturizable = Yes;
+    NoAppIcon = Yes;
+    NoMiniaturizeButton = Yes;
+    AlwaysUserIcon = Yes;
+    Icon = Gear.xpm;
+  };
   firefox.Firefox = {
     NoAppIcon = Yes;
     Icon = Mozilla.png;
-  };
-  wpa_gui.wpa_gui = {
-    Icon = Gear.xpm;
   };
   emacs.Emacs = {
     NoAppIcon = Yes;

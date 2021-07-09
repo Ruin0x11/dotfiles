@@ -1,0 +1,28 @@
+{
+  AClipColor = "#38f830";
+  IClipColor = "#008000";
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = grey40;
+  HighlightTextColor = white;
+  ClipTitleColor = grey80;
+  CClipTitleColor = grey40;
+  FTitleColor = white;
+  PTitleColor = grey;
+  UTitleColor = gray60;
+  FTitleBack = (tpixmap, fourthday_titlebar.xpm, black);
+  PTitleBack = (tpixmap, fourthday_titlebardark.xpm, black);
+  UTitleBack = (tpixmap, fourthday_titlebardark.xpm, grey40);
+  MenuTitleColor = white;
+  MenuTextColor = black;
+  MenuDisabledColor = gray60;
+  MenuTitleBack = (tpixmap, fourthday_menutitle.xpm, black);
+  MenuTextBack = (hgradient, grey80, grey20);
+  IconBack = (spixmap, fourthday_tile.xpm, black);
+  WorkspaceBack = (spixmap, fourthday.jpg, black);
+}

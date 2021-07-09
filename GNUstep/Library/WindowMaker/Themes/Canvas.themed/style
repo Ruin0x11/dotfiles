@@ -1,0 +1,26 @@
+{
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  HighlightColor = "#848484";
+  HighlightTextColor = "#BFBFBF";
+  CClipTitleColor = gray60;
+  FTitleColor = grey80;
+  PTitleColor = grey60;
+  UTitleColor = grey40;
+  FTitleBack = (thgradient, Canvas_title.xpm, 150, "#4388B2", "#000000");
+  PTitleBack = (thgradient, Canvas_title.xpm, 150, "#305872", "#000000");
+  UTitleBack = (thgradient, Canvas_title.xpm, 150, "#274051", "#000000");
+  MenuTitleColor = grey80;
+  MenuTextColor = "#FFFFFF";
+  MenuDisabledColor = gray30;
+  MenuTitleBack = (thgradient, Canvas_title.xpm, 150, "#4388B2", "#000000");
+  MenuTextBack = (thgradient, Canvas_menuback.xpm, 200, "#999999", "#2D2D2D");
+  IconBack = (tdgradient, Canvas_tile.xpm, 125, "#4388B2", "#000000");
+  IconTitleColor = "#000000";
+  IconTitleBack = "#BABABA";
+  WorkspaceBack = (tpixmap, Canvas_background.xpm, "#000000");
+}

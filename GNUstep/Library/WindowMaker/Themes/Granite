@@ -1,0 +1,28 @@
+{
+  AClipColor = "#38f830";
+  IClipColor = "#008000";
+  MenuDisabledColor = gray60;
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = grey60;
+  HighlightTextColor = white;
+  ClipTitleColor = black;
+  CClipTitleColor = "#616161";
+  FTitleColor = black;
+  PTitleColor = grey;
+  UTitleColor = gray40;
+  FTitleBack = (spixmap, Granite_title.xpm, grey40);
+  PTitleBack = (spixmap, Granite_title.xpm, black);
+  UTitleBack = (spixmap, Granite_titledark.xpm, grey60);
+  MenuTitleColor = grey80;
+  MenuTextColor = black;
+  MenuTitleBack = (spixmap, Granite_menutitle.xpm, black);
+  MenuTextBack = (tpixmap, Granite_menuback.xpm, black);
+  WorkspaceBack = (solid, "#202b3f");
+  IconBack = (spixmap, Granite_tile.xpm, black);
+}

@@ -1,0 +1,26 @@
+{
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = grey60;
+  HighlightTextColor = black;
+  ClipTitleColor = white;
+  CClipTitleColor = grey60;
+  FTitleColor = white;
+  PTitleColor = grey80;
+  UTitleColor = gray40;
+  FTitleBack = (spixmap, stone_title.xpm, grey40);
+  PTitleBack = (spixmap, stone_titledark.xpm, grey40);
+  UTitleBack = (spixmap, stone_titledark.xpm, grey40);
+  MenuTitleColor = white;
+  MenuTextColor = black;
+  MenuDisabledColor = gray40;
+  MenuTitleBack = (spixmap, stone_menu.xpm, grey40);
+  MenuTextBack = (solid, grey70);
+  WorkspaceBack = (solid, "#333340");
+  IconBack = (spixmap, stone_tile.xpm, grey40);
+}

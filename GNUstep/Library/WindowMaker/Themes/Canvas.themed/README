@@ -1,0 +1,26 @@
+Window Maker Theme:	Canvas
+
+Newstyle Theme (.themed for 0.50.0+)
+
+Inspired by the Checker theme that comes with Window Maker. I really wanted to
+try out some of the new styles of image handling, t*gradient is cool :) This
+is one of the few themes I've actually finished without numerous changes. It
+flowed like chis...
+
+I have really become attatched to a few Gimp filters, Apply Canvas & Motion Blur
+combined make a cool effect. I've used it on a few other themes as well as my
+webpage, <PLUG> http://www.dct.com/~logan/ </PLUG> :P There are a few other
+themes as well as some icons for Window Maker, or for whatever use in mind.
+
+Enjoy,
+
+Mike - logan@dct.com
+
+Files:
+
+	Style File:	style
+
+	Tile:		Canvas_tile.xpm
+	Titlebars:	Canvas_title.xpm
+	Menu Back:	Canvas_menuback.xpm
+	Background:	Canvas_background.xpm

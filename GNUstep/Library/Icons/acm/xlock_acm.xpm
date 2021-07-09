@@ -1,0 +1,31 @@
+/* XPM */
+static char * image_name[] = {
+/* width height num_colors chars_per_pixel */
+"    26    23        2            1",
+/* colors */
+". s None  c None",
+"a c SteelBlue",
+/* pixels */
+"..........................",
+"..........................",
+"..........aaaaa...........",
+"........aaaaaaaaa.........",
+"........aaaaaaaaa.........",
+".......aaaa...aaaa........",
+".......aaa.....aaa........",
+".......aaa.....aaa........",
+".......aaa.....aaa........",
+"...............aaa........",
+".....aaaaaaaaaaaaaaa......",
+".....aaaaaaaaaaaaaaa......",
+".....aaaaa.aaa.aaaaa......",
+".....aa.aa.....aa.aa......",
+".....aa.aa.aaa.aa.aa......",
+".....aa.aa.....aa.aa......",
+".....aa.aa.aaa.aa.aa......",
+".....aa.aa.....aa.aa......",
+".....aa.aa.aaa.aa.aa......",
+".....aaaaaaaaaaaaaaa......",
+".....aaaaaaaaaaaaaaa......",
+"..........................",
+"..........................",

@@ -1,0 +1,26 @@
+{
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = "#4F659B";
+  HighlightTextColor = grey80;
+  ClipTitleColor = black;
+  CClipTitleColor = "#a6a6b6";
+  FTitleColor = white;
+  PTitleColor = grey80;
+  UTitleColor = gray60;
+  FTitleBack = (spixmap, Phunk_title.xpm, black);
+  PTitleBack = (spixmap, Phunk_title.xpm, black);
+  UTitleBack = (spixmap, Phunk_titledark.xpm, "#4D5870");
+  MenuTitleColor = white;
+  MenuTextColor = grey80;
+  MenuDisabledColor = gray40;
+  MenuTitleBack = (spixmap, Phunk_menutitle.xpm, black);
+  MenuTextBack = (dgradient, "#546E9B", black);
+  IconBack = (spixmap, Phunk_tile.xpm, black);
+  WorkspaceBack = (solid, "#333340");
+}

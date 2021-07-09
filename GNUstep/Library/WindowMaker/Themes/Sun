@@ -1,0 +1,26 @@
+{
+  TitleJustify = center;
+  WindowTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = "#60607C";
+  HighlightTextColor = white;
+  ClipTitleColor = white;
+  CClipTitleColor = grey60;
+  FTitleColor = white;
+  PTitleColor = grey80;
+  UTitleColor = grey80;
+  FTitleBack = (tpixmap, Sun_titlebar.xpm, "#433F5B");
+  PTitleBack = (tpixmap, Sun_titlebar.xpm, "#433F5B");
+  UTitleBack = (tpixmap, "Sun_titlebar-dark.xpm", grey60);
+  MenuTitleColor = white;
+  MenuTextColor = white;
+  MenuDisabledColor = gray40;
+  MenuTitleBack = (tpixmap, Sun_titlebar.xpm, "#482963");
+  MenuTextBack = (tpixmap, Sun_menuback.xpm, "#333340");
+  IconBack = (dgradient, grey80, "#515561");
+  WorkspaceBack = (tpixmap, Sun_background.xpm, "#433F5B");
+}

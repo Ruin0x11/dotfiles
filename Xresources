@@ -2,8 +2,8 @@
 !URxvt.letterSpace: -1
 URxvt.scrollBar:    false
 
-URxvt.font: xft:Screen:pixelsize=16
-URxvt.boldFont: xft:Screen:style=bold:pixelsize=16
+URxvt.font: xft:Screen:pixelsize=14
+URxvt.boldFont: xft:Screen:style=bold:pixelsize=14
 
 ! URxvt.font: -sgi-screen-medium-*-normal-*-14-*-*-*-*-*-*-*
 ! URxvt.boldFont: -sgi-screen-bold-*-normal-*-14-*-*-*-*-*-*-*

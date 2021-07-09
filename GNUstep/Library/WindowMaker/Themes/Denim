@@ -1,0 +1,26 @@
+{
+  TitleJustify = left;
+  WindowTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = "#324759";
+  HighlightTextColor = grey80;
+  ClipTitleColor = white;
+  CClipTitleColor = "#616161";
+  FTitleColor = white;
+  PTitleColor = grey40;
+  UTitleColor = grey60;
+  FTitleBack = (spixmap, Denim_title.xpm, "#324759");
+  PTitleBack = (spixmap, Denim_title.xpm, "#324759");
+  UTitleBack = (spixmap, Denim_titledark.xpm, "#324759");
+  MenuTitleColor = white;
+  MenuTextColor = white;
+  MenuDisabledColor = gray40;
+  MenuTitleBack = (spixmap, Denim_menutitle.xpm, "#324759");
+  MenuTextBack = (spixmap, Denim_menu.xpm, "#324759");
+  IconBack = (spixmap, Denim_tile.xpm, "#324759");
+  WorkspaceBack = (solid, "#324759");
+}

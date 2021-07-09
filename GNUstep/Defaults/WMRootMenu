@@ -159,6 +159,13 @@
     ("Save Session", SAVE_SESSION),
     ("Clear Session", CLEAR_SESSION)
   ),
+  (
+    Scrot,
+    SHORTCUT,
+    "Mod4+s",
+    SHEXEC,
+    "scrot -e 'mv $f \"/home/sae/Pictures/scrots\"'"
+  ),
   ("Configure Window Maker", EXEC, WPrefs),
   ("Info Panel", INFO_PANEL),
   ("Restart Window Maker", RESTART),

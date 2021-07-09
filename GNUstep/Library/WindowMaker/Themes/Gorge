@@ -1,0 +1,28 @@
+{
+  AClipColor = "#38f830";
+  IClipColor = "#008000";
+  TitleJustify = right;
+  WindowTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  HighlightColor = "#535963";
+  HighlightTextColor = grey80;
+  ClipTitleColor = grey80;
+  CClipTitleColor = grey40;
+  FTitleColor = grey80;
+  PTitleColor = grey;
+  UTitleColor = gray40;
+  FTitleBack = (dgradient, "#2F3766", black);
+  PTitleBack = (dgradient, "#2F3766", black);
+  UTitleBack = (dgradient, "#161A2D", black);
+  MenuTitleColor = white;
+  MenuTextColor = white;
+  MenuDisabledColor = gray60;
+  MenuTitleBack = (dgradient, "#703232", black);
+  MenuTextBack = (dgradient, grey70, grey20);
+  IconBack = (dgradient, "#703232", black);
+  WorkspaceBack = (spixmap, gorge.jpg, black);
+}

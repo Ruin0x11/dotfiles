@@ -1,5 +1,6 @@
 (
-  wmitime,
+  scrot,
+  wmacpi,
   wmitime,
   wmbattery,
   upower,

@@ -1,11 +1,11 @@
 {
   TitleJustify = center;
-  WindowTitleFont = "-*-screen-medium-r-normal-*-12-*-*-*-*-*-*-*";
-  MenuTitleFont = "-*-screen-medium-r-normal-*-12-*-*-*-*-*-*-*";
-  MenuTextFont = "-*-screen-medium-r-normal-*-12-*-*-*-*-*-*-*";
-  IconTitleFont = "-*-screen-medium-r-normal-*-8-*-*-*-*-*-*-*";
-  ClipTitleFont = "-*-screen-medium-r-normal-*-10-*-*-*-*-*-*-*";
-  DisplayFont = "-*-screen-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  WindowTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  MenuTextFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-8-*-*-*-*-*-*-*";
+  ClipTitleFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
   HighlightColor = white;
   HighlightTextColor = black;
   ClipTitleColor = grey80;

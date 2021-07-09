@@ -1,35 +1,6 @@
 {
   FrameBorderColor = "#000000";
-  FTitleColor = "#ffffff";
-  ClipTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=10";
-  IconTitleColor = "#ffffff";
-  MenuTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=12";
-  MoveTo6to12Head = None;
-  FrameFocusedBorderColor = "#000000";
-  ResizebarBack = (solid, "#2c3847");
-  DisplayFont = "-*-screen-medium-r-normal-*-12-*-*-*-*-*-*-*";
-  FrameSelectedBorderColor = "#ffffff";
-  DragMaximizedWindow = RestoreGeometry;
-  AntialiasedText = YES;
-  MenuTextFont = "screen:pixelsize=12";
-  MenuTitleBack = (hgradient, "#8d8dca", black);
-  HighlightColor = "#ffffff";
-  CClipTitleColor = "#616161";
-  IconPath = (
-    "/home/sae/GNUstep/Library/Icons",
-    "/home/sae/GNUstep/Library/Icons/Classic",
-    "/home/sae/GNUstep/Library/Icons/fvwm",
-    "/home/sae/GNUstep/Library/WindowMaker/Pixmaps",
-    "/home/sae/GNUstep/Library/WindowMaker/CachedPixmaps",
-    "~/pixmaps",
-    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Icons",
-    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Pixmaps",
-    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/pixmaps"
-  );
-  PTitleBack = (hgradient, "#000000", "#404060");
-  UTitleBack = (solid, "#2c3847");
-  MenuDisabledColor = "#999999";
-  IconTitleBack = "#8d8dca";
+  MenuDisabledColor = gray60;
   PixmapPath = (
     "/home/sae/GNUstep/Library/WindowMaker/Pixmaps",
     "/home/sae/GNUstep/Library/WindowMaker/Backgrounds",
@@ -39,36 +10,61 @@
     "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Backgrounds",
     "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/pixmaps"
   );
+  IconTitleBack = "#8d8dca";
   FTitleBack = (mdgradient, "#8d8dca", "#9d9dca", black, "#000000");
-  IconTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=8";
-  LargeDisplayFont = "Screen:slant=0:weight=80:width=100:pixelsize=24";
-  MenuTitleColor = "#ffffff";
+  ToggleKbdModeKey = None;
+  DragMaximizedWindow = RestoreGeometry;
+  ClipTitleFont = "Terminus:slant=0:weight=80:width=100:pixelsize=10";
+  IconTitleFont = "cure:slant=0:weight=80:width=100:pixelsize=10";
+  MenuTextBack = (mdgradient, "#9c9cba", "#3a434a", grey20, black);
+  WindowPlacement = cascade;
+  LargeDisplayFont = "Screen:slant=0:weight=80:width=100:pixelsize=28";
+  MenuTextColor = white;
+  IconBack = (spixmap, darklight_tile.xpm, "#333340");
+  AntialiasedText = YES;
+  MenuTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=12";
+  MoveTo6to12Head = None;
   EnableWorkspacePager = YES;
+  MenuTextFont = "Screen:slant=0:weight=80:width=100:pixelsize=12";
   WorkspaceBack = (mdgradient, "#333340", "#333340", black, "#333340");
-  HighlightTextColor = "#000000";
+  MenuTitleBack = (hgradient, "#8d8dca", black);
   EnforceIconMargin = NO;
-  ClipTitleColor = "#cccccc";
+  ClipTitleColor = grey80;
   MoveTo12to6Head = None;
-  WindowTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=12";
+  FrameFocusedBorderColor = "#000000";
+  WindowTitleFont = "Screen:slant=0:weight=80:width=100:pixelsize=13";
   WindowPlaceOrigin = (501, 354);
   Workspace8Key = "Mod4+8";
   RunKey = "Mod4+R";
+  Workspace10Key = "Mod4+0";
   Workspace9Key = "Mod4+9";
+  CClipTitleColor = "#616161";
+  ResizebarBack = (solid, "#2c3847");
+  IconPath = (
+    "/home/sae/GNUstep/Library/Icons",
+    "/home/sae/GNUstep/Library/Icons/acm",
+    "/home/sae/GNUstep/Library/Icons/Classic",
+    "/home/sae/GNUstep/Library/Icons/fvwm",
+    "/home/sae/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/sae/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Icons",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/WindowMaker/Pixmaps",
+    "/nix/store/4nvgwbxpxq76d1ai42r49yins0sq5m3p-windowmaker-0.95.9/share/pixmaps"
+  );
   Workspace4Key = "Mod4+4";
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
   KbdModeLock = NO;
   Workspace5Key = "Mod4+5";
+  ModifierKey = Mod4;
   Workspace6Key = "Mod4+6";
+  PTitleBack = (hgradient, "#000000", "#404060");
   Workspace7Key = "Mod4+7";
+  UTitleColor = gray60;
+  UTitleBack = (solid, "#2c3847");
   Workspace1Key = "Mod4+1";
+  PTitleColor = grey;
   Workspace2Key = "Mod4+2";
   Workspace3Key = "Mod4+3";
-  ToggleKbdModeKey = None;
-  MenuTextBack = (mdgradient, "#9c9cba", "#3a434a", grey20, black);
-  WindowPlacement = cascade;
-  MenuTextColor = "#ffffff";
-  IconBack = (spixmap, darklight_tile.xpm, "#333340");
-  Workspace10Key = "Mod4+0";
-  ModifierKey = Mod4;
-  UTitleColor = "#999999";
-  PTitleColor = "#bebebe";
+  FrameSelectedBorderColor = "#ffffff";
 }
